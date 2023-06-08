@@ -11,7 +11,6 @@ class EnrollmentsController < ApplicationController
   end
 
   def create
-    # binding.pry
     Enrollment.create(location: params[:location], schedule: params[:schedule], student_limit: params[:student_limit])
     redirect_to '/enrollments'
   end
