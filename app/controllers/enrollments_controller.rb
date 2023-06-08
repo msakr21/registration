@@ -1,13 +1,13 @@
 class EnrollmentsController < ApplicationController
   def new
-    @admin = "Jessica"
+    @admin = 'Jessica'
   end
 
   def index
     enrollments_array = Enrollment.all.map do |enrollment|
-      {id: enrollment.id, schedule: enrollment.schedule, location: enrollment.location}
+      { id: enrollment.id, schedule: enrollment.schedule, location: enrollment.location }
     end
-    @enrollments= enrollments_array.to_json
+    @enrollments = enrollments_array.to_json
   end
 
   def create
