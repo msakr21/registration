@@ -80,7 +80,7 @@ The following Javascript libraries are used:
 ### Chrome Driver Installation
 <details>
 <summary> Click to expand/collapse </summary>
-
+<br>
 Chrome Driver is needed for the selenium webdriver gem to function allowing RSpec and Capybara to run the JS correctly and test the webpage contents.
 
 ### macOS:
