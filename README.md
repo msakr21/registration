@@ -126,18 +126,18 @@ MVP
 * [x] Determine Viability of passing data between controller and React components in a monolith, MVC, RESTful architecture utilizing Vite
 * [x] Determine viability of TDD using RSpec and Capybara for webpages utilizing JS
 * [x] Decide whether to carry out project in regular Rails monolith or with a React + Rails setup utilizing Vite
-* [] Admin and Prospective Student flow experiences
+* [ ] Admin and Prospective Student flow experiences
 * [x] Ability to create new enrollments
-* [] Make the creation of new enrollments restricted to admins only
+* [ ] Make the creation of new enrollments restricted to admins only
 * [x] Prospective Students' ability to see list of enrollment sessions (enrollments index page)
-* [] Admin's ability to see list of enrollment sessions (admin enrollments index page)
-* [] Admin's ability to see details of a given enrollment session (admin enrollments show pages)
-* [] Admin's ability to edit details of a given enrollment session
-* [] Admin's ability to add and/or remove students to a given enrollment session
-* [] Prospective Students' ability to select an enrollment session to join from the list of available sessions
-* [] Cap each session's number of students according to limit set (default of 30) after which prospective students would not have the option to select it to join.
-* [] Deploy on render
-* [] Detailed README file 
+* [ ] Admin's ability to see list of enrollment sessions (admin enrollments index page)
+* [ ] Admin's ability to see details of a given enrollment session (admin enrollments show pages)
+* [ ] Admin's ability to edit details of a given enrollment session
+* [ ] Admin's ability to add and/or remove students to a given enrollment session
+* [ ] Prospective Students' ability to select an enrollment session to join from the list of available sessions
+* [ ] Cap each session's number of students according to limit set (default of 30) after which prospective students would not have the option to select it to join.
+* [ ] Deploy on render
+* [ ] Detailed README file 
 
 Stretch Goals
 TBD
