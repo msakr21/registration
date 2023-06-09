@@ -36,7 +36,7 @@ function NewEnrollment() {
             <input type="hidden" name="authenticity_token" value={csrf_token} />
             <input type="hidden" name="location" value={location} />
             <input type="hidden" name="schedule" value={schedule} />
-            <div>
+            <div id="location">
             <p>Please Choose a Location:</p>
             <select value={location} onChange={handleLocationChange}>
               <option value="Eloise May">Eloise May</option>
@@ -62,6 +62,7 @@ function NewEnrollment() {
                   />
                   <TimePicker
                     label="Please select a Start Time"
+                    name="TimePicker"
                     value={schedule}
                     onChange={handleScheduleChange}
                     renderInput={(params) => <TextField {...params} />}
