@@ -94,7 +94,7 @@ Optional, if quarantined by macOS:
 
 4) run `xattr -d com.apple.quarantine /usr/local/bin/chromedriver`
 
-5) confirm that it works no by repeating step 2
+5) confirm that it now works by repeating step 2
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 </details>
