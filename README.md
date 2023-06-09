@@ -90,9 +90,7 @@ Chrome Driver is needed for the selenium webdriver gem to function allowing RSpe
 
 Optional, if quarantined by macOS:
 
-3) run `which chromedriver` to find out installation path
-
-   output should look similar to: `/usr/local/bin/chromedriver`
+3) run `which chromedriver` to find out installation path. Output should look similar to: `/usr/local/bin/chromedriver`
 
 4) run `xattr -d com.apple.quarantine /usr/local/bin/chromedriver`
 
