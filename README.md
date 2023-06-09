@@ -32,7 +32,7 @@
 
 The aim of this project is to create an online enrollment registration website for the organization, The Learning Source, to streamline the enrollment process of prospective students based on needs discussed with staff.
 
-There learning goals for the project are to hook React.js into Rails within a monolith MVC set up where React would handle the rendering of the view files directly without the Rails backend being API endpoints and the React frontend being its separate service that calls upon said endpoints. This allows Rails to handle the routing and maintain a RESTful setup thus allowing for all of the advantages of both frameworks with none of their disadvantages.
+The learning goals for the project are to hook React.js into Rails within a monolith MVC set up where React would handle the rendering of the view files directly without the Rails backend being API endpoints and the React frontend being its separate service that calls upon said endpoints. This allows Rails to handle the routing and maintain a RESTful setup thus allowing for all of the advantages of both frameworks with none of their disadvantages.
 
 RSpec and Capybara are configured to allow feature testing to execute JS code and as such TDD can be applied.
 
