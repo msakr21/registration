@@ -28,6 +28,9 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'pry'
   gem 'rspec-rails'
+  gem 'capybara'
+  gem 'shoulda-matchers'
+  gem 'selenium-webdriver'
 end
 
 group :development do
@@ -38,9 +41,6 @@ group :development do
 end
 
 group :test do
-  gem 'capybara'
   gem 'launchy'
-  gem 'selenium-webdriver'
-  gem 'shoulda-matchers'
   gem 'simplecov'
 end
