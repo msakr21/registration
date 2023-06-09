@@ -8,6 +8,8 @@ require_relative '../config/environment'
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
+require "capybara/rails"
+require 'capybara/rspec'
 # Add additional requires below this line. Rails is not loaded until this point!
 ViteRuby.instance.logger = ActiveSupport::Logger.new($stdout)
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -38,6 +40,9 @@ Capybara.register_driver :selenium_chrome do |app|
 end
 
 Capybara.javascript_driver = :selenium_chrome
+
+Capybara.default_max_wait_time = 4
+
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
@@ -71,17 +76,6 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace('spring', 'rspec-core', 'given_core', 'capybara', 'bootsnap', 'activesupport', 'cuprite', 'ferrum', 'launchy', 'shoulda-matchers')
 end
-
-# require 'capybara_test_helpers/rspec'
-# require Rails.root.join('test_helpers/base_test_helper')
-
-# RSpec.configure do |config|
-#   config.include(Module.new {
-#     def urls
-#       @urls ||= Urls.new
-#     end
-#   })
-# end
 
 Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |f| require f }
 

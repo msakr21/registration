@@ -5,13 +5,12 @@ import TextField from '@mui/material/TextField';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
-import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
+// import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
+// import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 
 
 function NewEnrollment() {
-  const admin = document.getElementById("test").getAttribute("admin");
   const csrf_token = document.head.getElementsByTagName('meta')[2].content;
   const [location, setLocation] = useState("Eloise May");
   const [schedule, setSchedule] = useState(new Date());
@@ -32,7 +31,7 @@ function NewEnrollment() {
   
 
   return <div>
-          <h1>Hello {admin}! Please fill in the form below!</h1>
+          <h1>Please fill the form below:</h1>
           <form action="/enrollments" method="post">
             <input type="hidden" name="authenticity_token" value={csrf_token} />
             <input type="hidden" name="location" value={location} />

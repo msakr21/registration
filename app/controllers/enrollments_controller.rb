@@ -1,6 +1,5 @@
 class EnrollmentsController < ApplicationController
   def new
-    @admin = "Jessica"
   end
 
   def index
