@@ -104,8 +104,9 @@ Optional, if quarantined by macOS:
 <!-- Repository Installation -->
 ### Repository Installation
 * fork and clone repo
-* run`bundle install` in the console/terminal
-* npm instructions to be added
+* run `bundle install` in the console/terminal
+* run `bundle exec vite install` in the console/terminal
+* run `npm install` in the console/terminal
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -114,8 +115,6 @@ Optional, if quarantined by macOS:
 
 1) To use the repo, instructions to be added
 
-
- 
 2) To run the tests, run `bundle exec rspec`
 
 <p align="right">(<a href="#top">back to top</a>)</p>
