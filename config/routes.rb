@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   post '/enrollments', to: 'enrollments#create'
 
   get '/enrollments/:id/students/new', to: 'students#new'
-  post '/students', to: 'students#create'
+  post '/enrollments/:enrollment_id/students', to: 'students#create'
   get '/enrollments/:enrollment_id/students', to: 'students#index'
   get '/enrollments/:enrollment_id/students/:id', to: 'students#show'
   get '/enrollments/:enrollment_id/students/:id/edit', to: 'students#edit'
