@@ -3,6 +3,7 @@ import { Button } from '@mui/material';
 
 function EnrollmentIndex() {
   const enrollments = JSON.parse(document.getElementById("data").getAttribute("enrollments"));
+  
   function AtCapacity(limit,number) {
     if (limit > number) {
       return false;
