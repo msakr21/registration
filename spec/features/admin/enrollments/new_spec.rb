@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'new enrollment page', type: :feature, driver: :selenium_chrome, js: true do
   it 'displays a form to be filled' do
-    visit '/enrollments/new'
+    visit '/admin/enrollments/new'
 
     expect(page).to have_content('Please fill the form below:')
     expect(page).to have_selector(:css, 'form')
@@ -15,7 +15,7 @@ RSpec.describe 'new enrollment page', type: :feature, driver: :selenium_chrome, 
 
   it 'creates a new enrollment upon submitting form' do
     expect(Enrollment.all.length).to eq(0)
-    visit '/enrollments/new'
+    visit '/admin/enrollments/new'
 
     fill_in('student_limit', with: 30)
 

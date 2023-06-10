@@ -1,6 +1,4 @@
-class EnrollmentsController < ApplicationController
-  def new; end
-
+class EnrollmentsController < ApplicationController 
   def index
     enrollments_array = Enrollment.all.map do |enrollment|
       { id: enrollment.id, schedule: enrollment.schedule, location: enrollment.location }

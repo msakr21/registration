@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
   def new
-    @enrollment_id = params[:id].to_s
+    @enrollment_id = params[:enrollment_id]
   end
 
   def create
