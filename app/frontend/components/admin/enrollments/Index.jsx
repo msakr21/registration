@@ -28,6 +28,9 @@ function AdminEnrollmentIndex() {
   );
 
   return <div>
+          <a href={"/admin/enrollments/new"}>New Enrollment Session</a>
+          <br></br>
+          <h3>Available Enrollment Sessions:</h3>
            {listEnrollments}
          </div>
 }
