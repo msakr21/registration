@@ -8,6 +8,6 @@ class Admin::EnrollmentsController < ApplicationController
 
   def create
     Enrollment.create(location: params[:location], schedule: params[:schedule], student_limit: params[:student_limit])
-    redirect_to '/enrollments'
+    redirect_to '/admin/enrollments'
   end
 end
