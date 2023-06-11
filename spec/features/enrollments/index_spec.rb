@@ -3,22 +3,22 @@ require 'rails_helper'
 RSpec.describe 'enrollments index page', type: :feature, driver: :selenium_chrome, js: true do
   describe 'when I visit /enrollments' do
     before :each do
-      @eloise_may = Enrollment.create(location: 'Eloise May', schedule: DateTime.parse('2023-06-11T05:00:24.000Z'), student_limit: 30)
+      @eloise_may = Enrollment.create(location: 'Eloise May', schedule: DateTime.parse('2030-06-11T05:00:24.000Z'), student_limit: 30)
     end
 
     it 'I see a list of enrollments' do
       visit '/enrollments'
 
       expect(page).to have_content('Location: Eloise May')
-      expect(page).to have_content("Schedule: 2023-06-11T05:00:24.000Z")
+      expect(page).to have_content("Schedule: 2030-06-11T05:00:24.000Z")
       expect(page).to have_link("Register for this session")
     end
 
     it "redirects to the new student page for an enrollment session if an enrollment's Register button is selected" do
       visit '/enrollments'
 
-      expect(page).to have_content('Location: Eloise May')
-      expect(page).to have_content("Schedule: 2023-06-11T05:00:24.000Z")
+      expect(page).to have_content("Location: Eloise May")
+      expect(page).to have_content("Schedule: 2030-06-11T05:00:24.000Z")
       expect(page).to have_link("Register for this session", visible: true)
 
       click_link("Register for this session")
