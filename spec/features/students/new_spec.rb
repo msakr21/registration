@@ -4,8 +4,8 @@ RSpec.describe 'new student page', type: :feature, driver: :selenium_chrome, js:
   describe 'when I visit /enrollments/:enrollment_id/students/new' do
     describe 'when I visit /enrollments/new' do
       before :each do
-        @eloise_may = Enrollment.create(location: 'Eloise May', schedule: DateTime.parse('2023-06-11T05:00:24.000Z'), student_limit: 30)
-        @sheridan = Enrollment.create(location: 'Sheridan', schedule: DateTime.parse('2023-06-11T05:00:24.000Z'), student_limit: 30)
+        @eloise_may = Enrollment.create(location: 'Eloise May', schedule: DateTime.parse('2030-06-11T05:00:24.000Z'), student_limit: 30)
+        @sheridan = Enrollment.create(location: 'Sheridan', schedule: DateTime.parse('2030-06-11T05:00:24.000Z'), student_limit: 30)
       end
   
       it 'I find a form to be filled' do
