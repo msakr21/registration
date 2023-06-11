@@ -41,7 +41,7 @@ end
 
 Capybara.javascript_driver = :selenium_chrome
 
-Capybara.default_max_wait_time = 4
+Capybara.default_max_wait_time = 0
 
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures

@@ -1,6 +1,5 @@
 class StudentsController < ApplicationController
   def new
-    binding.pry
     @enrollment_id = params[:enrollment_id]
   end
 
