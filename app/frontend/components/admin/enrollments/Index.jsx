@@ -13,7 +13,7 @@ function AdminEnrollmentIndex() {
   };
 
   function URISetter(main,id,sub,page) {
-    return `/${main}/${id}/${sub}/${page}`
+    return `/${main}/${id}/${sub}${page}`
   }
 
   const listEnrollments = enrollments.map((enrollment) => 
@@ -22,8 +22,10 @@ function AdminEnrollmentIndex() {
   <p>Schedule: {enrollment.schedule}</p>
   <p>Student Limit: {enrollment.student_limit}</p>
   <p>Number of Students: {enrollment.students}</p>
-  <Button disabled={AtCapacity(enrollment.student_limit,enrollment.students)} href={URISetter("enrollments",enrollment.id,"students","new")}>Register new student for this session</Button>
-  <Button href={URISetter("enrollments",enrollment.id,"","edit")}>Edit Session</Button>
+  <Button disabled={AtCapacity(enrollment.student_limit,enrollment.students)} href={URISetter("enrollments",enrollment.id,"students/","new")}>Register new student for this session</Button>
+  <Button href={URISetter("enrollments",enrollment.id,"edit","")}>Edit Session</Button>
+  <Button href={URISetter("enrollments",enrollment.id,"","")}>Show Session Details</Button>
+  <Button href={URISetter("enrollments",enrollment.id,"delete","")}>Delete Session</Button>
   </div>
   );
 
