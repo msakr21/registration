@@ -128,8 +128,9 @@ MVP
 * [x] Ability to create new enrollments
 * [x] Make the creation of new enrollments restricted to admins only
 * [x] Prospective Students' ability to see list of enrollment sessions (enrollments index page)
-* [ ] Admin's ability to see list of enrollment sessions (admin enrollments index page)
-* [ ] Admin's ability to see details of a given enrollment session (admin enrollments show pages)
+* [x] Admin's ability to see list of enrollment sessions (admin enrollments index page)
+* [ ] Admin's ability to see details of a given enrollment session (admin enrollments show pages e.g details on index page and list of students)
+* [ ] Buttons for editing and deleting for admin to delete students in a given enrollment session (in show page)
 * [ ] Admin's ability to edit details of a given enrollment session
 * [ ] Admin's ability to add and/or remove students to a given enrollment session
 * [x] Prospective Students' ability to select an enrollment session to join from the list of available sessions
