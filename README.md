@@ -30,9 +30,9 @@
 
 ![Product Demo](assets/demo.gif)
 
-The aim of this project is to create an online enrollment registration website for the organization, The Learning Source, to streamline the enrollment process based on needs discussed with staff.
+The aim of this project is to create an online enrollment registration website for the organization, The Learning Source, to streamline the enrollment process of prospective students based on needs discussed with staff.
 
-There learning goals for the project are to hook React.js into Rails within a monolith MVC set up where React would handle the rendering of the view files directly without the Rails backend being API endpoints and the React frontend being its separate service that calls upon said endpoints. This allows Rails to handle the routing and maintain a RESTful setup thus allowing for all of the advantages of both frameworks with none of their disadvantages.
+The learning goals for the project are to hook React.js into Rails within a monolith MVC set up where React would handle the rendering of the view files directly without the Rails backend being API endpoints and the React frontend being its separate service that calls upon said endpoints. This allows Rails to handle the routing and maintain a RESTful setup thus allowing for all of the advantages of both frameworks with none of their disadvantages.
 
 RSpec and Capybara are configured to allow feature testing to execute JS code and as such TDD can be applied.
 
@@ -80,7 +80,7 @@ The following Javascript libraries are used:
 ### Chrome Driver Installation
 <details>
 <summary> Click to expand/collapse </summary>
-
+<br>
 Chrome Driver is needed for the selenium webdriver gem to function allowing RSpec and Capybara to run the JS correctly and test the webpage contents.
 
 ### macOS:
@@ -90,13 +90,11 @@ Chrome Driver is needed for the selenium webdriver gem to function allowing RSpe
 
 Optional, if quarantined by macOS:
 
-3) run `which chromedriver` to find out installation path
-
-   output should look similar to: `/usr/local/bin/chromedriver`
+3) run `which chromedriver` to find out installation path. Output should look similar to: `/usr/local/bin/chromedriver`
 
 4) run `xattr -d com.apple.quarantine /usr/local/bin/chromedriver`
 
-5) confirm that it works no by repeating step 2
+5) confirm that it now works by repeating step 2
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 </details>
@@ -126,7 +124,7 @@ MVP
 * [x] Determine Viability of passing data between controller and React components in a monolith, MVC, RESTful architecture utilizing Vite
 * [x] Determine viability of TDD using RSpec and Capybara for webpages utilizing JS
 * [x] Decide whether to carry out project in regular Rails monolith or with a React + Rails setup utilizing Vite
-* [] Admin and Prospective Student flow experiences
+* [ ] Admin and Prospective Student flow experiences
 * [x] Ability to create new enrollments
 * [x] Make the creation of new enrollments restricted to admins only
 * [x] Prospective Students' ability to see list of enrollment sessions (enrollments index page)
@@ -137,7 +135,7 @@ MVP
 * [x] Prospective Students' ability to select an enrollment session to join from the list of available sessions
 * [x] Cap each session's number of students according to limit set (default of 30) after which prospective students would not have the option to select it to join.
 * [] Deploy on render
-* [] Detailed README file 
+* [] Detailed README file
 
 Stretch Goals
 TBD
