@@ -1,6 +1,5 @@
 class EnrollmentsController < ApplicationController
-  def new
-  end
+  def new; end
 
   def index
     enrollments_array = Enrollment.all.map do |enrollment|
