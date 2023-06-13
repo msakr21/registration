@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'new enrollment page', type: :feature, driver: :selenium_chrome, js: true do
   it 'displays a form to be filled' do
-    visit '/enrollments/new'
+    visit '/admin/enrollments/new'
 
     expect(page).to have_content('Please fill the form below:')
     expect(page).to have_selector(:css, 'form')
@@ -15,7 +15,7 @@ RSpec.describe 'new enrollment page', type: :feature, driver: :selenium_chrome, 
 
   it 'creates a new enrollment upon submitting form' do
     expect(Enrollment.all.length).to eq(0)
-    visit '/enrollments/new'
+    visit '/admin/enrollments/new'
 
     fill_in('student_limit', with: 30)
 
@@ -23,14 +23,14 @@ RSpec.describe 'new enrollment page', type: :feature, driver: :selenium_chrome, 
       find("option[value='Eloise May']").click
     end
 
-    find('input[type="text"][class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"][placeholder="MM/DD/YYYY"]').set('06/10/2023')
+    find('input[type="text"][class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"][placeholder="MM/DD/YYYY"]').set("06/20/2030")
     find('input[type="text"][class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"][placeholder="hh:mm aa"]').set('09:00 AM')
-
+    # binding.pry
     click_button('Submit')
 
     expect(Enrollment.all.length).to eq(1)
     expect(Enrollment.all.first.location).to eq('Eloise May')
     expect(Enrollment.all.first.student_limit).to eq(30)
-    expect(Enrollment.all.first.schedule.in_time_zone('Mountain Time (US & Canada)').strftime('%Y/%m/%d %I:%M %p')).to eq('2023/06/10 09:00 AM')
+    expect(Enrollment.all.first.schedule.in_time_zone('Mountain Time (US & Canada)').strftime('%Y/%m/%d %I:%M %p')).to eq('2030/06/20 09:00 AM')
   end
 end

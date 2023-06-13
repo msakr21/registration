@@ -32,7 +32,7 @@ function NewEnrollment() {
 
   return <div>
           <h1>Please fill the form below:</h1>
-          <form action="/enrollments" method="post">
+          <form action="/admin/enrollments" method="post">
             <input type="hidden" name="authenticity_token" value={csrf_token} />
             <input type="hidden" name="location" value={location} />
             <input type="hidden" name="schedule" value={schedule} />
