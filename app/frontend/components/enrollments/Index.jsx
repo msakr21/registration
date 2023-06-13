@@ -16,11 +16,19 @@ function EnrollmentIndex() {
     return `/enrollments/${id}/students/new`
   }
 
+  function LinkRendering(capacity,id) {
+    if (capacity == true) {
+      return "/enrollments"
+    } else {
+      return URISetter(id)
+    }
+  }
+
   const listEnrollments = enrollments.map((enrollment) => 
   <div key={enrollment.id}>
   <p>Location: {enrollment.location}</p>
   <p>Schedule: {enrollment.schedule}</p>
-  <Button disabled={AtCapacity(enrollment.student_limit,enrollment.students)} href={URISetter(enrollment.id)}>Register for this session</Button>
+  <Button disabled={AtCapacity(enrollment.student_limit,enrollment.students)} href={LinkRendering(AtCapacity(enrollment.student_limit,enrollment.students),enrollment.id)}>Register for this session</Button>
   </div>
   );
 

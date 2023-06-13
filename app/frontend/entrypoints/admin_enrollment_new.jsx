@@ -3,6 +3,6 @@ import ReactDOM from 'react-dom/client';
 
 import NewEnrollment from '~/components/admin/enrollments/New.jsx';
 
-const container = document.getElementById('new_enrollment')
+const container = document.getElementById('new')
 const root = ReactDOM.createRoot(container);
 root.render(<NewEnrollment />);

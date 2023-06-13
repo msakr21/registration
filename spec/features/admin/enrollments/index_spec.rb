@@ -1,23 +1,23 @@
 require 'rails_helper'
 
-RSpec.describe 'enrollments index page', type: :feature, driver: :selenium_chrome, js: true do
-  describe 'when I visit /enrollments' do
+RSpec.describe 'admin enrollments index page', type: :feature, driver: :selenium_chrome, js: true do
+  describe 'when I visit /admin/enrollments' do
     before :each do
       @eloise_may = Enrollment.create(location: 'Eloise May', schedule: DateTime.parse('2030-06-11T05:00:24.000Z'), student_limit: 30)
     end
 
     it 'I see a list of enrollments' do
-      visit '/enrollments'
+      visit '/admin/enrollments'
 
       expect(page).to have_content('Location: Eloise May')
       expect(page).to have_content("Schedule: 2030-06-11T05:00:24.000Z")
-      expect(page).to have_link("Register for this session", visible: true)
+      expect(page).to have_link("Register new student for this session", visible: true)
     end
 
     it "redirects to the new student page for an enrollment session if an enrollment's Register button is selected" do
-      visit '/enrollments'
+      visit '/admin/enrollments'
 
-      click_link("Register for this session")
+      click_link("Register new student for this session")
 
       expect(current_path).to eq("/enrollments/#{@eloise_may.id}/students/new")
     end
@@ -29,10 +29,10 @@ RSpec.describe 'enrollments index page', type: :feature, driver: :selenium_chrom
         i += 1
       end
 
-      visit '/enrollments'
+      visit '/admin/enrollments'
      
-      expect(page).to have_link("Register for this session", visible: false)
-      expect { click_link("Register for this session") }.to raise_error(Selenium::WebDriver::Error::ElementClickInterceptedError)
+      expect(page).to have_link("Register new student for this session", visible: false)
+      expect { click_link("Register new student for this session") }.to raise_error(Selenium::WebDriver::Error::ElementClickInterceptedError)
     end
   end
 end
