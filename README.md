@@ -66,6 +66,7 @@ The following Rails gems are used:
 8) Rubocop as a linter
 
 The following Javascript libraries are used:
+
 1) Vite (controlled by Vite_Rails above)
 2) Vite-ruby (controlled by Vite_Rails above)
 3) React.js for it's frontend scripting
@@ -78,12 +79,14 @@ The following Javascript libraries are used:
 
 <!-- Installation -->
 ### Chrome Driver Installation
+
 <details>
 <summary> Click to expand/collapse </summary>
 <br>
 Chrome Driver is needed for the selenium webdriver gem to function allowing RSpec and Capybara to run the JS correctly and test the webpage contents.
 
-### macOS:
+### macOS
+
 1) run `brew install --cask chromedriver`
 
 2) run `chromeDriver -v` to confirm installation
@@ -101,6 +104,7 @@ Optional, if quarantined by macOS:
 
 <!-- Repository Installation -->
 ### Repository Installation
+
 * fork and clone repo
 * run `bundle install` in the console/terminal
 * run `bundle exec vite install` in the console/terminal
@@ -113,7 +117,15 @@ Optional, if quarantined by macOS:
 
 1) To use the repo, instructions to be added
 
-2) To run the tests, run `bundle exec rspec`
+2) To run the tests, you will need to use two terminal windows (or tabs)
+
+* Terminal 1:
+  In your first terminal, navigate to the project directory. Here you will start the Vite server: `npm run dev`. This command starts the Vite server, which the tests will interact with.
+
+* Terminal 2:
+  In the second terminal, also navigate to the project directory. This is where you will run your tests: `bundle exec rspec`. This command runs the entire RSpec test suite. You should see the test results output in this terminal window.
+
+<b>Always ensure the Vite server is running in the background while executing the tests.</b>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -121,6 +133,7 @@ Optional, if quarantined by macOS:
 ## Roadmap
 
 MVP
+
 * [x] Determine Viability of passing data between controller and React components in a monolith, MVC, RESTful architecture utilizing Vite
 * [x] Determine viability of TDD using RSpec and Capybara for webpages utilizing JS
 * [x] Decide whether to carry out project in regular Rails monolith or with a React + Rails setup utilizing Vite
@@ -128,19 +141,21 @@ MVP
 * [x] Ability to create new enrollments
 * [x] Make the creation of new enrollments restricted to admins only
 * [x] Prospective Students' ability to see list of enrollment sessions (enrollments index page)
-* [ ] Admin's ability to see list of enrollment sessions (admin enrollments index page)
-* [ ] Admin's ability to see details of a given enrollment session (admin enrollments show pages)
+* [x] Admin's ability to see list of enrollment sessions (admin enrollments index page)
+* [ ] Admin's ability to see details of a given enrollment session (admin enrollments show pages e.g details on index page and list of students)
+* [ ] Buttons for editing and deleting for admin to delete students in a given enrollment session (in show page)
 * [ ] Admin's ability to edit details of a given enrollment session
 * [ ] Admin's ability to add and/or remove students to a given enrollment session
 * [x] Prospective Students' ability to select an enrollment session to join from the list of available sessions
 * [x] Cap each session's number of students according to limit set (default of 30) after which prospective students would not have the option to select it to join.
-* [ ] Redirect upon joining session to a confirmation page that one has been registered with the registeration details and staff contact info in case anything changes
+* [ ] Redirect upon joining session to a confirmation page that one has been registered with the registration details and staff contact info in case anything changes
 * [ ] Filter list for admin for returning prospective students to contact staff in order to be able to secure a spot for enrollment session
 * [ ] Add language spoken to database schema for student
 * [ ] Deploy on render
-* [ ] Detailed README file 
+* [ ] Detailed README file
 
 Stretch Goals
+
 * [ ] Add different languages and language toggle option for page
 
 <p align="right">(<a href="#top">back to top</a>)</p>

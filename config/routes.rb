@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :enrollments do
-      resources :students 
+      resources :students
     end
   end
 
