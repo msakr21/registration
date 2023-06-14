@@ -23,9 +23,9 @@ RSpec.describe 'new enrollment page', type: :feature, driver: :selenium_chrome, 
 
     fill_in('student_limit', with: 30)
 
-    find('input[type="text"][class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"][placeholder="MM/DD/YYYY"]').set("06/20/2030")
+    find('input[type="text"][class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"][placeholder="MM/DD/YYYY"]').set('06/20/2030')
     find('input[type="text"][class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"][placeholder="hh:mm aa"]').set('09:00 AM')
-    
+
     click_button('Submit')
 
     expect(Enrollment.all.length).to eq(1)
@@ -44,11 +44,11 @@ RSpec.describe 'new enrollment page', type: :feature, driver: :selenium_chrome, 
       find("option[value='Eloise May']").click
     end
 
-    find('input[type="text"][class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"][placeholder="MM/DD/YYYY"]').set("06/20/2030")
+    find('input[type="text"][class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"][placeholder="MM/DD/YYYY"]').set('06/20/2030')
     find('input[type="text"][class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"][placeholder="hh:mm aa"]').set('09:00 AM')
-    
+
     click_button('Submit')
 
-    expect(current_path).to eq("/admin/enrollments")
+    expect(current_path).to eq('/admin/enrollments')
   end
 end

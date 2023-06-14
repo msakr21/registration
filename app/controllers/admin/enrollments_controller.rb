@@ -2,9 +2,8 @@ class Admin::EnrollmentsController < ApplicationController
   def index
     @enrollments = Enrollment.list_data
   end
-  
-  def new
-  end
+
+  def new; end
 
   def edit
     @enrollment_id = params[:id]

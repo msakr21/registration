@@ -7,7 +7,7 @@ RSpec.describe 'new student page', type: :feature, driver: :selenium_chrome, js:
         @eloise_may = Enrollment.create(location: 'Eloise May', schedule: DateTime.parse('2030-06-11T05:00:24.000Z'), student_limit: 30)
         @sheridan = Enrollment.create(location: 'Sheridan', schedule: DateTime.parse('2030-06-11T05:00:24.000Z'), student_limit: 30)
       end
-  
+
       it 'I find a form to be filled' do
         visit "/enrollments/#{@eloise_may.id}/students/new"
 
@@ -30,7 +30,7 @@ RSpec.describe 'new student page', type: :feature, driver: :selenium_chrome, js:
         fill_in('email', with: 'david.labo@someemail.com')
         fill_in('phone', with: '1337666575')
         click_button('Submit')
-        
+
         @eloise_may = Enrollment.find(@eloise_may.id)
         expect(@eloise_may.students.length).to eq(1)
         expect(@sheridan.students.length).to eq(0)
