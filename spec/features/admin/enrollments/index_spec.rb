@@ -2,9 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'admin enrollments index page', type: :feature, driver: :selenium_chrome, js: true do
   describe 'when I visit /admin/enrollments' do
-    before :each do
-      @eloise_may = Enrollment.create(location: 'Eloise May', schedule: DateTime.parse('2030-06-11T05:00:24.000Z'), student_limit: 30)
-    end
+    let!(:eloise_may) { Enrollment.create(location: 'Eloise May', schedule: DateTime.parse('2030-06-11T05:00:24.000Z'), student_limit: 30) }
 
     it 'I see a list of enrollments' do
       visit '/admin/enrollments'
@@ -19,13 +17,13 @@ RSpec.describe 'admin enrollments index page', type: :feature, driver: :selenium
 
       click_link('Register new student for this session')
 
-      expect(current_path).to eq("/enrollments/#{@eloise_may.id}/students/new")
+      expect(current_path).to eq("/enrollments/#{eloise_may.id}/students/new")
     end
 
     it 'will disable the registration button if number of students registered is equal to student limit' do
       i = 0
       until Student.all.length == 30
-        @eloise_may.students.create(first_name: "test#{i}", last_name: "test#{i}", email: "test#{i}@email.com", phone: '0000000000')
+        eloise_may.students.create(first_name: "test#{i}", last_name: "test#{i}", email: "test#{i}@email.com", phone: '0000000000')
         i += 1
       end
 

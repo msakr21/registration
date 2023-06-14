@@ -3,13 +3,11 @@ require 'rails_helper'
 RSpec.describe 'new student page', type: :feature, driver: :selenium_chrome, js: true do
   describe 'when I visit /enrollments/:enrollment_id/students/new' do
     describe 'when I visit /enrollments/new' do
-      before :each do
-        @eloise_may = Enrollment.create(location: 'Eloise May', schedule: DateTime.parse('2030-06-11T05:00:24.000Z'), student_limit: 30)
-        @sheridan = Enrollment.create(location: 'Sheridan', schedule: DateTime.parse('2030-06-11T05:00:24.000Z'), student_limit: 30)
-      end
+      let!(:eloise_may) { Enrollment.create(location: 'Eloise May', schedule: DateTime.parse('2030-06-11T05:00:24.000Z'), student_limit: 30) }
+      let!(:sheridan) { Enrollment.create(location: 'Sheridan', schedule: DateTime.parse('2030-06-11T05:00:24.000Z'), student_limit: 30) }
 
       it 'I find a form to be filled' do
-        visit "/enrollments/#{@eloise_may.id}/students/new"
+        visit "/enrollments/#{eloise_may.id}/students/new"
 
         expect(page).to have_content('Please fill the form below:')
         expect(page).to have_selector(:css, 'form')
@@ -21,9 +19,9 @@ RSpec.describe 'new student page', type: :feature, driver: :selenium_chrome, js:
       end
 
       it 'Upon submitting form a new student is added to the enrollment' do
-        expect(@eloise_may.students.length).to eq(0)
-        expect(@sheridan.students.length).to eq(0)
-        visit "/enrollments/#{@eloise_may.id}/students/new"
+        expect(eloise_may.students.length).to eq(0)
+        expect(sheridan.students.length).to eq(0)
+        visit "/enrollments/#{eloise_may.id}/students/new"
 
         fill_in('first_name', with: 'David')
         fill_in('last_name', with: 'Labo')
@@ -31,9 +29,9 @@ RSpec.describe 'new student page', type: :feature, driver: :selenium_chrome, js:
         fill_in('phone', with: '1337666575')
         click_button('Submit')
 
-        @eloise_may = Enrollment.find(@eloise_may.id)
-        expect(@eloise_may.students.length).to eq(1)
-        expect(@sheridan.students.length).to eq(0)
+        eloise_may_id = Enrollment.find(eloise_may.id)
+        expect(eloise_may_id.students.length).to eq(1)
+        expect(sheridan.students.length).to eq(0)
       end
     end
   end
