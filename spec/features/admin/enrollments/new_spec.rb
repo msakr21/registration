@@ -7,7 +7,7 @@ RSpec.describe 'new enrollment page', type: :feature, driver: :selenium_chrome, 
     expect(page).to have_content('Please fill the form below:')
     expect(page).to have_selector(:css, 'form')
     expect(page).to have_field('student_limit')
-    expect(page).to have_selector(:css, 'select')
+    expect(page).to have_select('location')
     expect(page).to have_css('input[type="text"][class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"][placeholder="MM/DD/YYYY"]')
     expect(page).to have_css('input[type="text"][class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"][placeholder="hh:mm aa"]')
     expect(page).to have_button('Submit')
@@ -17,11 +17,11 @@ RSpec.describe 'new enrollment page', type: :feature, driver: :selenium_chrome, 
     expect(Enrollment.all.length).to eq(0)
     visit '/admin/enrollments/new'
 
-    fill_in('student_limit', with: 30)
-
     within('div#location') do
       find("option[value='Eloise May']").click
     end
+
+    fill_in('student_limit', with: 30)
 
     find('input[type="text"][class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"][placeholder="MM/DD/YYYY"]').set("06/20/2030")
     find('input[type="text"][class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"][placeholder="hh:mm aa"]').set('09:00 AM')

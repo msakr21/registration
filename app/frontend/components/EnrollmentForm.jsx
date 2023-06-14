@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import DateTimePicker from 'react-datetime-picker';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
@@ -10,11 +9,13 @@ import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 // import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 
 
-function NewEnrollment() {
+function EnrollmentForm(props) {
   const csrf_token = document.head.getElementsByTagName('meta')[2].content;
-  const [location, setLocation] = useState("Eloise May");
-  const [schedule, setSchedule] = useState(new Date());
-  const [students, setStudents] = useState(30)
+  const [location, setLocation] = useState(props.location);
+  const [schedule, setSchedule] = useState(props.schedule);
+  const [students, setStudents] = useState(props.students);
+  const method = props.method;
+  const path = props.path;
  
   const handleScheduleChange = (newValue) => {
     setSchedule(newValue);
@@ -28,17 +29,22 @@ function NewEnrollment() {
     setStudents(event.target.value)
   };
 
-  
+  function RenderField (method) {
+    if (method == "patch") {
+      return <input type="hidden" name="_method" value="PATCH" />
+    }
+  }
 
   return <div>
           <h1>Please fill the form below:</h1>
-          <form action="/admin/enrollments" method="post">
+          <form action={path} method="post">
             <input type="hidden" name="authenticity_token" value={csrf_token} />
+            {RenderField(method)}
             <input type="hidden" name="location" value={location} />
             <input type="hidden" name="schedule" value={schedule} />
             <div id="location">
             <p>Please Choose a Location:</p>
-            <select value={location} onChange={handleLocationChange}>
+            <select name="location" value={location} onChange={handleLocationChange}>
               <option value="Eloise May">Eloise May</option>
               <option value="Sheridan">Sheridan</option>
               <option value="Smoky Hill">Smoky Hill</option>
@@ -83,4 +89,4 @@ function NewEnrollment() {
          </div>
 };
 
-export default NewEnrollment;
+export default EnrollmentForm;
