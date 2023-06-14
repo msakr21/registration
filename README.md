@@ -148,7 +148,7 @@ MVP
 * [ ] Admin's ability to add and/or remove students to a given enrollment session
 * [x] Prospective Students' ability to select an enrollment session to join from the list of available sessions
 * [x] Cap each session's number of students according to limit set (default of 30) after which prospective students would not have the option to select it to join.
-* [ ] Redirect upon joining session to a confirmation page that one has been registered with the registeration details and staff contact info in case anything changes
+* [ ] Redirect upon joining session to a confirmation page that one has been registered with the registration details and staff contact info in case anything changes
 * [ ] Filter list for admin for returning prospective students to contact staff in order to be able to secure a spot for enrollment session
 * [ ] Add language spoken to database schema for student
 * [ ] Deploy on render
