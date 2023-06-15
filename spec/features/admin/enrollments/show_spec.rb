@@ -21,8 +21,8 @@ RSpec.describe 'admin enrollments show page', type: :feature, driver: :selenium_
     end
 
     it 'will disable the registration button if number of students registered is equal to student limit' do
-      30.times do |i|
-        create(:student, first_name: "test#{i}", last_name: "test#{i}", email: "test#{i}@email.com", phone: '0000000000', enrollment:)
+      30.times do
+        create(:student, enrollment:)
       end
 
       visit admin_enrollment_path(enrollment.id)
