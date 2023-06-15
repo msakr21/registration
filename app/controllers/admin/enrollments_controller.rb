@@ -5,6 +5,10 @@ class Admin::EnrollmentsController < ApplicationController
 
   def new; end
 
+  def show
+    @enrollments = Enrollment.list_data
+  end
+
   def edit
     @enrollment_id = params[:id]
     enrollment = Enrollment.find(params[:id])
