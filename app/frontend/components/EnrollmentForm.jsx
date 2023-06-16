@@ -6,6 +6,8 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 // import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
+import { Button, Form, Card } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 // import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 
 
@@ -35,30 +37,32 @@ function EnrollmentForm(props) {
     }
   }
 
-  return <div>
+  return <div style={{margin: "5% 30%"}}>
           <h1>Please fill the form below:</h1>
-          <form action={path} method="post">
+          <Form action={path} method="post">
             <input type="hidden" name="authenticity_token" value={csrf_token} />
             {RenderField(method)}
             <input type="hidden" name="location" value={location} />
             <input type="hidden" name="schedule" value={schedule} />
             <div id="location">
-            <p>Please Choose a Location:</p>
-            <select name="location" value={location} onChange={handleLocationChange}>
+            <Form.Label> Location: </Form.Label>
+            <Form.Select name="location" value={location} onChange={handleLocationChange}>
               <option value="Eloise May">Eloise May</option>
               <option value="Sheridan">Sheridan</option>
               <option value="Smoky Hill">Smoky Hill</option>
-            </select>
+            </Form.Select>
             </div>
+            <br></br>
             <div>
-            <p>Please enter number of students:</p>
-            <input type="number" name="student_limit" value={students} onChange={handleStudentsChange}/>
+            <Form.Group className="mb-3" controlId="formStudentLimit">
+              <Form.Label>Maximum number of students:</Form.Label>
+              <Form.Control type="number" placeholder="Enter student limit" value={students} onChange={handleStudentsChange}/>
+            </Form.Group>
             </div>
             <br />
-            <br />
-            <div style={{margin: "5% 40%"}}>
+            <div>
               <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <Stack spacing={3}>
+                <Stack spacing={3} >
                   <DesktopDatePicker
                     label="Please select a Date"
                     inputFormat="MM/dd/yyyy"
@@ -83,9 +87,8 @@ function EnrollmentForm(props) {
               </LocalizationProvider>
             </div>
             <br />
-            <br />
-            <button>Submit</button>
-          </form>
+            <Button size="sm" variant="outline-primary" style={{margin: "0% 45%"}}>Submit</Button>
+          </Form>
          </div>
 };
 
