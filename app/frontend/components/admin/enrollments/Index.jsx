@@ -29,10 +29,12 @@ function AdminEnrollmentIndex() {
   <br />
   <Card.Text>Student Limit: {enrollment.student_limit}</Card.Text>
   <Card.Text>Number of Students: {enrollment.students}</Card.Text>
+  <Row xs={2} md={2}>
   <Button disabled={AtCapacity(enrollment.student_limit,enrollment.students)} href={URISetter("enrollments",enrollment.id,"students/","new")} size="sm" variant="outline-dark">Add Student</Button>
   <Button href={URISetter("admin/enrollments",enrollment.id,"edit","")} size="sm" variant="outline-dark">Edit Session</Button>
   <Button href={URISetter("admin/enrollments",enrollment.id,"","")} size="sm" variant="outline-dark">Show Details</Button>
   <Button href={URISetter("admin/enrollments",enrollment.id,"delete","")} size="sm" variant="outline-dark">Delete Session</Button>
+  </Row>
   </Card.Body>
   </Card>
   </Col>
@@ -42,7 +44,7 @@ function AdminEnrollmentIndex() {
           <Card.Title><a href={"/admin/enrollments/new"}>New Enrollment Session</a></Card.Title>
           <br />
           <Card.Title>Available Enrollment Sessions:</Card.Title>
-          <Row xs={1} md={2} className="g-4">
+          <Row xs={3} md={3} className="g-4">
           {listEnrollments}
           </Row>
          </Card>
