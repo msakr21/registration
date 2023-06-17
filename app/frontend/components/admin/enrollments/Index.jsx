@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Card, Col, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import moment from 'moment';
+import "moment-timezone";
 
 
 
@@ -21,11 +22,11 @@ function AdminEnrollmentIndex() {
   }
 
   const listEnrollments = enrollments.map((enrollment) => 
-  <Col>
-  <Card class="enrollment-card" key={enrollment.id} bg="light" text="dark" border="dark">
+  <Col key={enrollment.id}>
+  <Card className="enrollment-card" bg="light" text="dark" border="dark">
   <Card.Body>
   <Card.Title>{enrollment.location}</Card.Title>
-  <Card.Subtitle>{moment(enrollment.schedule).utc().format('MM/DD/YYYY')}<br />{moment(enrollment.schedule).utc().format('hh:mm A')}</Card.Subtitle>
+  <Card.Subtitle>{enrollment.date}<br />{enrollment.time}</Card.Subtitle>
   <br />
   <Card.Text>Student Limit: {enrollment.student_limit}</Card.Text>
   <Card.Text>Number of Students: {enrollment.students}</Card.Text>
@@ -40,10 +41,9 @@ function AdminEnrollmentIndex() {
   </Col>
   );
 
-  return <Card border="light" className="container">
-          <Card.Title><a href={"/admin/enrollments/new"}>New Enrollment Session</a></Card.Title>
-          <br />
-          <Card.Title>Available Enrollment Sessions:</Card.Title>
+  return <Card border="light">
+          <Card.Header style={{textAlign: "center"}}><a href={"/admin/enrollments/new"}>New Enrollment Session</a></Card.Header>
+          <Card.Title style={{textAlign: "center", margin: "2%"}}>Available Enrollment Sessions:</Card.Title>
           <Row xs={3} md={3} className="g-4">
           {listEnrollments}
           </Row>
