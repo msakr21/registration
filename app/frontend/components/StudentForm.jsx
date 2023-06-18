@@ -47,7 +47,7 @@ function NewStudent(props) {
                   <Form.Control type="text" placeholder="Please Enter Email" name="email" value={email} onChange={handleEmailChange}/>
                 </Form.Group>
                 <Form.Group className="mb-3" controlId="formPhone">
-                  <Form.Label>First Name:</Form.Label>
+                  <Form.Label>Phone Number:</Form.Label>
                   <Form.Control type="text" placeholder="Please Enter Phone Number" name="phone" value={phone} onChange={handlePhoneChange}/>
                 </Form.Group>
                 <div className="text-center">
