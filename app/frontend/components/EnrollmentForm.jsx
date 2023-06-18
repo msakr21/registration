@@ -6,8 +6,8 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 // import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-import { Button, Form, Card, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Button, Form, Card, Row, Col } from "react-bootstrap";
 // import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 
 
@@ -15,7 +15,7 @@ function EnrollmentForm(props) {
   const csrf_token = document.head.getElementsByTagName('meta')[2].content;
   const [location, setLocation] = useState(props.location);
   const [schedule, setSchedule] = useState(props.schedule);
-  const [students, setStudents] = useState(props.students);
+  const [students, setStudents] = useState(30);
   const method = props.method;
   const path = props.path;
  
@@ -57,7 +57,7 @@ function EnrollmentForm(props) {
               <div>
               <Form.Group className="mb-3" controlId="formStudentLimit">
                 <Form.Label>Maximum number of students:</Form.Label>
-                <Form.Control type="number" placeholder="Enter student limit" value={students} onChange={handleStudentsChange}/>
+                <Form.Control type="number" placeholder="Enter student limit" name="student_limit" value={students} onChange={handleStudentsChange}/>
               </Form.Group>
               </div>
               <br />

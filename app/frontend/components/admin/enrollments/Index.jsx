@@ -1,10 +1,6 @@
 import React from 'react';
 import { Button, Card, Col, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import moment from 'moment';
-import "moment-timezone";
-
-
 
 function AdminEnrollmentIndex() {
   const enrollments = JSON.parse(document.getElementById("data").getAttribute("enrollments"));
@@ -19,7 +15,9 @@ function AdminEnrollmentIndex() {
 
   function URISetter(main,id,sub,page) {
     return `/${main}/${id}/${sub}${page}`
-  }
+  };
+
+
 
   const listEnrollments = enrollments.map((enrollment) => 
   <Col key={enrollment.id}>
@@ -31,7 +29,7 @@ function AdminEnrollmentIndex() {
   <Card.Text>Student Limit: {enrollment.student_limit}</Card.Text>
   <Card.Text>Number of Students: {enrollment.students}</Card.Text>
   <Row xs={2} md={2}>
-  <Button disabled={AtCapacity(enrollment.student_limit,enrollment.students)} href={URISetter("enrollments",enrollment.id,"students/","new")} size="sm" variant="outline-dark">Add Student</Button>
+  <Button disabled={AtCapacity(enrollment.student_limit,enrollment.students)} href={URISetter("admin/enrollments",enrollment.id,"students","/new")} size="sm" variant="outline-dark">Add Student</Button>
   <Button href={URISetter("admin/enrollments",enrollment.id,"edit","")} size="sm" variant="outline-dark">Edit Session</Button>
   <Button href={URISetter("admin/enrollments",enrollment.id,"","")} size="sm" variant="outline-dark">Show Details</Button>
   <Button href={URISetter("admin/enrollments",enrollment.id,"delete","")} size="sm" variant="outline-dark">Delete Session</Button>

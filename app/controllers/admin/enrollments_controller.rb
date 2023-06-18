@@ -19,6 +19,7 @@ class Admin::EnrollmentsController < ApplicationController
   end
 
   def update
+    # binding.pry
     enrollment = Enrollment.find(params[:id])
     enrollment.update!(location: params[:location], schedule: params[:schedule], student_limit: params[:student_limit])
     redirect_to '/admin/enrollments'
