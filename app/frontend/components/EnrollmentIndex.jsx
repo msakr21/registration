@@ -21,7 +21,7 @@ function EnrollmentIndex(props) {
     if (capacity == true) {
       return "/enrollments"
     } else {
-      return URISetter("enrollment",id,"students","/new")
+      return URISetter("enrollments",id,"students","/new")
     }
   };
 
