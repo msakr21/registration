@@ -15,7 +15,7 @@ RSpec.describe Enrollment, type: :model do
       end
 
       it 'returns a list of enrollments as a JSON collection' do
-        expect(Enrollment.list_data).to eq([{ "id": eloise_may.id, "location": eloise_may.location, "date": "06/11/2030", "time": "09:00 AM", "student_limit": 30, "students": 0 }, { "id": sheridan.id, "location": sheridan.location, "date": "06/12/2030", "time": "09:00 AM", "student_limit": 10, "students": 1 }].to_json)
+        expect(Enrollment.list_data).to eq([{ "id": eloise_may.id, "location": eloise_may.location, "date": '06/11/2030', "time": '09:00 AM', "student_limit": 30, "students": 0 }, { "id": sheridan.id, "location": sheridan.location, "date": '06/12/2030', "time": '09:00 AM', "student_limit": 10, "students": 1 }].to_json)
       end
     end
   end

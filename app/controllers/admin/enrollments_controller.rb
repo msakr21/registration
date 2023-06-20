@@ -31,7 +31,7 @@ class Admin::EnrollmentsController < ApplicationController
 
   def destroy
     enrollment = Enrollment.find(params[:id])
-    if enrollment.students.length == 0
+    if enrollment.students.empty?
       enrollment.destroy
       redirect_to action: 'index', confirm_delete: true
     else
