@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-import AdminEnrollmentIndex from '~/components/admin/enrollments/Index.jsx';
+import EnrollmentIndex from '~/components/EnrollmentIndex.jsx';
 
 const container = document.getElementById('index')
 const root = ReactDOM.createRoot(container);
-root.render(<AdminEnrollmentIndex />);
+root.render(<EnrollmentIndex admin={"admin"}/>);
