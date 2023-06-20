@@ -9,30 +9,21 @@ RSpec.describe 'admin enrollments show page', type: :feature, driver: :selenium_
       visit admin_enrollment_path(enrollment.id)
     end
 
-    it 'I see the current enrollment with its information' do
+    it 'sees the current enrollment with its information' do
       expect(page).to have_content(enrollment.location)
       expect(page).to have_content(enrollment.schedule.iso8601(3))
       expect(page).to have_content(enrollment.student_limit)
       expect(page).to have_content(enrollment.students.count)
       expect(page).to have_link('Register new student for this session', visible: true)
-      binding.pry
     end
 
-    xit "redirects to the new student page for an enrollment session if an enrollment's Register button is selected" do
-      click_link('Register new student for this session')
-
-      expect(current_path).to eq("/enrollments/#{enrollment.id}/students/new")
-    end
-
-    xit 'will disable the registration button if number of students registered is equal to student limit' do
-      30.times do
-        create(:student, enrollment:)
+    it 'shows a list of all enrolled students' do
+      students.each do |student|
+        expect(page).to have_content(student.first_name)
+        expect(page).to have_content(student.last_name)
+        expect(page).to have_content(student.email)
+        expect(page).to have_content(student.phone)
       end
-
-      visit admin_enrollment_path(enrollment.id)
-
-      expect(page).to have_link('Register new student for this session', visible: false)
-      expect { click_link('Register new student for this session') }.to raise_error(Selenium::WebDriver::Error::ElementClickInterceptedError)
     end
   end
 end

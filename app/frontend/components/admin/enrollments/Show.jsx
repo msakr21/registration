@@ -15,10 +15,12 @@ function AdminEnrollmentShow() {
 
   const showEnrollment = (enrollment, students)=> (
     <div key={enrollment.id}>
-      <p>Location: {enrollment.location}</p>
-      <p>Schedule: {enrollment.schedule}</p>
-      <p>Student Limit: {enrollment.student_limit}</p>
-      <p>Number of Students: {students.length}</p>
+      <p><b>Location:</b> {enrollment.location}</p>
+      <p><b>Schedule:</b> {enrollment.schedule}</p>
+      <p><b>Student Limit:</b> {enrollment.student_limit}</p>
+      <p><b>Number of Students:</b> {students.length}</p>
+
+      {enrolledStudents(students)}
       
       <Button disabled={isAtCapacity(enrollment.student_limit, students.length)} href={URISetter("enrollments", enrollment.id, "students/", "new")}>Register new student for this session</Button>
       <Button href={URISetter("admin/enrollments", enrollment.id, "edit", "")}>Edit Session</Button>
@@ -26,6 +28,24 @@ function AdminEnrollmentShow() {
       <Button href={URISetter("admin/enrollments", enrollment.id, "delete", "")}>Delete Session</Button>
     </div>
   );
+
+  const enrolledStudents = (students) => {
+    return (
+      <div>
+        <h4>Enrolled Students:</h4>
+        <ol>
+        {students.map((student, index) => (
+          <li key={index}>
+            <p><b>First Name:</b> {student.first_name}</p>
+            <p><b>Last Name:</b> {student.last_name}</p>
+            <p><b>Email:</b> {student.email}</p>
+            <p><b>Phone:</b> {student.phone}</p>
+          </li>
+        ))}
+        </ol>
+      </div>
+    );
+  }
 
   return (
     <div>
