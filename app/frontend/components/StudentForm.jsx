@@ -29,33 +29,41 @@ function NewStudent(props) {
     setPhone(event.target.value);
   };
 
-  return <Row style={{height: "95vh"}}>
-           <Card className="card mx-auto my-auto" style={{width: "40%"}}>
-             <Card.Title style={{marginTop: "25px", marginBottom: "20px"}} className="text-center">Please fill the form below:</Card.Title>
-             <Form action={uri} method="post">
-                <input type="hidden" name="authenticity_token" value={csrf_token} />
-                <Form.Group className="mb-3" controlId="formFirstName">
-                  <Form.Label>First Name:</Form.Label>
-                  <Form.Control type="text" placeholder="Please Enter First Name" name="first_name" value={firstName} onChange={handleFirstNameChange}/>
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formLastName">
-                  <Form.Label>Last Name:</Form.Label>
-                  <Form.Control type="text" placeholder="Please Enter Last Name" name="last_name" value={lastName} onChange={handleLastNameChange}/>
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formEmail">
-                  <Form.Label>Email:</Form.Label>
-                  <Form.Control type="text" placeholder="Please Enter Email" name="email" value={email} onChange={handleEmailChange}/>
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formPhone">
-                  <Form.Label>Phone Number:</Form.Label>
-                  <Form.Control type="text" placeholder="Please Enter Phone Number" name="phone" value={phone} onChange={handlePhoneChange}/>
-                </Form.Group>
-                <div className="text-center">
-                  <Button size="sm" variant="outline-primary" style={{marginBottom: "25px"}} type="submit">Submit</Button>
-                </div>
-              </Form>
-            </Card>
-          </Row>
-};
+  return (
+    <Row style={{ height: "95vh" }}>
+      <Col xs={12} md={8} lg={6} xl={4} className="mx-auto">
+        <Card className="card mx-auto my-auto">
+          <Card.Title className="text-center" style={{ marginTop: "25px", marginBottom: "20px" }}>
+            Please fill the form below:
+          </Card.Title>
+          <Form action={uri} method="post">
+            <input type="hidden" name="authenticity_token" value={csrf_token} />
+            <Form.Group controlId="formFirstName">
+              <Form.Label>First Name:</Form.Label>
+              <Form.Control type="text" placeholder="Please Enter First Name" name="first_name" value={firstName} onChange={handleFirstNameChange} />
+            </Form.Group>
+            <Form.Group controlId="formLastName">
+              <Form.Label>Last Name:</Form.Label>
+              <Form.Control type="text" placeholder="Please Enter Last Name" name="last_name" value={lastName} onChange={handleLastNameChange} />
+            </Form.Group>
+            <Form.Group controlId="formEmail">
+              <Form.Label>Email:</Form.Label>
+              <Form.Control type="text" placeholder="Please Enter Email" name="email" value={email} onChange={handleEmailChange} />
+            </Form.Group>
+            <Form.Group controlId="formPhone">
+              <Form.Label>Phone Number:</Form.Label>
+              <Form.Control type="text" placeholder="Please Enter Phone Number" name="phone" value={phone} onChange={handlePhoneChange} />
+            </Form.Group>
+            <div className="text-center">
+              <Button size="sm" variant="outline-primary" style={{ marginBottom: "25px" }} type="submit">
+                Submit
+              </Button>
+            </div>
+          </Form>
+        </Card>
+      </Col>
+    </Row>
+  );
+}
 
 export default NewStudent;
