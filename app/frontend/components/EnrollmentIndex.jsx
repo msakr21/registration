@@ -1,15 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Card, Col, Row } from "react-bootstrap";
+import { Button, Card, Col, Row, Alert } from "react-bootstrap";
+import DeleteConfirmation from '~/components/DeleteConfirmation.jsx'
 
 function EnrollmentIndex(props) {
+  const csrf_token = document.head.getElementsByTagName('meta')[2].content;
   const enrollments = JSON.parse(document.getElementById("data").getAttribute("enrollments"));
+  const [displayConfirmationModal, setDisplayConfirmationModal] = useState(false);
+  const [deleteMessage, setDeleteMessage] = useState(null);
+  const deleteConfirmation = document.getElementById("data").getAttribute("delete_confirmation");
+  const [deletePath, setDeletePath] = useState(null);
+ 
+  
+  function ShowDeleteModal(enrollment, id) {
+    setDeletePath(`/admin/enrollments/${id}`);
+ 
+    setDeleteMessage(`Are you sure you want to delete the enrollment in ${enrollment.location} on ${enrollment.date} at ${enrollment.time}`);
+  
+    setDisplayConfirmationModal(true);
+  };
+
+  const hideConfirmationModal = () => {
+    setDisplayConfirmationModal(false);
+  };
+
+  const submitDelete = () => {
+    setDisplayConfirmationModal(false);
+  };
   
   function AtCapacity(limit,number) {
     if (number < limit) {
       return false;
     } else {
       return true;
+    }
+  };
+
+  function DisplayDeleteSuccess(confirmation) {
+    if(confirmation == 'true') {
+      return <Alert variant="success" dismissible>"The enrollment was deleted successfully."</Alert>
+    } else if(confirmation == 'error') {
+      return <Alert variant="danger" dismissible>"Can't delete session with registered students. Please remove students first."</Alert>
     }
   };
 
@@ -35,7 +66,7 @@ function EnrollmentIndex(props) {
 
   function UserHeaderUI(userType) {
     if (userType == "admin") {
-      return <Card.Header style={{textAlign: "center"}}><a href={"/admin/enrollments/new"}>New Enrollment Session</a></Card.Header>
+      return <Card.Header style={{textAlign: "center"}}><a href={"/admin/enrollments"}>Enrollment Index</a> &emsp; <a href={"/admin/enrollments/new"}>New Enrollment Session</a></Card.Header>
     }
   };
 
@@ -48,7 +79,7 @@ function EnrollmentIndex(props) {
                  <Button disabled={AtCapacity(enrollment.student_limit,enrollment.students)} href={URISetter("admin/enrollments",enrollment.id,"students","/new")} size="sm" variant="outline-dark">Add Student</Button>
                  <Button href={URISetter("admin/enrollments",enrollment.id,"edit","")} size="sm" variant="outline-dark">Edit Session</Button>
                  <Button href={URISetter("admin/enrollments",enrollment.id,"","")} size="sm" variant="outline-dark">Show Details</Button>
-                 <Button href={URISetter("admin/enrollments",enrollment.id,"delete","")} size="sm" variant="outline-dark">Delete Session</Button>
+                 <Button size="sm" variant="outline-dark" onClick={() => ShowDeleteModal(enrollment, enrollment.id)}>Delete Session</Button>
                </Row>
              </div>
     } else {
@@ -75,11 +106,13 @@ function EnrollmentIndex(props) {
   );
 
   return <Card border="light">
+          {DisplayDeleteSuccess(deleteConfirmation)}
           {UserHeaderUI(props.admin)}
           <Card.Title style={{textAlign: "center", margin: "2%"}}>Available Enrollment Sessions:</Card.Title>
           <Row xs={3} md={3} className="g-4">
           {listEnrollments}
           </Row>
+          <DeleteConfirmation showModal={displayConfirmationModal} confirmModal={submitDelete} hideModal={hideConfirmationModal} path={deletePath} message={deleteMessage} authenticity={csrf_token}/>
          </Card>
 };
 

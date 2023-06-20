@@ -1,6 +1,7 @@
 class Admin::EnrollmentsController < ApplicationController
   def index
     @enrollments = Enrollment.list_data
+    @delete_confirmation = params[:confirm_delete]
   end
 
   def new; end
@@ -23,9 +24,18 @@ class Admin::EnrollmentsController < ApplicationController
   end
 
   def update
-    # binding.pry
     enrollment = Enrollment.find(params[:id])
     enrollment.update!(location: params[:location], schedule: params[:schedule], student_limit: params[:student_limit])
     redirect_to '/admin/enrollments'
+  end
+
+  def destroy
+    enrollment = Enrollment.find(params[:id])
+    if enrollment.students.length == 0
+      enrollment.destroy
+      redirect_to action: 'index', confirm_delete: true
+    else
+      redirect_to action: 'index', confirm_delete: 'error'
+    end
   end
 end
