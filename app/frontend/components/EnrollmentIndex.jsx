@@ -25,12 +25,8 @@ function EnrollmentIndex(props) {
     setDisplayConfirmationModal(false);
   };
 
-  function AtCapacity(limit, number) {
-    if (number < limit) {
-      return false;
-    } else {
-      return true;
-    }
+  function isAtCapacity(limit, number) {
+    return limit <= number;
   };
 
   function DisplayDeleteSuccess(confirmation) {
@@ -74,7 +70,7 @@ function EnrollmentIndex(props) {
           <Card.Text>Student Limit: {enrollment.student_limit}</Card.Text>
           <Card.Text>Number of Students: {enrollment.students}</Card.Text>
           <Row xs={2} md={2}>
-            <Button disabled={AtCapacity(enrollment.student_limit, enrollment.students)} href={URISetter("admin/enrollments", enrollment.id, "students", "/new")} size="sm" variant="outline-dark">Add Student</Button>
+            <Button disabled={isAtCapacity(enrollment.student_limit, enrollment.students)} href={URISetter("admin/enrollments", enrollment.id, "students", "/new")} size="sm" variant="outline-dark">Add Student</Button>
             <Button href={URISetter("admin/enrollments", enrollment.id, "edit", "")} size="sm" variant="outline-dark">Edit Session</Button>
             <Button href={URISetter("admin/enrollments", enrollment.id, "", "")} size="sm" variant="outline-dark">Show Details</Button>
             <Button size="sm" variant="outline-dark" onClick={() => ShowDeleteModal(enrollment, enrollment.id)}>Delete Session</Button>
@@ -84,9 +80,9 @@ function EnrollmentIndex(props) {
     } else {
       return (
         <div id="student">
-          {StudentText(AtCapacity(enrollment.student_limit, enrollment.students), enrollment)}
+          {StudentText(isAtCapacity(enrollment.student_limit, enrollment.students), enrollment)}
           <div className="text-center">
-            <Button disabled={AtCapacity(enrollment.student_limit, enrollment.students)} href={LinkRendering(AtCapacity(enrollment.student_limit, enrollment.students), enrollment.id)} size="sm" variant="outline-dark">Register for this session</Button>
+            <Button disabled={isAtCapacity(enrollment.student_limit, enrollment.students)} href={LinkRendering(isAtCapacity(enrollment.student_limit, enrollment.students), enrollment.id)} size="sm" variant="outline-dark">Register for this session</Button>
           </div>
         </div>
       );

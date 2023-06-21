@@ -31,8 +31,7 @@ function NewStudent(props) {
 
   return (
     <Row style={{ height: "95vh" }}>
-      <Col xs={12} md={8} lg={6} xl={4} className="mx-auto">
-        <Card className="card mx-auto my-auto">
+        <Card className="card mx-auto my-auto" style={{ width: "40%" }}>
           <Card.Title className="text-center" style={{ marginTop: "25px", marginBottom: "20px" }}>
             Please fill the form below:
           </Card.Title>
@@ -61,7 +60,6 @@ function NewStudent(props) {
             </div>
           </Form>
         </Card>
-      </Col>
     </Row>
   )
 };
