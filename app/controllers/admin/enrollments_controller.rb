@@ -6,6 +6,18 @@ class Admin::EnrollmentsController < ApplicationController
 
   def new; end
 
+  def show
+    @enrollment = Enrollment.find(params[:id]).to_json
+    @students = Enrollment.find(params[:id]).students.map do |student|
+      {
+        first_name: student.first_name,
+        last_name: student.last_name,
+        email: student.email,
+        phone: student.phone
+      }
+    end.to_json
+  end
+
   def edit
     @enrollment_id = params[:id]
     enrollment = Enrollment.find(params[:id])
@@ -27,7 +39,7 @@ class Admin::EnrollmentsController < ApplicationController
 
   def destroy
     enrollment = Enrollment.find(params[:id])
-    if enrollment.students.length == 0
+    if enrollment.students.empty?
       enrollment.destroy
       redirect_to action: 'index', confirm_delete: true
     else
