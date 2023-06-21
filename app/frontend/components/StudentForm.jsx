@@ -63,7 +63,7 @@ function NewStudent(props) {
         </Card>
       </Col>
     </Row>
-  );
-}
+  )
+};
 
 export default NewStudent;
