@@ -13,4 +13,9 @@ class Admin::StudentsController < ApplicationController
     )
     redirect_to '/admin/enrollments'
   end
+
+  def destroy
+    Student.destroy(params[:id])
+    redirect_to controller: 'admin/enrollments', action: 'show', id: params[:enrollment_id], confirm_delete: true
+  end
 end

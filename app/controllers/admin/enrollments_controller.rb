@@ -9,6 +9,7 @@ class Admin::EnrollmentsController < ApplicationController
   def show
     @enrollment = Enrollment.enrollment_detail(params[:id])
     @students = Enrollment.find(params[:id]).students.list_student_data
+    @delete_confirmation = params[:confirm_delete]
   end
 
   def edit
