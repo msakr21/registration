@@ -7,15 +7,8 @@ class Admin::EnrollmentsController < ApplicationController
   def new; end
 
   def show
-    @enrollment = Enrollment.find(params[:id]).to_json
-    @students = Enrollment.find(params[:id]).students.map do |student|
-      {
-        first_name: student.first_name,
-        last_name: student.last_name,
-        email: student.email,
-        phone: student.phone
-      }
-    end.to_json
+    @enrollment = Enrollment.enrollment_detail(params[:id])
+    @students = Enrollment.find(params[:id]).students.list_student_data
   end
 
   def edit
