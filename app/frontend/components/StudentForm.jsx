@@ -31,7 +31,7 @@ function NewStudent(props) {
 
   return (
     <Row style={{ height: "95vh" }}>
-        <Card className="card mx-auto my-auto" style={{ width: "40%" }}>
+        <Card className="card mx-auto my-auto" style={{ width: "60%" }}>
           <Card.Title className="text-center" style={{ marginTop: "25px", marginBottom: "20px" }}>
             Please fill the form below:
           </Card.Title>
@@ -54,7 +54,7 @@ function NewStudent(props) {
               <Form.Control type="text" placeholder="Please Enter Phone Number" name="phone" value={phone} onChange={handlePhoneChange} />
             </Form.Group>
             <div className="text-center">
-              <Button size="sm" variant="outline-primary" style={{ marginBottom: "25px" }} type="submit">
+              <Button size="sm" variant="outline-primary" style={{ margin: "25px" }} type="submit">
                 Submit
               </Button>
             </div>
