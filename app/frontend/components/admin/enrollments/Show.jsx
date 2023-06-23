@@ -14,7 +14,6 @@ function AdminEnrollmentShow() {
   const students = JSON.parse(document.getElementById("data").getAttribute("students"));
   const [displayConfirmationModal, setDisplayConfirmationModal] = useState(false);
   const [deleteMessage, setDeleteMessage] = useState(null);
-  const deleteConfirmation = document.getElementById("data").getAttribute("delete_confirmation");
   const [deletePath, setDeletePath] = useState(null);
 
   function ShowDeleteModal(type, id) {
@@ -35,16 +34,6 @@ function AdminEnrollmentShow() {
   const submitDelete = () => {
     setDisplayConfirmationModal(false);
   };
-
-  function DisplayDeleteSuccess(confirmation) {
-    if (confirmation === 'true') {
-      return <Alert variant="success" dismissible>"The student has been removed successfully."</Alert>
-    } 
-    // else if (confirmation === 'error') {
-    //   return <Alert variant="danger" dismissible>"Can't delete session with registered students. Please remove students first."</Alert>
-    // }
-  };
-
 
   const showEnrollment = (enrollment, students) => (
     <Row>
@@ -103,7 +92,6 @@ function AdminEnrollmentShow() {
 
   return (
     <div style={{ height: "95vh" }}>
-      {DisplayDeleteSuccess(deleteConfirmation)}
       {showEnrollment(enrollment, students)}
       {enrolledStudents(students)}
       <DeleteConfirmation showModal={displayConfirmationModal} confirmModal={submitDelete} hideModal={hideConfirmationModal} path={deletePath} message={deleteMessage} authenticity={csrf_token} />
