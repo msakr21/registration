@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Card, Row, Alert, Table } from "react-bootstrap";
+import { Button, Card, Row, Alert, Table, InputGroup, Form } from "react-bootstrap";
 import DeleteConfirmation from '~/components/DeleteConfirmation.jsx';
 import { Trash, Pencil } from "react-bootstrap-icons";
 
@@ -84,7 +84,7 @@ function AdminEnrollmentShow() {
         </thead>
         <tbody>
           {students.map((student, index) => (
-            <tr key={index}>
+            <tr id={index}>
               <td>{index + 1}</td>
               <td>{student.first_name}</td>
               <td>{student.last_name}</td>
