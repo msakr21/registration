@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Card, Row, Alert, Table, InputGroup, Form } from "react-bootstrap";
 import DeleteConfirmation from '~/components/DeleteConfirmation.jsx';
 import { Trash, Pencil } from "react-bootstrap-icons";
+import { MDBInput, MDBTextArea } from 'mdb-react-ui-kit';
 
 function URISetter(main, id, sub, page) {
   return `/${main}/${id}/${sub}${page}`;
@@ -15,6 +16,28 @@ function AdminEnrollmentShow() {
   const [displayConfirmationModal, setDisplayConfirmationModal] = useState(false);
   const [deleteMessage, setDeleteMessage] = useState(null);
   const [deletePath, setDeletePath] = useState(null);
+  const [rowEdit, setRowEdit] = useState(false)
+  const [rowEditID, setRowEditID] = useState(null)
+  const [editFormFirstName, setEditFormFirstName] = useState(null)
+  const [editFormLastName, setEditFormLastName] = useState(null)
+  const [editFormEmail, setEditFormEmail] = useState(null)
+  const [editFormPhone, setEditFormPhone] = useState(null)
+
+  const handleFirstNameChange = (event) => {
+    setEditFormFirstName(event.target.value);
+  };
+  const handleLastNameChange = (event) => {
+    setEditFormLastName(event.target.value);
+  };
+
+  
+  const handleEmailChange = (event) => {
+    setEditFormEmail(event.target.value);
+  };
+
+  const handlePhoneChange = (event) => {
+    setEditFormPhone(event.target.value);
+  };
 
   function ShowDeleteModal(type, id) {
     if(type === enrollment){
@@ -26,6 +49,48 @@ function AdminEnrollmentShow() {
     };
     setDisplayConfirmationModal(true);
   };
+
+  function clickToEditRow(student, index) {
+    setRowEdit(true)
+    setEditFormFirstName(student.first_name)
+    setEditFormLastName(student.last_name)
+    setEditFormEmail(student.email)
+    setEditFormPhone(student.phone)
+    setRowEditID(index)
+  };
+
+  function populateRow(rowEdit, rowEditID, student, index) {
+    if(rowEdit === true && rowEditID === index) {
+      return (
+        <tr id={index} key={index}>
+          <td>{index + 1}</td>
+          <td><MDBInput type='text' value ={editFormFirstName} onChange={handleFirstNameChange}></MDBInput></td>
+          <td><MDBInput type='text' value ={editFormLastName} onChange={handleLastNameChange}></MDBInput></td>
+          <td><MDBInput type='text' value ={editFormEmail} onChange={handleEmailChange}></MDBInput></td>
+          <td><MDBInput type='text' value ={editFormPhone} onChange={handlePhoneChange}></MDBInput></td>
+          <td>
+            <Button style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} onClick={() => clickToEditRow(student, index)}> <Pencil color="blue" /> </Button> &emsp;
+            <Button style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} onClick={() => ShowDeleteModal(student, student.id)}> <Trash color="red" /> </Button>
+          </td>
+        </tr>
+      )
+    } else {
+      return (
+        <tr id={index} key={index}>
+          <td>{index + 1}</td>
+          <td>{student.first_name}</td>
+          <td>{student.last_name}</td>
+          <td>{student.email}</td>
+          <td>{student.phone}</td>
+          <td>
+            <Button style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} onClick={() => clickToEditRow(student, index)}> <Pencil color="blue" /> </Button> &emsp;
+            <Button style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} onClick={() => ShowDeleteModal(student, student.id)}> <Trash color="red" /> </Button>
+          </td>
+        </tr>
+      );
+    };
+  };
+
 
   const hideConfirmationModal = () => {
     setDisplayConfirmationModal(false);
@@ -73,17 +138,7 @@ function AdminEnrollmentShow() {
         </thead>
         <tbody>
           {students.map((student, index) => (
-            <tr id={index}>
-              <td>{index + 1}</td>
-              <td>{student.first_name}</td>
-              <td>{student.last_name}</td>
-              <td>{student.email}</td>
-              <td>{student.phone}</td>
-              <td>
-                <Button style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} href={URISetter("admin/students", student.id, "edit", "")}> <Pencil color="blue" /> </Button> &emsp;
-                <Button style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} onClick={() => ShowDeleteModal(student, student.id)}> <Trash color="red" /> </Button>
-              </td>
-            </tr>
+            populateRow(rowEdit, rowEditID, student, index)
           ))}
         </tbody>
       </Table>
