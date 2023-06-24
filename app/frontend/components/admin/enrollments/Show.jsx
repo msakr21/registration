@@ -3,7 +3,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Card, Row, Alert, Table, InputGroup, Form } from "react-bootstrap";
 import DeleteConfirmation from '~/components/DeleteConfirmation.jsx';
 import { Trash, Pencil } from "react-bootstrap-icons";
-import { MDBInput, MDBTextArea } from 'mdb-react-ui-kit';
+import { MDBInput } from 'mdb-react-ui-kit';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faSave} from "@fortawesome/free-regular-svg-icons"
 
 function URISetter(main, id, sub, page) {
   return `/${main}/${id}/${sub}${page}`;
@@ -22,6 +24,7 @@ function AdminEnrollmentShow() {
   const [editFormLastName, setEditFormLastName] = useState(null)
   const [editFormEmail, setEditFormEmail] = useState(null)
   const [editFormPhone, setEditFormPhone] = useState(null)
+  const [studentID, setStudentID] = useState(null)
 
   const handleFirstNameChange = (event) => {
     setEditFormFirstName(event.target.value);
@@ -51,12 +54,13 @@ function AdminEnrollmentShow() {
   };
 
   function clickToEditRow(student, index) {
-    setRowEdit(true)
+    setRowEdit(!rowEdit)
     setEditFormFirstName(student.first_name)
     setEditFormLastName(student.last_name)
     setEditFormEmail(student.email)
     setEditFormPhone(student.phone)
     setRowEditID(index)
+    setStudentID(student.id)
   };
 
   function populateRow(rowEdit, rowEditID, student, index) {
@@ -70,6 +74,7 @@ function AdminEnrollmentShow() {
           <td><MDBInput type='text' value ={editFormPhone} onChange={handlePhoneChange}></MDBInput></td>
           <td>
             <Button style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} onClick={() => clickToEditRow(student, index)}> <Pencil color="blue" /> </Button> &emsp;
+            <Button style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}}> <FontAwesomeIcon icon={faSave} color="blue"/> </Button> &emsp;
             <Button style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} onClick={() => ShowDeleteModal(student, student.id)}> <Trash color="red" /> </Button>
           </td>
         </tr>
@@ -84,6 +89,7 @@ function AdminEnrollmentShow() {
           <td>{student.phone}</td>
           <td>
             <Button style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} onClick={() => clickToEditRow(student, index)}> <Pencil color="blue" /> </Button> &emsp;
+            <Button style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} disabled={true}> <FontAwesomeIcon icon={faSave} color="lightgrey"/> </Button> &emsp;
             <Button style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} onClick={() => ShowDeleteModal(student, student.id)}> <Trash color="red" /> </Button>
           </td>
         </tr>
