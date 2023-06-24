@@ -120,6 +120,25 @@ function AdminEnrollmentShow() {
     setDisplayConfirmationModal(false);
   };
 
+  const endTime = (time) => {
+    let endHour = parseInt(time.slice(0,2)) + 3
+    const meridiemSwitch = {
+      "P": "A",
+      "A": "P"
+    };
+    if(endHour > 15) {
+      endHour -= 12
+      return `0${endHour}${time.slice(-6)}`
+    } else if(endHour > 12 && endHour <= 15) {
+      endHour -= 12
+      return (('0'+`${endHour}`).slice(-2)+`${time.slice(2,6)}`+`${meridiemSwitch[time[6]]}M`)
+    } else if(endHour = 12) {
+      return (('0'+`${endHour}`).slice(-2)+`${time.slice(2,6)}`+`${meridiemSwitch[time[6]]}M`)
+    } else { 
+      return `${('0'+ (parseInt(time.slice(0,2))+3)).slice(-2)}${time.slice(-6)}`
+    }
+  };
+
   const showEnrollment = (enrollment, students) => (
     <Row>
       <Card className="enrollment-card card mx-auto px-0" bg="light" text="dark" border="dark" style={{ width: "40%", height: "50%" }}>
@@ -129,7 +148,7 @@ function AdminEnrollmentShow() {
         </Card.Header>
         <Card.Body style={{ textAlign: "center" }}>
           <Card.Title>{enrollment.location} — {enrollment.date}</Card.Title>
-          <Card.Subtitle>{enrollment.time}</Card.Subtitle>
+          <Card.Subtitle>{enrollment.time} — {endTime(enrollment.time)}</Card.Subtitle>
           <br />
           <Card.Text>Student Limit: {enrollment.student_limit}</Card.Text>
           <Card.Text>Number of Students: {students.length}</Card.Text>
