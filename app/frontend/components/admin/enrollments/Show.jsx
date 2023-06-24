@@ -86,9 +86,9 @@ function AdminEnrollmentShow() {
           <td><MDBInput type='text' value ={editFormPhone} onChange={handlePhoneChange}></MDBInput></td>
           {editForm(student)}
           <td>
-            <Button style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} onClick={() => clickToEditRow(student, index)}> <Pencil color="blue" /> </Button> &emsp;
-            <Button style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} type="submit" form={"editForm"}> <FontAwesomeIcon icon={faSave} color="blue"/> </Button> &emsp;
-            <Button style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} onClick={() => ShowDeleteModal(student, student.id)}> <Trash color="red" /> </Button>
+            <Button name="pen" style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} onClick={() => clickToEditRow(student, index)}> <Pencil color="blue" /> </Button> &emsp;
+            <Button name="save" style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} type="submit" form={"editForm"}> <FontAwesomeIcon icon={faSave} color="blue"/> </Button> &emsp;
+            <Button name="trash" style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} onClick={() => ShowDeleteModal(student, student.id)}> <Trash color="red" /> </Button>
           </td>
         </tr>
       )
@@ -101,9 +101,9 @@ function AdminEnrollmentShow() {
           <td>{student.email}</td>
           <td>{student.phone}</td>
           <td>
-            <Button style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} onClick={() => clickToEditRow(student, index)}> <Pencil color="blue" /> </Button> &emsp;
-            <Button style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} disabled={true}> <FontAwesomeIcon icon={faSave} color="lightgrey"/> </Button> &emsp;
-            <Button style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} onClick={() => ShowDeleteModal(student, student.id)}> <Trash color="red" /> </Button>
+            <Button name="pen" style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} onClick={() => clickToEditRow(student, index)}> <Pencil color="blue" /> </Button> &emsp;
+            <Button name="save" style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} disabled={true}> <FontAwesomeIcon icon={faSave} color="lightgrey"/> </Button> &emsp;
+            <Button name="trash" style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} onClick={() => ShowDeleteModal(student, student.id)}> <Trash color="red" /> </Button>
           </td>
         </tr>
       );
