@@ -101,7 +101,7 @@ function EnrollmentIndex(props) {
     } else if(endHour > 12 && endHour <= 15) {
       endHour -= 12
       return (('0'+`${endHour}`).slice(-2)+`${time.slice(2,6)}`+`${meridiemSwitch[time[6]]}M`)
-    } else if(endHour = 12) {
+    } else if(endHour === 12) {
       return (('0'+`${endHour}`).slice(-2)+`${time.slice(2,6)}`+`${meridiemSwitch[time[6]]}M`)
     } else { 
       return `${('0'+ (parseInt(time.slice(0,2))+3)).slice(-2)}${time.slice(-6)}`
