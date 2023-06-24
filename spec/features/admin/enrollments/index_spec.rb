@@ -51,7 +51,8 @@ RSpec.describe 'admin enrollments index page', type: :feature, driver: :selenium
       click_button('Delete Session')
 
       expect(page).to have_css('body.modal-open')
-      within('body.modal-open') do
+      within('body.modal-open', wait: 2) do
+        # binding.pry
         expect(page).to have_css('div.fade.modal.show')
         within('div.fade.modal.show') do
           expect(page).to have_css('div.modal-dialog')
@@ -69,7 +70,7 @@ RSpec.describe 'admin enrollments index page', type: :feature, driver: :selenium
 
       click_button('Delete Session')
       expect(page).to have_css('body.modal-open')
-      within('body.modal-open') do
+      within('body.modal-open', wait: 2) do
         expect(page).to have_css('div.fade.modal.show')
         within('div.fade.modal.show') do
           expect(page).to have_css('div.modal-dialog')
@@ -92,7 +93,7 @@ RSpec.describe 'admin enrollments index page', type: :feature, driver: :selenium
 
       click_button('Delete Session')
       expect(page).to have_css('body.modal-open')
-      within('body.modal-open') do
+      within('body.modal-open', wait: 2) do
         expect(page).to have_css('div.fade.modal.show')
         within('div.fade.modal.show') do
           expect(page).to have_css('div.modal-dialog')
