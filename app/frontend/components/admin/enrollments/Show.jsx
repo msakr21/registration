@@ -20,10 +20,11 @@ function AdminEnrollmentShow() {
   const [deletePath, setDeletePath] = useState(null);
   const [rowEdit, setRowEdit] = useState(false)
   const [rowEditID, setRowEditID] = useState(null)
-  const [editFormFirstName, setEditFormFirstName] = useState(null)
-  const [editFormLastName, setEditFormLastName] = useState(null)
-  const [editFormEmail, setEditFormEmail] = useState(null)
-  const [editFormPhone, setEditFormPhone] = useState(null)
+  const [studentID, setStudentID] = useState(0)
+  const [editFormFirstName, setEditFormFirstName] = useState("")
+  const [editFormLastName, setEditFormLastName] = useState("")
+  const [editFormEmail, setEditFormEmail] = useState("")
+  const [editFormPhone, setEditFormPhone] = useState("")
 
   const handleFirstNameChange = (event) => {
     setEditFormFirstName(event.target.value);
@@ -58,12 +59,13 @@ function AdminEnrollmentShow() {
     setEditFormLastName(student.last_name)
     setEditFormEmail(student.email)
     setEditFormPhone(student.phone)
+    setStudentID(student.id)
     setRowEditID(index)
   };
 
-  const editForm = (student) => {
+  const editForm = () => {
     return (
-      <form id="editForm" action={`/admin/enrollments/${enrollment.id}/students/${student.id}`} method="post">
+      <form id="editForm" action={`/admin/enrollments/${enrollment.id}/students/${studentID}`} method="post">
         <input type="hidden" name="authenticity_token" value={csrf_token} />
         <input type="hidden" name="_method" value="PATCH" />
         <input type="hidden" name="first_name" value={editFormFirstName} />
@@ -84,7 +86,6 @@ function AdminEnrollmentShow() {
           <td><MDBInput type='text' value ={editFormLastName} onChange={handleLastNameChange}></MDBInput></td>
           <td><MDBInput type='text' value ={editFormEmail} onChange={handleEmailChange}></MDBInput></td>
           <td><MDBInput type='text' value ={editFormPhone} onChange={handlePhoneChange}></MDBInput></td>
-          {editForm(student)}
           <td>
             <Button name="pen" style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} onClick={() => clickToEditRow(student, index)}> <Pencil color="blue" /> </Button> &emsp;
             <Button name="save" style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} type="submit" form={"editForm"}> <FontAwesomeIcon icon={faSave} color="blue"/> </Button> &emsp;
@@ -143,6 +144,7 @@ function AdminEnrollmentShow() {
 
   const enrolledStudents = (students) => (
     <div>
+      {editForm()}
       <h4>Enrolled Students:</h4>
       <Table striped bordered hover>
         <thead>
