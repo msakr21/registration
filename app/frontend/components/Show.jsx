@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Card, Row, Alert, Table, InputGroup, Form } from "react-bootstrap";
+import { Button, Card, Row, Col, Table} from "react-bootstrap";
 import DeleteConfirmation from '~/components/DeleteConfirmation.jsx';
 import { Trash, Pencil } from "react-bootstrap-icons";
 import { MDBInput } from 'mdb-react-ui-kit';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faSave} from "@fortawesome/free-regular-svg-icons"
-
-function URISetter(main, id, sub, page) {
-  return `/${main}/${id}/${sub}${page}`;
-}
+import { faSave } from "@fortawesome/free-regular-svg-icons"
+import { faPrint } from "@fortawesome/free-solid-svg-icons"
 
 function AdminEnrollmentShow() {
   const csrf_token = document.head.getElementsByTagName('meta')[2].content;
@@ -26,6 +23,10 @@ function AdminEnrollmentShow() {
   const [editFormEmail, setEditFormEmail] = useState("")
   const [editFormPhone, setEditFormPhone] = useState("")
 
+  function URISetter(main, id, sub, page) {
+    return `/${main}/${id}/${sub}${page}`;
+  }
+
   const handleFirstNameChange = (event) => {
     setEditFormFirstName(event.target.value);
   };
@@ -41,6 +42,8 @@ function AdminEnrollmentShow() {
   const handlePhoneChange = (event) => {
     setEditFormPhone(event.target.value);
   };
+
+  const print = () => window.print();
 
   function ShowDeleteModal(type, id) {
     if(type === enrollment){
@@ -142,9 +145,10 @@ function AdminEnrollmentShow() {
   const showEnrollment = (enrollment, students) => (
     <Row>
       <Card className="enrollment-card card mx-auto px-0" bg="light" text="dark" border="dark" style={{ width: "40%", height: "50%" }}>
-        <Card.Header style={{ textAlign: "center"}}>
+        <Card.Header style={{ textAlign: "center" }}>
           <a href={"/admin/enrollments"}>Enrollment Index</a> &emsp;
-          <a href={"/admin/enrollments/new"}>New Enrollment Session</a>
+          <a href={"/admin/enrollments/new"}>New Enrollment Session</a> &emsp;
+          <Button name="print" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={print}> <FontAwesomeIcon icon={faPrint} color="grey"/> </Button>
         </Card.Header>
         <Card.Body style={{ textAlign: "center" }}>
           <Card.Title>{enrollment.location} — {enrollment.date}</Card.Title>
