@@ -144,7 +144,7 @@ function AdminEnrollmentShow() {
 
   const showEnrollment = (enrollment, students) => (
     <Row>
-      <Card className="enrollment-card card mx-auto px-0" bg="light" text="dark" border="dark" style={{ width: "40%", height: "50%" }}>
+      <Card id="enrollmentCard" className="enrollment-card card mx-auto px-0" bg="light" text="dark" border="dark" style={{ width: "40%", height: "50%" }}>
         <Card.Header style={{ textAlign: "center" }}>
           <a href={"/admin/enrollments"}>Enrollment Index</a> &emsp;
           <a href={"/admin/enrollments/new"}>New Enrollment Session</a> &emsp;
