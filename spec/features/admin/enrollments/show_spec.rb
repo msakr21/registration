@@ -25,6 +25,7 @@ RSpec.describe 'admin enrollments show page', type: :feature, driver: :selenium_
         expect(page).to have_content(student.last_name)
         expect(page).to have_content(student.email)
         expect(page).to have_content(student.phone)
+        expect(page).to have_content(student.language)
       end
     end
 

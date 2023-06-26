@@ -9,15 +9,15 @@ class Admin::StudentsController < ApplicationController
       first_name: params[:first_name],
       last_name: params[:last_name],
       email: params[:email],
-      phone: params[:phone]
+      phone: params[:phone],
+      language: params[:language]
     )
     redirect_to '/admin/enrollments'
   end
 
   def update
-    # binding.pry
     student = Student.find(params[:id])
-    student.update!(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone: params[:phone])
+    student.update!(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone: params[:phone], language: params[:language])
     redirect_to "/admin/enrollments/#{params[:enrollment_id]}"
   end
 

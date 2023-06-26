@@ -9,7 +9,8 @@ class StudentsController < ApplicationController
       first_name: params[:first_name],
       last_name: params[:last_name],
       email: params[:email],
-      phone: params[:phone]
+      phone: params[:phone],
+      language: params[:language]
     )
     redirect_to '/enrollments'
   end
