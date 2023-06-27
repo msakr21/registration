@@ -21,16 +21,16 @@ function EnrollmentForm(props) {
   };
 
   const handleLocationChange = (event) => {
-    setLocation(event.target.value)
+    setLocation(event.target.value);
   };
 
   const handleStudentsChange = (event) => {
-    setStudents(event.target.value)
+    setStudents(event.target.value);
   };
 
   function RenderField(method) {
     if (method === "patch") {
-      return <input type="hidden" name="_method" value="PATCH" />
+      return <input type="hidden" name="_method" value="PATCH" />;
     }
   }
 

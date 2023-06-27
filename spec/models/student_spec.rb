@@ -15,7 +15,7 @@ RSpec.describe Student, type: :model do
     end
 
     it 'returns a list of enrollments as a JSON collection' do
-      expect(Student.list_data).to eq([{ id: @bryan.id, first_name: 'Bryan', last_name: 'Keener', email: 'bryan.keener@persona.com', phone: '5555555555', language: 'English'}, {id: @mufasa.id, first_name: 'Mufasa', last_name: 'Skar', email: 'mufasa.skar@persona.com', phone: '7777777777', language: 'Aramaic'}].to_json)
+      expect(Student.list_data).to eq([{ id: @bryan.id, first_name: 'Bryan', last_name: 'Keener', email: 'bryan.keener@persona.com', phone: '5555555555', language: 'English' }, { id: @mufasa.id, first_name: 'Mufasa', last_name: 'Skar', email: 'mufasa.skar@persona.com', phone: '7777777777', language: 'Aramaic' }].to_json)
     end
   end
 end

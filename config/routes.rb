@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#home'
-  
+
   namespace :admin do
     resources :enrollments do
       resources :students

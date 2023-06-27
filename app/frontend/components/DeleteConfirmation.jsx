@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, Form } from "react-bootstrap";
+import { Modal, Button, Form } from 'react-bootstrap';
 
 function DeleteConfirmation(props) {
   return (

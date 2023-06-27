@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Card, Col, Row, Alert } from "react-bootstrap";
-import DeleteConfirmation from '~/components/DeleteConfirmation.jsx'
+import DeleteConfirmation from '~/components/DeleteConfirmation.jsx';
 
 function EnrollmentIndex(props) {
   const csrf_token = document.head.getElementsByTagName('meta')[2].content;
@@ -15,7 +15,7 @@ function EnrollmentIndex(props) {
     setDeletePath(`/admin/enrollments/${id}`);
     setDeleteMessage(`Are you sure you want to delete the enrollment in ${enrollment.location} on ${enrollment.date} at ${enrollment.time}`);
     setDisplayConfirmationModal(true);
-  };
+  }
 
   const hideConfirmationModal = () => {
     setDisplayConfirmationModal(false);
@@ -27,41 +27,41 @@ function EnrollmentIndex(props) {
 
   function isAtCapacity(limit, number) {
     return limit <= number;
-  };
+  }
 
   function DisplayDeleteSuccess(confirmation) {
     if (confirmation === 'true') {
-      return <Alert variant="success" dismissible>"The enrollment was deleted successfully."</Alert>
+      return <Alert variant="success" dismissible>"The enrollment was deleted successfully."</Alert>;
     } else if (confirmation === 'error') {
-      return <Alert variant="danger" dismissible>"Can't delete session with registered students. Please remove students first."</Alert>
+      return <Alert variant="danger" dismissible>"Can't delete session with registered students. Please remove students first."</Alert>;
     }
-  };
+  }
 
   function URISetter(main, id, sub, page) {
-    return `/${main}/${id}/${sub}${page}`
-  };
+    return `/${main}/${id}/${sub}${page}`;
+  }
 
   function LinkRendering(capacity, id) {
     if (capacity) {
-      return "/enrollments"
+      return "/enrollments";
     } else {
-      return URISetter("enrollments", id, "students", "/new")
+      return URISetter("enrollments", id, "students", "/new");
     }
-  };
+  }
 
   function StudentText(capacity, enrollment) {
     if (capacity) {
-      return <Card.Text>Session is Full</Card.Text>
+      return <Card.Text>Session is Full</Card.Text>;
     } else {
-      return <Card.Text>Available seats: {enrollment.student_limit - enrollment.students}</Card.Text>
+      return <Card.Text>Available seats: {enrollment.student_limit - enrollment.students}</Card.Text>;
     }
-  };
+  }
 
   function UserHeaderUI(userType) {
     if (userType === "admin") {
-      return <Card.Header style={{ textAlign: "center" }}><a href={"/admin/enrollments"}>Enrollment Index</a> &emsp; <a href={"/admin/enrollments/new"}>New Enrollment Session</a></Card.Header>
+      return <Card.Header style={{ textAlign: "center" }}><a href={"/admin/enrollments"}>Enrollment Index</a> &emsp; <a href={"/admin/enrollments/new"}>New Enrollment Session</a></Card.Header>;
     }
-  };
+  }
 
   function UserListUI(userType, enrollment) {
     if (userType === "admin") {
@@ -87,26 +87,26 @@ function EnrollmentIndex(props) {
         </div>
       );
     }
-  };
+  }
 
   const endTime = (time) => {
-    let endHour = parseInt(time.slice(0,2)) + 3
+    let endHour = parseInt(time.slice(0,2)) + 3;
     const meridiemSwitch = {
       "P": "A",
       "A": "P"
     };
     if(endHour > 15) {
-      endHour -= 12
-      return `0${endHour}${time.slice(-6)}`
+      endHour -= 12;
+      return `0${endHour}${time.slice(-6)}`;
     } else if(endHour > 12 && endHour <= 15) {
-      endHour -= 12
-      return (('0'+`${endHour}`).slice(-2)+`${time.slice(2,6)}`+`${meridiemSwitch[time[6]]}M`)
+      endHour -= 12;
+      return (('0'+`${endHour}`).slice(-2)+`${time.slice(2,6)}`+`${meridiemSwitch[time[6]]}M`);
     } else if(endHour === 12) {
-      return (('0'+`${endHour}`).slice(-2)+`${time.slice(2,6)}`+`${meridiemSwitch[time[6]]}M`)
+      return (('0'+`${endHour}`).slice(-2)+`${time.slice(2,6)}`+`${meridiemSwitch[time[6]]}M`);
     } else { 
-      return `${('0'+ (parseInt(time.slice(0,2))+3)).slice(-2)}${time.slice(-6)}`
+      return `${('0'+ (parseInt(time.slice(0,2))+3)).slice(-2)}${time.slice(-6)}`;
     }
-  };
+  }
 
   const listEnrollments = enrollments.map((enrollment) =>
     <Col key={enrollment.id}>
