@@ -11,6 +11,7 @@ RSpec.describe 'admin enrollments index page', driver: :selenium_chrome, js: tru
     it 'I see a list of enrollments' do
       expect(page).to have_content('Eloise May')
       expect(page).to have_content('06/11/2030')
+      expect(page).to have_content('09:00 AM')
       expect(page).to have_link('Add Student', visible: true)
       expect(page).to have_link('Edit Session', visible: true)
       expect(page).to have_link('Show Details', visible: true)
