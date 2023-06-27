@@ -15,6 +15,7 @@ RSpec.describe 'admin new student page', type: :feature, driver: :selenium_chrom
         expect(page).to have_field('last_name')
         expect(page).to have_field('email')
         expect(page).to have_field('phone')
+        expect(page).to have_field('language')
         expect(page).to have_button('Submit')
       end
 
@@ -27,6 +28,7 @@ RSpec.describe 'admin new student page', type: :feature, driver: :selenium_chrom
         fill_in('last_name', with: 'Labo')
         fill_in('email', with: 'david.labo@someemail.com')
         fill_in('phone', with: '1337666575')
+        fill_in('language', with: 'Spanish')
         click_button('Submit')
 
         eloise_may_id = Enrollment.find(eloise_may.id)

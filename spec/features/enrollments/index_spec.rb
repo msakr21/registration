@@ -24,7 +24,7 @@ RSpec.describe 'enrollments index page', type: :feature, driver: :selenium_chrom
     it 'will disable the registration button if number of students registered is equal to student limit' do
       i = 0
       until Student.all.length == 30
-        eloise_may.students.create(first_name: "test#{i}", last_name: "test#{i}", email: "test#{i}@email.com", phone: '0000000000')
+        eloise_may.students.create(first_name: "test#{i}", last_name: "test#{i}", email: "test#{i}@email.com", phone: '0000000000', language: 'Spanish')
         i += 1
       end
 

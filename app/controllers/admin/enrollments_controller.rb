@@ -8,7 +8,7 @@ class Admin::EnrollmentsController < ApplicationController
 
   def show
     @enrollment = Enrollment.enrollment_detail(params[:id])
-    @students = Enrollment.find(params[:id]).students.list_student_data
+    @students = Enrollment.find(params[:id]).students.list_data
   end
 
   def edit
