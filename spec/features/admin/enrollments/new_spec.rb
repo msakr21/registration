@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'new enrollment page', type: :feature, driver: :selenium_chrome, js: true do
+RSpec.describe 'new enrollment page', driver: :selenium_chrome, js: true do
   let(:new_enrollment_path) { '/admin/enrollments/new' }
 
   def fill_and_submit_form(location:, student_limit:, date:, time:)

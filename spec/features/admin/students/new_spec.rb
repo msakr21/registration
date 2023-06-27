@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'admin new student page', type: :feature, driver: :selenium_chrome, js: true do
+RSpec.describe 'admin new student page', driver: :selenium_chrome, js: true do
   describe 'when I visit admin/enrollments/:enrollment_id/students/new' do
     let(:eloise_may) { create(:enrollment, location: 'Eloise May') }
     let(:sheridan) { create(:enrollment, location: 'Sheridan') }

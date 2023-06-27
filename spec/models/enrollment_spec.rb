@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Enrollment, type: :model do
+RSpec.describe Enrollment do
   describe 'relationships' do
     it { should have_many :students }
   end
@@ -13,8 +13,8 @@ RSpec.describe Enrollment, type: :model do
     describe '#list_data' do
       it 'returns a list of enrollments as a JSON collection' do
         expect(Enrollment.list_data).to eq([
-          { "id": eloise_may.id, "location": eloise_may.location, "date": '06/11/2030', "time": '09:00 AM', "student_limit": 30, "students": 0 },
-          { "id": sheridan.id, "location": sheridan.location, "date": '06/12/2030', "time": '09:00 AM', "student_limit": 10, "students": 2 }
+          { id: eloise_may.id, location: eloise_may.location, date: '06/11/2030', time: '09:00 AM', student_limit: 30, students: 0 },
+          { id: sheridan.id, location: sheridan.location, date: '06/12/2030', time: '09:00 AM', student_limit: 10, students: 2 }
         ].to_json)
       end
     end
@@ -23,7 +23,7 @@ RSpec.describe Enrollment, type: :model do
       context 'when a valid id is provided' do
         it 'returns the details of a single enrollment' do
           expect(Enrollment.enrollment_detail(eloise_may.id)).to eq(
-            { "id": eloise_may.id, "location": eloise_may.location, "date": '06/11/2030', "time": '09:00 AM', "student_limit": 30, "students": 0 }.to_json
+            { id: eloise_may.id, location: eloise_may.location, date: '06/11/2030', time: '09:00 AM', student_limit: 30, students: 0 }.to_json
           )
         end
       end

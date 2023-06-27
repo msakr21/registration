@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'home page', type: :feature, driver: :selenium_chrome, js: true do
+RSpec.describe 'home page', driver: :selenium_chrome, js: true do
   it 'has a prompt for admin user experience and a prompt for prospective student user experience' do
     visit root_path
 

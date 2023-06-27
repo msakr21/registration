@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'enrollments index page', type: :feature, driver: :selenium_chrome, js: true do
+RSpec.describe 'enrollments index page', driver: :selenium_chrome, js: true do
   describe 'when I visit /enrollments' do
     let!(:eloise_may) { create(:enrollment, location: 'Eloise May', schedule: DateTime.parse('2030-06-11T15:00:24.000Z')) }
 

@@ -5,6 +5,6 @@ FactoryBot.define do
     email { Faker::Internet.email }
     phone { Faker::Number.number(digits: 10) }
     language { Faker::Nation.language }
-    association :enrollment
+    enrollment
   end
 end

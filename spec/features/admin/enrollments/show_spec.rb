@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'admin enrollments show page', type: :feature, driver: :selenium_chrome, js: true do
+RSpec.describe 'admin enrollments show page', driver: :selenium_chrome, js: true do
   describe 'when I visit /admin/enrollments/:id' do
     let(:enrollment) { create(:enrollment) }
     let!(:students) { create_list(:student, 20, enrollment:) }
@@ -35,7 +35,7 @@ RSpec.describe 'admin enrollments show page', type: :feature, driver: :selenium_
       expect(page).to have_button('save', disabled: true, count: 20)
     end
 
-    it 'shows a a print button in the enrollment details ' do
+    it 'shows a a print button in the enrollment details' do
       within '#enrollmentCard' do
         expect(page).to have_button('print')
       end
