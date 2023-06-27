@@ -26,7 +26,8 @@ RSpec.describe 'enrollments index page', driver: :selenium_chrome, js: true do
 
       visit enrollments_path
 
-      expect(page).to have_css('a.disabled', text: 'Register for this session')
+      expect(page).to have_link('Register for this session', visible: false)
+      # expect(page).to have_css('a.disabled', text: 'Register for this session') <-- alternative to above line
       expect { click_link('Register for this session') }.to raise_error(Selenium::WebDriver::Error::ElementClickInterceptedError)
     end
   end
