@@ -1,54 +1,60 @@
 require 'rails_helper'
 
 RSpec.describe 'new enrollment page', type: :feature, driver: :selenium_chrome, js: true do
-  it 'displays a form to be filled' do
-    visit '/admin/enrollments/new'
+  let(:new_enrollment_path) { '/admin/enrollments/new' }
 
-    expect(page).to have_content('Please fill the form below:')
-    expect(page).to have_selector(:css, 'form')
-    expect(page).to have_field('student_limit')
-    expect(page).to have_select('location')
-    expect(page).to have_css('input[type="text"][class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"][placeholder="MM/DD/YYYY"]')
-    expect(page).to have_css('input[type="text"][class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"][placeholder="hh:mm aa"]')
-    expect(page).to have_button('Submit')
-  end
-
-  it 'creates a new enrollment upon submitting form' do
-    expect(Enrollment.all.length).to eq(0)
-    visit '/admin/enrollments/new'
+  def fill_and_submit_form(location:, student_limit:, date:, time:)
+    visit new_enrollment_path
 
     within('div#location') do
-      find("option[value='Eloise May']").click
+      find("option[value='#{location}']").click
     end
 
-    fill_in('student_limit', with: 30)
-
-    find('input[type="text"][class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"][placeholder="MM/DD/YYYY"]').set('06/20/2030')
-    find('input[type="text"][class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"][placeholder="hh:mm aa"]').set('09:00 AM')
+    fill_in('student_limit', with: student_limit)
+    find('input[placeholder="MM/DD/YYYY"]').set(date)
+    find('input[placeholder="hh:mm aa"]').set(time)
 
     click_button('Submit')
-
-    expect(Enrollment.all.length).to eq(1)
-    expect(Enrollment.all.first.location).to eq('Eloise May')
-    expect(Enrollment.all.first.student_limit).to eq(30)
-    expect(Enrollment.all.first.schedule.in_time_zone('Mountain Time (US & Canada)').strftime('%Y/%m/%d %I:%M %p')).to eq('2030/06/20 09:00 AM')
   end
 
-  it 'redirects to the admin enrollments index page upon creating a new enrollment' do
-    expect(Enrollment.all.length).to eq(0)
-    visit '/admin/enrollments/new'
+  describe 'display of the form' do
+    it 'displays a form to be filled' do
+      visit new_enrollment_path
 
-    fill_in('student_limit', with: 30)
+      expect(page).to have_content('Please fill the form below:')
+      expect(page).to have_selector(:css, 'form')
+      expect(page).to have_field('student_limit')
+      expect(page).to have_select('location')
+      expect(page).to have_css('input[placeholder="MM/DD/YYYY"]')
+      expect(page).to have_css('input[placeholder="hh:mm aa"]')
+      expect(page).to have_button('Submit')
+    end
+  end
 
-    within('div#location') do
-      find("option[value='Eloise May']").click
+  context 'when the form is filled out correctly' do
+    let(:location) { 'Eloise May' }
+    let(:student_limit) { 30 }
+    let(:date) { '06/20/2030' }
+    let(:time) { '09:00 AM' }
+
+    before do
+      fill_and_submit_form(
+        location:,
+        student_limit:,
+        date:,
+        time:
+      )
     end
 
-    find('input[type="text"][class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"][placeholder="MM/DD/YYYY"]').set('06/20/2030')
-    find('input[type="text"][class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"][placeholder="hh:mm aa"]').set('09:00 AM')
+    it 'creates a new enrollment upon submitting form' do
+      expect(Enrollment.all.length).to eq(1)
+      expect(Enrollment.first.location).to eq(location)
+      expect(Enrollment.first.student_limit).to eq(student_limit)
+      expect(Enrollment.first.schedule.in_time_zone('Mountain Time (US & Canada)').strftime('%Y/%m/%d %I:%M %p')).to eq('2030/06/20 09:00 AM')
+    end
 
-    click_button('Submit')
-
-    expect(current_path).to eq('/admin/enrollments')
+    it 'redirects to the admin enrollments index page upon creating a new enrollment' do
+      expect(current_path).to eq('/admin/enrollments')
+    end
   end
 end
