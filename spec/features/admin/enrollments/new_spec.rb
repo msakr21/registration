@@ -3,20 +3,6 @@ require 'rails_helper'
 RSpec.describe 'new enrollment page', driver: :selenium_chrome, js: true do
   let(:new_enrollment_path) { '/admin/enrollments/new' }
 
-  def fill_and_submit_form(location:, student_limit:, date:, time:)
-    visit new_enrollment_path
-
-    within('div#location') do
-      find("option[value='#{location}']").click
-    end
-
-    fill_in('student_limit', with: student_limit)
-    find('input[placeholder="MM/DD/YYYY"]').set(date)
-    find('input[placeholder="hh:mm aa"]').set(time)
-
-    click_button('Submit')
-  end
-
   describe 'display of the form' do
     it 'displays a form to be filled' do
       visit new_enrollment_path
@@ -29,6 +15,20 @@ RSpec.describe 'new enrollment page', driver: :selenium_chrome, js: true do
       expect(page).to have_css('input[placeholder="hh:mm aa"]')
       expect(page).to have_button('Submit')
     end
+  end
+
+  def fill_and_submit_form(location:, student_limit:, date:, time:)
+    visit new_enrollment_path
+
+    within('div#location') do
+      find("option[value='#{location}']").click
+    end
+
+    fill_in('student_limit', with: student_limit)
+    find('input[placeholder="MM/DD/YYYY"]').set(date)
+    find('input[placeholder="hh:mm aa"]').set(time)
+
+    click_button('Submit')
   end
 
   context 'when the form is filled out correctly' do
