@@ -33,5 +33,11 @@ RSpec.describe 'admin enrollments show page', type: :feature, driver: :selenium_
       expect(page).to have_button("pen", count: 20)
       expect(page).to have_button("save", disabled: true, count: 20)
     end
+
+    it 'shows a a print button in the enrollment details ' do
+      within '#enrollmentCard' do
+        expect(page).to have_button("print")
+      end
+    end
   end
 end
