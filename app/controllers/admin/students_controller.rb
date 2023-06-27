@@ -13,4 +13,16 @@ class Admin::StudentsController < ApplicationController
     )
     redirect_to '/admin/enrollments'
   end
+
+  def update
+    # binding.pry
+    student = Student.find(params[:id])
+    student.update!(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone: params[:phone])
+    redirect_to "/admin/enrollments/#{params[:enrollment_id]}"
+  end
+
+  def destroy
+    Student.destroy(params[:id])
+    redirect_to controller: 'admin/enrollments', action: 'show', id: params[:enrollment_id]
+  end
 end
