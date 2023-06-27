@@ -13,11 +13,11 @@ RSpec.describe Student do
     let!(:mufasa) { create(:student, enrollment: sheridan, first_name: 'Mufasa', last_name: 'Skar', email: 'mufasa.skar@persona.com', phone: '7777777777', language: 'Aramaic') }
 
     it 'returns a list of students as a JSON collection' do
-      expect(Student.list_data).to eq([student_as_json(bryan), student_as_json(mufasa)].to_json)
+      expect(Student.list_data).to eq([student_hash(bryan), student_hash(mufasa)].to_json)
     end
   end
 
-  def student_as_json(student)
+  def student_hash(student)
     {
       id: student.id,
       first_name: student.first_name,
