@@ -89,12 +89,31 @@ function EnrollmentIndex(props) {
     }
   };
 
+  const endTime = (time) => {
+    let endHour = parseInt(time.slice(0,2)) + 3
+    const meridiemSwitch = {
+      "P": "A",
+      "A": "P"
+    };
+    if(endHour > 15) {
+      endHour -= 12
+      return `0${endHour}${time.slice(-6)}`
+    } else if(endHour > 12 && endHour <= 15) {
+      endHour -= 12
+      return (('0'+`${endHour}`).slice(-2)+`${time.slice(2,6)}`+`${meridiemSwitch[time[6]]}M`)
+    } else if(endHour === 12) {
+      return (('0'+`${endHour}`).slice(-2)+`${time.slice(2,6)}`+`${meridiemSwitch[time[6]]}M`)
+    } else { 
+      return `${('0'+ (parseInt(time.slice(0,2))+3)).slice(-2)}${time.slice(-6)}`
+    }
+  };
+
   const listEnrollments = enrollments.map((enrollment) =>
     <Col key={enrollment.id}>
       <Card className="enrollment-card" bg="light" text="dark" border="dark">
         <Card.Body style={{ textAlign: "center" }}>
           <Card.Title>{enrollment.location}</Card.Title>
-          <Card.Subtitle>{enrollment.date}<br />{enrollment.time}</Card.Subtitle>
+          <Card.Subtitle>{enrollment.date}<br />{enrollment.time} — {endTime(enrollment.time)}</Card.Subtitle>
           <br />
           {UserListUI(props.admin, enrollment)}
         </Card.Body>
