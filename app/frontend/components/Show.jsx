@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Card, Row, Table} from "react-bootstrap";
+import { Button, Card, Row, Table } from "react-bootstrap";
 import DeleteConfirmation from '~/components/DeleteConfirmation.jsx';
 import { Trash, Pencil } from "react-bootstrap-icons";
 import { MDBInput } from 'mdb-react-ui-kit';
@@ -15,14 +15,14 @@ function AdminEnrollmentShow() {
   const [displayConfirmationModal, setDisplayConfirmationModal] = useState(false);
   const [deleteMessage, setDeleteMessage] = useState(null);
   const [deletePath, setDeletePath] = useState(null);
-  const [rowEdit, setRowEdit] = useState(false)
-  const [rowEditID, setRowEditID] = useState(null)
-  const [studentID, setStudentID] = useState(0)
-  const [editFormFirstName, setEditFormFirstName] = useState("")
-  const [editFormLastName, setEditFormLastName] = useState("")
-  const [editFormEmail, setEditFormEmail] = useState("")
-  const [editFormPhone, setEditFormPhone] = useState("")
-  const [editFormLanguage, setEditFormLanguage] = useState("")
+  const [rowEdit, setRowEdit] = useState(false);
+  const [rowEditID, setRowEditID] = useState(null);
+  const [studentID, setStudentID] = useState(0);
+  const [editFormFirstName, setEditFormFirstName] = useState("");
+  const [editFormLastName, setEditFormLastName] = useState("");
+  const [editFormEmail, setEditFormEmail] = useState("");
+  const [editFormPhone, setEditFormPhone] = useState("");
+  const [editFormLanguage, setEditFormLanguage] = useState("");
 
   function URISetter(main, id, sub, page) {
     return `/${main}/${id}/${sub}${page}`;
@@ -31,11 +31,11 @@ function AdminEnrollmentShow() {
   const handleFirstNameChange = (event) => {
     setEditFormFirstName(event.target.value);
   };
+
   const handleLastNameChange = (event) => {
     setEditFormLastName(event.target.value);
   };
 
-  
   const handleEmailChange = (event) => {
     setEditFormEmail(event.target.value);
   };
@@ -51,26 +51,26 @@ function AdminEnrollmentShow() {
   const print = () => window.print();
 
   function ShowDeleteModal(type, id) {
-    if(type === enrollment){
+    if (type === enrollment) {
       setDeletePath(`/admin/enrollments/${id}`);
       setDeleteMessage(`Are you sure you want to delete the enrollment in ${type.location} on ${type.date} at ${type.time}`);
     } else {
       setDeletePath(`/admin/enrollments/${enrollment.id}/students/${id}`);
       setDeleteMessage(`Are you sure you want to remove ${type.first_name} registered at ${enrollment.location} on ${enrollment.date} at ${enrollment.time}`);
-    };
+    }
     setDisplayConfirmationModal(true);
-  };
+  }
 
   function clickToEditRow(student, index) {
-    setRowEdit(!rowEdit)
-    setEditFormFirstName(student.first_name)
-    setEditFormLastName(student.last_name)
-    setEditFormEmail(student.email)
-    setEditFormPhone(student.phone)
-    setEditFormLanguage(student.language)
-    setStudentID(student.id)
-    setRowEditID(index)
-  };
+    setRowEdit(!rowEdit);
+    setEditFormFirstName(student.first_name);
+    setEditFormLastName(student.last_name);
+    setEditFormEmail(student.email);
+    setEditFormPhone(student.phone);
+    setEditFormLanguage(student.language);
+    setStudentID(student.id);
+    setRowEditID(index);
+  }
 
   const editForm = () => {
     return (
@@ -83,46 +83,44 @@ function AdminEnrollmentShow() {
         <input type="hidden" name="phone" value={editFormPhone} />
         <input type="hidden" name="language" value={editFormLanguage} />
       </form>
-    )
+    );
   };
 
-
   function populateRow(rowEdit, rowEditID, student, index) {
-    if(rowEdit === true && rowEditID === index) {
+    if (rowEdit === true && rowEditID === index) {
       return (
         <tr id={index} key={index}>
           <td className="text-center align-middle">{index + 1}</td>
-          <td><MDBInput className="text-center align-middle" type='text' value ={editFormFirstName} onChange={handleFirstNameChange}></MDBInput></td>
-          <td><MDBInput className="text-center align-middle" type='text' value ={editFormLastName} onChange={handleLastNameChange}></MDBInput></td>
-          <td><MDBInput className="text-center align-middle" type='text' value ={editFormEmail} onChange={handleEmailChange}></MDBInput></td>
-          <td><MDBInput className="text-center align-middle" type='text' value ={editFormPhone} onChange={handlePhoneChange}></MDBInput></td>
-          <td><MDBInput className="text-center align-middle" type='text' value ={editFormLanguage} onChange={handleLanguageChange}></MDBInput></td>
+          <td><MDBInput className="text-center align-middle" type='text' value={editFormFirstName} onChange={handleFirstNameChange}></MDBInput></td>
+          <td><MDBInput className="text-center align-middle" type='text' value={editFormLastName} onChange={handleLastNameChange}></MDBInput></td>
+          <td><MDBInput className="text-center align-middle" type='text' value={editFormEmail} onChange={handleEmailChange}></MDBInput></td>
+          <td><MDBInput className="text-center align-middle" type='text' value={editFormPhone} onChange={handlePhoneChange}></MDBInput></td>
+          <td><MDBInput className="text-center align-middle" type='text' value={editFormLanguage} onChange={handleLanguageChange}></MDBInput></td>
           <td>
-            <Button name="pen" style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} onClick={() => clickToEditRow(student, index)}> <Pencil color="blue" /> </Button>
-            <Button name="save" style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} type="submit" form={"editForm"}> <FontAwesomeIcon icon={faSave} color="blue"/> </Button>
-            <Button name="trash" style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} onClick={() => ShowDeleteModal(student, student.id)}> <Trash color="red" /> </Button>
-          </td>
-        </tr>
-      )
-    } else {
-      return (
-        <tr id={index} key={index} >
-          <td className="text-center align-middle" style={{padding: "0px"}}>{index + 1}</td>
-          <td className="text-center align-middle" style={{padding: "0px"}}>{student.first_name}</td>
-          <td className="text-center align-middle" style={{padding: "0px"}}>{student.last_name}</td>
-          <td className="text-center align-middle" style={{padding: "0px"}}>{student.email}</td>
-          <td className="text-center align-middle" style={{padding: "0px"}}>{student.phone}</td>
-          <td className="text-center align-middle" style={{padding: "0px"}}>{student.language}</td>
-          <td className="text-center align-middle" style={{padding: "0px"}}>
-            <Button name="pen" style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} onClick={() => clickToEditRow(student, index)}> <Pencil color="blue" /> </Button>
-            <Button name="save"  style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} disabled={true}> <FontAwesomeIcon icon={faSave} color="lightgrey"/> </Button>
-            <Button name="trash" style={{  outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent"}} onClick={() => ShowDeleteModal(student, student.id)}> <Trash color="red" /> </Button>
+            <Button name="pen" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => clickToEditRow(student, index)}> <Pencil color="blue" /> </Button>
+            <Button name="save" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} type="submit" form={"editForm"}> <FontAwesomeIcon icon={faSave} color="blue" /> </Button>
+            <Button name="trash" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => ShowDeleteModal(student, student.id)}> <Trash color="red" /> </Button>
           </td>
         </tr>
       );
-    };
-  };
-
+    } else {
+      return (
+        <tr id={index} key={index} >
+          <td className="text-center align-middle" style={{ padding: "0px" }}>{index + 1}</td>
+          <td className="text-center align-middle" style={{ padding: "0px" }}>{student.first_name}</td>
+          <td className="text-center align-middle" style={{ padding: "0px" }}>{student.last_name}</td>
+          <td className="text-center align-middle" style={{ padding: "0px" }}>{student.email}</td>
+          <td className="text-center align-middle" style={{ padding: "0px" }}>{student.phone}</td>
+          <td className="text-center align-middle" style={{ padding: "0px" }}>{student.language}</td>
+          <td className="text-center align-middle" style={{ padding: "0px" }}>
+            <Button name="pen" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => clickToEditRow(student, index)}> <Pencil color="blue" /> </Button>
+            <Button name="save" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} disabled={true}> <FontAwesomeIcon icon={faSave} color="lightgrey" /> </Button>
+            <Button name="trash" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => ShowDeleteModal(student, student.id)}> <Trash color="red" /> </Button>
+          </td>
+        </tr>
+      );
+    }
+  }
 
   const hideConfirmationModal = () => {
     setDisplayConfirmationModal(false);
@@ -133,23 +131,23 @@ function AdminEnrollmentShow() {
   };
 
   const endTime = (time) => {
-    let endHour = parseInt(time.slice(0,2)) + 3
+    let endHour = parseInt(time.slice(0, 2)) + 3;
     const meridiemSwitch = {
       "P": "A",
       "A": "P"
     };
-    if(endHour > 15) {
-      endHour -= 12
-      return `0${endHour}${time.slice(-6)}`
-    } else if(endHour > 12 && endHour <= 15) {
-      endHour -= 12
-      return (('0'+`${endHour}`).slice(-2)+`${time.slice(2,6)}`+`${meridiemSwitch[time[6]]}M`)
-    } else if(endHour === 12) {
-      return (('0'+`${endHour}`).slice(-2)+`${time.slice(2,6)}`+`${meridiemSwitch[time[6]]}M`)
-    } else { 
-      return `${('0'+ (parseInt(time.slice(0,2))+3)).slice(-2)}${time.slice(-6)}`
+    if (endHour > 15) {
+      endHour -= 12;
+      return `0${endHour}${time.slice(-6)}`;
+    } else if (endHour > 12 && endHour <= 15) {
+      endHour -= 12;
+      return (('0' + `${endHour}`).slice(-2) + `${time.slice(2, 6)}` + `${meridiemSwitch[time[6]]}M`);
+    } else if (endHour === 12) {
+      return (('0' + `${endHour}`).slice(-2) + `${time.slice(2, 6)}` + `${meridiemSwitch[time[6]]}M`);
+    } else {
+      return `${('0' + (parseInt(time.slice(0, 2)) + 3)).slice(-2)}${time.slice(-6)}`;
     }
-  };
+  }
 
   const showEnrollment = (enrollment, students) => (
     <Row>
@@ -157,7 +155,7 @@ function AdminEnrollmentShow() {
         <Card.Header style={{ textAlign: "center" }}>
           <a href={"/admin/enrollments"}>Enrollment Index</a> &nbsp;&nbsp;
           <a href={"/admin/enrollments/new"}>New Enrollment Session</a> &nbsp;&nbsp;
-          <Button name="print" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={print}> <FontAwesomeIcon icon={faPrint} color="grey"/> </Button>
+          <Button name="print" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={print}> <FontAwesomeIcon icon={faPrint} color="grey" /> </Button>
         </Card.Header>
         <Card.Body style={{ textAlign: "center" }}>
           <Card.Title>{enrollment.location} — {enrollment.date}</Card.Title>
@@ -180,15 +178,13 @@ function AdminEnrollmentShow() {
       <Table striped bordered hover>
         <thead>
           <tr>
-            <th className="text-center" width="4%" 
-  tdstyle={{ whiteSpace: 'normal', wordWrap: 'break-word'}}>#</th>
+            <th className="text-center" width="4%" style={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>#</th>
             <th className="text-center" width="16.8%">First Name</th>
             <th className="text-center" width="22.8%">Last Name</th>
             <th className="text-center" width="23.8%">Email</th>
             <th className="text-center" width="10%">Phone</th>
             <th className="text-center" width="11%">Language</th>
-            <th className="text-center" width="12.6%" 
-  tdstyle={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>Actions</th>
+            <th className="text-center" width="12.6%" style={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>Actions</th>
           </tr>
         </thead>
         <tbody>

@@ -1,12 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe 'enrollments index page', type: :feature, driver: :selenium_chrome, js: true do
+RSpec.describe 'enrollments index page', driver: :selenium_chrome, js: true do
   describe 'when I visit /enrollments' do
-    let!(:eloise_may) { Enrollment.create(location: 'Eloise May', schedule: DateTime.parse('2030-06-11T15:00:24.000Z'), student_limit: 30) }
+    let!(:eloise_may) { create(:enrollment, location: 'Eloise May', schedule: DateTime.parse('2030-06-11T15:00:24.000Z')) }
+
+    before :each do
+      visit enrollments_path
+    end
 
     it 'I see a list of enrollments' do
-      visit '/enrollments'
-
       expect(page).to have_content('Eloise May')
       expect(page).to have_content('06/11/2030')
       expect(page).to have_content('09:00 AM')
@@ -14,23 +16,18 @@ RSpec.describe 'enrollments index page', type: :feature, driver: :selenium_chrom
     end
 
     it "redirects to the new student page for an enrollment session if an enrollment's Register button is selected" do
-      visit '/enrollments'
-
       click_link('Register for this session')
 
-      expect(current_path).to eq("/enrollments/#{eloise_may.id}/students/new")
+      expect(current_path).to eq(new_enrollment_student_path(eloise_may))
     end
 
     it 'will disable the registration button if number of students registered is equal to student limit' do
-      i = 0
-      until Student.all.length == 30
-        eloise_may.students.create(first_name: "test#{i}", last_name: "test#{i}", email: "test#{i}@email.com", phone: '0000000000', language: 'Spanish')
-        i += 1
-      end
+      create_list(:student, 30, enrollment: eloise_may)
 
-      visit '/enrollments'
+      visit enrollments_path
 
       expect(page).to have_link('Register for this session', visible: false)
+      # expect(page).to have_css('a.disabled', text: 'Register for this session') <-- alternative to above line
       expect { click_link('Register for this session') }.to raise_error(Selenium::WebDriver::Error::ElementClickInterceptedError)
     end
   end

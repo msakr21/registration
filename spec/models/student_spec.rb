@@ -1,21 +1,30 @@
 require 'rails_helper'
 
-RSpec.describe Student, type: :model do
+RSpec.describe Student do
   describe 'relationships' do
     it { should belong_to :enrollment }
   end
 
   describe '#list_data' do
-    let!(:eloise_may) { Enrollment.create!(location: 'Eloise May', schedule: DateTime.parse('2030-06-11T15:00:24.000Z'), student_limit: 30) }
-    let!(:sheridan) { Enrollment.create!(location: 'Sheridan', schedule: DateTime.parse('2030-06-12T15:00:24.000Z'), student_limit: 10) }
+    let!(:eloise_may) { create(:enrollment, location: 'Eloise May') }
+    let!(:sheridan) { create(:enrollment, location: 'Sheridan') }
 
-    before :each do
-      @bryan = sheridan.students.create!(first_name: 'Bryan', last_name: 'Keener', email: 'bryan.keener@persona.com', phone: '5555555555', language: 'English')
-      @mufasa = sheridan.students.create!(first_name: 'Mufasa', last_name: 'Skar', email: 'mufasa.skar@persona.com', phone: '7777777777', language: 'Aramaic')
-    end
+    let!(:bryan) { create(:student, enrollment: sheridan, first_name: 'Bryan', last_name: 'Keener', email: 'bryan.keener@persona.com', phone: '5555555555', language: 'English') }
+    let!(:mufasa) { create(:student, enrollment: sheridan, first_name: 'Mufasa', last_name: 'Skar', email: 'mufasa.skar@persona.com', phone: '7777777777', language: 'Aramaic') }
 
-    it 'returns a list of enrollments as a JSON collection' do
-      expect(Student.list_data).to eq([{ id: @bryan.id, first_name: 'Bryan', last_name: 'Keener', email: 'bryan.keener@persona.com', phone: '5555555555', language: 'English'}, {id: @mufasa.id, first_name: 'Mufasa', last_name: 'Skar', email: 'mufasa.skar@persona.com', phone: '7777777777', language: 'Aramaic'}].to_json)
+    it 'returns a list of students as a JSON collection' do
+      expect(Student.list_data).to eq([student_hash(bryan), student_hash(mufasa)].to_json)
     end
+  end
+
+  def student_hash(student)
+    {
+      id: student.id,
+      first_name: student.first_name,
+      last_name: student.last_name,
+      email: student.email,
+      phone: student.phone,
+      language: student.language
+    }
   end
 end
