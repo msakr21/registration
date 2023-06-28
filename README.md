@@ -1,131 +1,124 @@
-# Learning Source Enrollment Registration
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/msakr21/registration">
+    <img src="public/TLS-Logo.png" alt="Logo">
+  </a>
+
+  <h1 align="center">The Learning Source Enrollment Registration</h3>
+
+  <h3 align="center">
+    ESL Portal
+    <br />
+  </h3>
+</div>
 
 <!-- TABLE OF CONTENTS -->
-<h3>
-  <details>
-    <summary>Table of Contents</summary>
-    <ol>
-      <li>
-        <a href="#About">About</a>
-        <ul>
-          <li><a href="#built-with">Built With</a></li>
-          <li><a href="#dependencies">Dependencies</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#getting-started">Getting Started</a>
-        <ul>
-            <li><a href="#chrome_driver-installation">Chrome Driver Installation</a></li>
-            <li><a href="#repository-installation">Repository Installation</a></li>
-            <li><a href="#usage">Usage</a></li>
-        </ul>
-      </li>
-      <li><a href="#roadmap">Roadmap</a></li>
-    </ol>
-  </details>
-</h3>
+<h4>
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#deployment-information">Deployment Information</a></li>
+        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#database-schema">Database Schema</a></li>
+        <li><a href="#learning-goals">Learning Goals</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+          <li><a href="#repository-installation">Repository Installation</a></li>
+          <li><a href="#gems-utilized">Gems Utilized</a></li>
+      </ul>
+    </li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgments">Acknowledgments</li>
+    <li><a href="#license">License</a></li></a>
+  </ol>
+</h4>
 
-<!-- About -->
-## About
+<!-- ABOUT THE PROJECT -->
+## About The Project
 
-![Product Demo](assets/demo.gif)
+This project aims to create an online enrollment registration website for The Learning Source (TLS), an organization committed to empowering students through education. The primary goal is to streamline the enrollment process for prospective students, based on staff insights and feedback.
 
-The aim of this project is to create an online enrollment registration website for the organization, The Learning Source, to streamline the enrollment process of prospective students based on needs discussed with staff.
+Our web application harnesses React for frontend and Ruby on Rails for backend within a unique monolithic setup. We leverage HTML5, CSS3, JavaScript, Ruby, and PostgreSQL alongside Vite.js for a streamlined development experience. The design workflow is managed through GitHub Issues and documented using Google Docs.
 
-The learning goals for the project are to hook React.js into Rails within a monolith MVC set up where React would handle the rendering of the view files directly without the Rails backend being API endpoints and the React frontend being its separate service that calls upon said endpoints. This allows Rails to handle the routing and maintain a RESTful setup thus allowing for all of the advantages of both frameworks with none of their disadvantages.
+To ensure high quality, we employ a Test-Driven Development (TDD) approach using RSpec for unit tests, and Capybara, Selenium, and ChromeDriver for feature testing and cross-browser compatibility checks.
 
-RSpec and Capybara are configured to allow feature testing to execute JS code and as such TDD can be applied.
+For our DevOps processes, we use Render and GitHub to maintain a smooth and reliable release pipeline. This project is an opportunity for us to explore the combination of Rails and React.js, enhance our understanding of TDD, and optimize our DevOps practices.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- Deployment Information -->
+### Deployment Information
+
+The Learning Source Enrollment Registration will be deployed soon 🤗
+
+* ~~Render Deployment~~<br>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- Built With -->
 ### Built With
 
-<ul>
-    <li> Ruby 3.1.1 </li>
-    <li> Ruby on Rails 7.0.4</li>
-    <li> Vite </li>
-    <li> React.js </li>
-    <li> PostgreSQL </li>
-</ul>
+<img src="public/tech-stack.png" alt="Tech-Stack" width="90%" height="90%">
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- Dependencies -->
-### Dependencies
+<!-- Database Schema -->
+### Database Schema
 
-The following Rails gems are used:
-
-1) Vite_rails to hook React and JS into Rails
-2) RSpec-rails as the testing library
-3) Capybara for webpage assertions/feature testing
-4) Should-matchers for more assertions
-5) Pry for Rails debugging
-6) Simplecov for test coverage
-7) Selenium-webdriver to allow RSpec and Capybara to execute JS with a chrome webdriver
-8) Rubocop as a linter
-
-The following Javascript libraries are used:
-
-1) Vite (controlled by Vite_Rails above)
-2) Vite-ruby (controlled by Vite_Rails above)
-3) React.js for it's frontend scripting
-4) MUI X libraries for various Datetime pickers
+<img src="public/schema.png" alt="Database-Schema" width="90%" height="90%">
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- Getting Started -->
+<!-- Learning Goals -->
+### Learning Goals
+
+* Implement a PostgreSQL database with CRUD functionality and a simple user interface.
+* Create instance and class methods on a Rails model that use ActiveRecord methods and helpers.
+* Write model and feature tests that fully cover data logic and user behavior.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- GETTING STARTED -->
 ## Getting Started
 
-<!-- Installation -->
-### Chrome Driver Installation
-
-<details>
-<summary> Click to expand/collapse </summary>
-<br>
-Chrome Driver is needed for the selenium webdriver gem to function allowing RSpec and Capybara to run the JS correctly and test the webpage contents.
-
-### macOS
-
-1) run `brew install --cask chromedriver`
-
-2) run `chromeDriver -v` to confirm installation
-
-Optional, if quarantined by macOS:
-
-3) run `which chromedriver` to find out installation path. Output should look similar to: `/usr/local/bin/chromedriver`
-
-4) run `xattr -d com.apple.quarantine /usr/local/bin/chromedriver`
-
-5) confirm that it now works by repeating step 2
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-</details>
+Triple Crown Reference is a monolithic Rails application that provides simple Create, Read, Update, Delete (CRUD) functionality with a user-friendly interface to navigate between entries. Follow the steps below to get started with running the application on your local machine.
 
 <!-- Repository Installation -->
 ### Repository Installation
 
-* fork and clone repo
-* run `bundle install` in the console/terminal
-* run `bundle exec vite install` in the console/terminal
-* run `npm install` in the console/terminal
+1. Clone the repository: `git clone https://github.com/msakr21/registration`
+1. Navigate to the cloned repository's directory: `cd triple_crown`
+1. Install gem packages: `bundle install`
+1. Setup the database: `rails db:{create,migrate,seed}`
+1. Run local RSpec test suite, all tests should be passing: `bundle exec rspec`
+1. Start the server: `rails s`
+1. Open your web browser and navigate to `localhost:3000`. You should now see the Triple Crown Reference application running locally on your machine.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<!-- Gems Utilized Installation -->
+### Gems Utilized
 
-<!-- Usage -->
-### Usage
-
-1) To use the repo, instructions to be added
-
-2) To run the tests, you will need to use two terminal windows (or tabs)
-
-* Terminal 1:
-  In your first terminal, navigate to the project directory. Here you will start the Vite server: `npm run dev`. This command starts the Vite server, which the tests will interact with.
-
-* Terminal 2:
-  In the second terminal, also navigate to the project directory. This is where you will run your tests: `bundle exec rspec`. This command runs the entire RSpec test suite. You should see the test results output in this terminal window.
-
-<b>Always ensure the Vite server is running in the background while executing the tests.</b>
+- <b>Capybara</b>: Helps you test web applications by simulating how a real user would interact with your app.
+- <b>Launchy</b>: A helper for launching cross-platform applications in a fire and forget manner.
+- <b>Orderly</b>: A gem to test the order of items in a list.
+- <b>Pry</b>: An IRB alternative and runtime developer console.
+- <b>RSpec Rails</b>: Testing framework for Rails 3.x, 4.x, and 5.x.
+- <b>Shoulda Matchers</b>: Provides RSpec- and Minitest-compatible one-liners to test common Rails functionality.
+- <b>SimpleCov</b>: A code coverage analysis tool for Ruby.
+- <b>Pry Rails</b>: Integrates the Pry REPL with Rails.
+- <b>RuboCop Rails</b>: Rails-specific static code analysis.
+- <b>RuboCop RSpec</b>: Code analyzer for RSpec files.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -134,28 +127,78 @@ Optional, if quarantined by macOS:
 
 MVP
 
-* [x] Determine Viability of passing data between controller and React components in a monolith, MVC, RESTful architecture utilizing Vite
-* [x] Determine viability of TDD using RSpec and Capybara for webpages utilizing JS
-* [x] Decide whether to carry out project in regular Rails monolith or with a React + Rails setup utilizing Vite
-* [ ] Admin and Prospective Student flow experiences
-* [x] Ability to create new enrollments
-* [x] Make the creation of new enrollments restricted to admins only
-* [x] Prospective Students' ability to see list of enrollment sessions (enrollments index page)
-* [x] Admin's ability to see list of enrollment sessions (admin enrollments index page)
-* [ ] Admin's ability to see details of a given enrollment session (admin enrollments show pages e.g details on index page and list of students)
-* [ ] Buttons for editing and deleting for admin to delete students in a given enrollment session (in show page)
-* [ ] Admin's ability to edit details of a given enrollment session
-* [ ] Admin's ability to add and/or remove students to a given enrollment session
-* [x] Prospective Students' ability to select an enrollment session to join from the list of available sessions
-* [x] Cap each session's number of students according to limit set (default of 30) after which prospective students would not have the option to select it to join.
-* [ ] Redirect upon joining session to a confirmation page that one has been registered with the registration details and staff contact info in case anything changes
-* [ ] Filter list for admin for returning prospective students to contact staff in order to be able to secure a spot for enrollment session
-* [ ] Add language spoken to database schema for student
-* [ ] Deploy on render
-* [ ] Detailed README file
+* Design a one-to-many relationship using a schema designer.
+* Write migrations to create tables with columns of varying data types and foreign keys.
+* Use Rails to create web pages that allow users to CRUD resources.
+* Create instance and class methods on a Rails model that use ActiveRecord methods and helpers.
+* Write model and feature tests that fully cover data logic and user behavior.
 
 Stretch Goals
 
-* [ ] Add different languages and language toggle option for page
+* Implement more winners and individual statistics.
+* Continue building out full user interface.
+
+See the [open issues](https://github.com/msakr21/registration/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- CONTACT -->
+## Contact
+
+<table>
+<tr>
+    <td><img src="https://avatars.githubusercontent.com/u/110377741?s=150&v=4"></td>
+  </tr>
+  <tr>
+    <td>Bryan Keener</td>
+
+  </tr>
+  <tr>
+    <td>
+      <img src="public/github-logo.png" alt="github"> <a href="https://github.com/bkeener7">GitHub</a><br>
+      <img src="public/linkedin-logo.png" alt="linkedin"> <a href="https://www.linkedin.com/in/bkeener/">LinkedIn</a>
+    </td>
+  </tr>
+  <tr>
+    <td><img src="https://avatars.githubusercontent.com/u/101418582?s=150&v=4"></td>
+  </tr>
+  <tr>
+    <td>Bryan Keener</td>
+
+  </tr>
+  <tr>
+    <td>
+      <img src="public/github-logo.png" alt="github"> <a href="https://github.com/bkeener7">GitHub</a><br>
+      <img src="public/linkedin-logo.png" alt="linkedin"> <a href="https://www.linkedin.com/in/bkeener/">LinkedIn</a>
+    </td>
+  </tr>
+</table>
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- ACKNOWLEDGMENTS -->
+## Acknowledgments
+
+The Learning Source 
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/msakr21/registration.svg?style=for-the-badge
+[contributors-url]: https://github.com/msakr21/registration/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/msakr21/registration.svg?style=for-the-badge
+[forks-url]: https://github.com/msakr21/registration/network/members
+[stars-shield]: https://img.shields.io/github/stars/msakr21/registration.svg?style=for-the-badge
+[stars-url]: https://github.com/msakr21/registration/stargazers
+[issues-shield]: https://img.shields.io/github/issues/msakr21/registration.svg?style=for-the-badge
+[issues-url]: https://github.com/msakr21/registration/issues
+[license-shield]: https://img.shields.io/github/license/msakr21/registration.svg?style=for-the-badge
+[license-url]: https://github.com/msakr21/registration/blob/master/LICENSE.txt
