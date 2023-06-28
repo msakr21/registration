@@ -146,27 +146,19 @@ See the [open issues](https://github.com/msakr21/registration/issues) for a full
 ## Contact
 
 <table>
-<tr>
+  <tr>
     <td><img src="https://avatars.githubusercontent.com/u/110377741?s=150&v=4"></td>
-  </tr>
-  <tr>
-    <td>Bryan Keener</td>
-
-  </tr>
-  <tr>
-    <td>
-      <img src="public/github-logo.png" alt="github"> <a href="https://github.com/bkeener7">GitHub</a><br>
-      <img src="public/linkedin-logo.png" alt="linkedin"> <a href="https://www.linkedin.com/in/bkeener/">LinkedIn</a>
-    </td>
-  </tr>
-  <tr>
     <td><img src="https://avatars.githubusercontent.com/u/101418582?s=150&v=4"></td>
   </tr>
   <tr>
+    <td>Mostafa Sakr</td>
     <td>Bryan Keener</td>
-
   </tr>
   <tr>
+    <td>
+      <img src="public/github-logo.png" alt="github"> <a href="https://github.com/msakr21">GitHub</a><br>
+      <img src="public/linkedin-logo.png" alt="linkedin"> <a href="https://linkedin.com/in/mostafasakr16/">LinkedIn</a>
+    </td>
     <td>
       <img src="public/github-logo.png" alt="github"> <a href="https://github.com/bkeener7">GitHub</a><br>
       <img src="public/linkedin-logo.png" alt="linkedin"> <a href="https://www.linkedin.com/in/bkeener/">LinkedIn</a>
@@ -179,14 +171,12 @@ See the [open issues](https://github.com/msakr21/registration/issues) for a full
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-The Learning Source 
+[The Learning Source](https://www.thelearningsource.org/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- LICENSE -->
 ## License
-
-Distributed under the MIT License.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
