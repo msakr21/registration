@@ -7,7 +7,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/msakr21/registration">
-    <img src="public/TLS-Logo.png" alt="Logo">
+    <img src="public/TLS-logo.png" alt="Logo">
   </a>
 
   <h1 align="center">The Learning Source Enrollment Registration</h1>
@@ -34,6 +34,13 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <ul>
+          <li><a href="#usage">Usage</a></li>
+          <li><a href="#to-use-the-repository">To use the repository</a></li>
+          <li><a href="#to-run-tests">To run tests</a></li>
+        </ul>
         <li><a href="#repository-installation">Repository Installation</a></li>
         <li><a href="#gems-utilized">Gems Utilized</a></li>
         <li><a href="#javascript-packages-utilized">JavaScript Packages Utilized</a></li>
@@ -96,6 +103,7 @@ The Learning Source Enrollment Registration will be deployed soon 🤗
 
 This section provides a step-by-step guide on how to install and run this project on your local machine.
 
+<!-- PREREQUISITES -->
 ### Prerequisites
 
 Before you begin, make sure you have installed [Chrome Driver](https://sites.google.com/a/chromium.org/chromedriver/). This is needed for the selenium webdriver gem to function, allowing RSpec and Capybara to run JavaScript correctly and test the webpage contents.
@@ -110,6 +118,9 @@ For macOS users:
 > 2. Run `xattr -d com.apple.quarantine /usr/local/bin/chromedriver`.
 > 3. Confirm it's working by repeating step 2 above.
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- INSTALLATION -->
 ### Installation
 
 1. Fork and clone the repository.
@@ -117,12 +128,23 @@ For macOS users:
 3. Run `bundle exec vite install`.
 4. Run `npm install`.
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- USAGE -->
 ### Usage
 
+*Instructions to be added*
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- TO USE THE REPOSITORY -->
 #### To use the repository
 
 *Instructions to be added*
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- TO RUN TESTS -->
 #### To run tests
 
 You will need two terminal windows (or tabs):
@@ -131,16 +153,20 @@ You will need two terminal windows (or tabs):
 
 2. **Terminal 2:** Navigate to the project directory and run `bundle exec rspec` to run the entire RSpec test suite. The test results will be output in this terminal window.
 
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 <!-- Repository Installation -->
 ### Repository Installation
 
 1. Clone the repository: `git clone https://github.com/msakr21/registration`
-1. Navigate to the cloned repository's directory: `cd triple_crown`
+1. Navigate to the cloned repository's directory: `cd registration`
 1. Install gem packages: `bundle install`
 1. Setup the database: `rails db:{create,migrate,seed}`
 1. Run local RSpec test suite, all tests should be passing: `bundle exec rspec`
 1. Start the server: `rails s`
-1. Open your web browser and navigate to `localhost:3000`. You should now see the Triple Crown Reference application running locally on your machine.
+1. Open your web browser and navigate to `localhost:3000`. You should now see The Learning Source Enrollment Registration application running locally on your machine.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- Gems Utilized -->
 ### Gems Utilized
