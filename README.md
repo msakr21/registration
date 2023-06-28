@@ -10,7 +10,7 @@
     <img src="public/TLS-Logo.png" alt="Logo">
   </a>
 
-  <h1 align="center">The Learning Source Enrollment Registration</h3>
+  <h1 align="center">The Learning Source Enrollment Registration</h1>
 
   <h3 align="center">
     ESL Portal
@@ -19,8 +19,8 @@
 </div>
 
 <!-- TABLE OF CONTENTS -->
-<h4>
-  <summary>Table of Contents</summary>
+<details open>
+  <summary><h2>Table of Contents</h2></summary>
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
@@ -34,16 +34,17 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-          <li><a href="#repository-installation">Repository Installation</a></li>
-          <li><a href="#gems-utilized">Gems Utilized</a></li>
+        <li><a href="#repository-installation">Repository Installation</a></li>
+        <li><a href="#gems-utilized">Gems Utilized</a></li>
+        <li><a href="#javascript-packages-utilized">JavaScript Packages Utilized</a></li>
       </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</li>
-    <li><a href="#license">License</a></li></a>
+    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#license">License</a></li>
   </ol>
-</h4>
+</details>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -77,7 +78,7 @@ The Learning Source Enrollment Registration will be deployed soon 🤗
 <!-- Database Schema -->
 ### Database Schema
 
-<img src="public/schema.png" alt="Database-Schema" width="90%" height="90%">
+<img src="public/schema.png" alt="Database-Schema">
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -93,7 +94,42 @@ The Learning Source Enrollment Registration will be deployed soon 🤗
 <!-- GETTING STARTED -->
 ## Getting Started
 
-Triple Crown Reference is a monolithic Rails application that provides simple Create, Read, Update, Delete (CRUD) functionality with a user-friendly interface to navigate between entries. Follow the steps below to get started with running the application on your local machine.
+This section provides a step-by-step guide on how to install and run this project on your local machine.
+
+### Prerequisites
+
+Before you begin, make sure you have installed [Chrome Driver](https://sites.google.com/a/chromium.org/chromedriver/). This is needed for the selenium webdriver gem to function, allowing RSpec and Capybara to run JavaScript correctly and test the webpage contents.
+
+For macOS users:
+
+1. Install Chrome Driver using Homebrew: `brew install --cask chromedriver`.
+2. Confirm installation by running `chromedriver -v`.
+
+> **Note:** In case Chrome Driver is quarantined by macOS:
+> 1. Run `which chromedriver` to find the installation path. The output should look similar to `/usr/local/bin/chromedriver`.
+> 2. Run `xattr -d com.apple.quarantine /usr/local/bin/chromedriver`.
+> 3. Confirm it's working by repeating step 2 above.
+
+### Installation
+
+1. Fork and clone the repository.
+2. In your console or terminal, navigate to the project directory and run `bundle install`.
+3. Run `bundle exec vite install`.
+4. Run `npm install`.
+
+### Usage
+
+#### To use the repository
+
+*Instructions to be added*
+
+#### To run tests
+
+You will need two terminal windows (or tabs):
+
+1. **Terminal 1:** Navigate to the project directory and start the Vite server with `npm run dev`. This command starts the Vite server, which the tests will interact with. Ensure that the Vite server is always running in the background while executing the tests.
+
+2. **Terminal 2:** Navigate to the project directory and run `bundle exec rspec` to run the entire RSpec test suite. The test results will be output in this terminal window.
 
 <!-- Repository Installation -->
 ### Repository Installation
@@ -106,19 +142,60 @@ Triple Crown Reference is a monolithic Rails application that provides simple Cr
 1. Start the server: `rails s`
 1. Open your web browser and navigate to `localhost:3000`. You should now see the Triple Crown Reference application running locally on your machine.
 
-<!-- Gems Utilized Installation -->
+<!-- Gems Utilized -->
 ### Gems Utilized
 
-- <b>Capybara</b>: Helps you test web applications by simulating how a real user would interact with your app.
-- <b>Launchy</b>: A helper for launching cross-platform applications in a fire and forget manner.
-- <b>Orderly</b>: A gem to test the order of items in a list.
-- <b>Pry</b>: An IRB alternative and runtime developer console.
-- <b>RSpec Rails</b>: Testing framework for Rails 3.x, 4.x, and 5.x.
-- <b>Shoulda Matchers</b>: Provides RSpec- and Minitest-compatible one-liners to test common Rails functionality.
-- <b>SimpleCov</b>: A code coverage analysis tool for Ruby.
-- <b>Pry Rails</b>: Integrates the Pry REPL with Rails.
-- <b>RuboCop Rails</b>: Rails-specific static code analysis.
-- <b>RuboCop RSpec</b>: Code analyzer for RSpec files.
+The Learning Source Enrollment Registration utilizes the following gems:
+
+- [Ruby 3.1.1](https://www.ruby-lang.org/)
+- [Rails 7.0.4](https://rubyonrails.org/) - Our web application framework.
+- [sprockets-rails](https://github.com/rails/sprockets-rails) - Rails asset pipeline.
+- [pg](https://rubygems.org/gems/pg/versions/0.18.4) - PostgreSQL database adapter.
+- [puma](https://github.com/puma/puma) - A Ruby/Rack web server built for concurrency.
+- [vite_rails](https://github.com/rails/vite_rails) - Integrates Vite with Rails.
+- [tzinfo-data](https://github.com/tzinfo/tzinfo-data) - Provides daylight savings time (DST) data.
+- [capybara](https://github.com/teamcapybara/capybara) - Helps you test web applications by simulating how a real user would interact with your app.
+- [debug](https://github.com/ruby/debug) - A new Ruby debugging library (only for MRI and mingw platforms).
+- [factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails) - A fixtures replacement for focused and readable tests.
+- [faker](https://github.com/faker-ruby/faker) - A library for generating fake data.
+- [pry](https://github.com/pry/pry) - A runtime developer console and IRB alternative.
+- [rspec-rails](https://github.com/rspec/rspec-rails) - Testing framework for Rails.
+- [selenium-webdriver](https://www.selenium.dev/projects/webdriver/) - Tool for writing automated tests of websites.
+- [shoulda-matchers](https://github.com/thoughtbot/shoulda-matchers) - Provides RSpec- and Minitest-compatible one-liners to test common Rails functionality.
+- [rubocop-rails](https://github.com/rubocop/rubocop-rails) - Rails-specific static code analysis.
+- [rubocop-rspec](https://github.com/rubocop/rubocop-rspec) - Code analyzer for RSpec files.
+- [simplecov](https://github.com/simplecov-ruby/simplecov) - Code coverage analysis tool for Ruby.
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+<!-- JavaScript Packages Utilized -->
+### JavaScript Packages Utilized
+
+The Learning Source Enrollment Registration utilizes the following JavaScript packages:
+
+- [vite](https://vitejs.dev/): A build tool that aims to provide a faster and leaner development experience for modern web projects.
+- [vite-plugin-ruby](https://github.com/ElMassimo/vite_ruby): A Vite.js plugin for better integration with Ruby on Rails.
+- [@date-io/date-fns](https://github.com/dmtrKovalenko/date-io): A package to use date-fns with date-io.
+- [@emotion/react](https://emotion.sh/docs/@emotion/react): A library for writing css styles with JavaScript.
+- [@emotion/styled](https://emotion.sh/docs/@emotion/styled): A library for creating React components with style.
+- [@fortawesome/fontawesome-svg-core](https://github.com/FortAwesome/Font-Awesome): The SVG core of Font Awesome.
+- [@fortawesome/free-regular-svg-icons](https://github.com/FortAwesome/Font-Awesome): Regular style SVG icons from Font Awesome.
+- [@fortawesome/free-solid-svg-icons](https://github.com/FortAwesome/Font-Awesome): Solid style SVG icons from Font Awesome.
+- [@fortawesome/react-fontawesome](https://github.com/FortAwesome/react-fontawesome): Font Awesome React component.
+- [@mui/base](https://mui.com/): The foundation of the MUI ecosystem, used by all MUI components.
+- [@mui/lab](https://mui.com/components/about-the-lab/): MUI components that are in active development.
+- [@mui/material](https://mui.com/): React components for faster and easier web development by MUI.
+- [@mui/system](https://mui.com/system/basics/): Low-level utility functions called "style functions" for building powerful design systems by MUI.
+- [@mui/x-date-pickers](https://mui.com/components/date-picker/): Date Picker component by MUI.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite/tree/main/packages/plugin-react): Official Vite plugin for React.
+- [bootstrap](https://getbootstrap.com/): The most popular HTML, CSS, and JS library in the world for building responsive, mobile-first projects on the web.
+- [date-fns](https://date-fns.org/): Modern JavaScript date utility library.
+- [mdb-react-ui-kit](https://mdbootstrap.com/docs/b5/react/): UI Kit based on Bootstrap 5 for React by MDBootstrap.
+- [react](https://reactjs.org/): A JavaScript library for building user interfaces.
+- [react-bootstrap](https://react-bootstrap.github.io/): The most popular front-end framework, rebuilt for React.
+- [react-bootstrap-icons](https://react-bootstrap-icons.netlify.app/): Bootstrap icons, but for React.
+- [react-datetime-picker](https://www.npmjs.com/package/react-datetime-picker): A date/time picker for react (using bootstrap).
+- [react-dom](https://reactjs.org/docs/react-dom.html): Serves as the entry point to the DOM and server renderers for React.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -177,6 +254,8 @@ See the [open issues](https://github.com/msakr21/registration/issues) for a full
 
 <!-- LICENSE -->
 ## License
+
+This project is licensed under the terms of the MIT license. For more details, see the [LICENSE](./LICENSE) file.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
