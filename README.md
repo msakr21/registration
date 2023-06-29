@@ -41,7 +41,6 @@
           <li><a href="#to-use-the-repository">To use the repository</a></li>
           <li><a href="#to-run-tests">To run tests</a></li>
         </ul>
-        <li><a href="#repository-installation">Repository Installation</a></li>
         <li><a href="#gems-utilized">Gems Utilized</a></li>
         <li><a href="#javascript-packages-utilized">JavaScript Packages Utilized</a></li>
       </ul>
@@ -92,9 +91,7 @@ The Learning Source Enrollment Registration will be deployed soon 🤗
 <!-- Learning Goals -->
 ### Learning Goals
 
-* Implement a PostgreSQL database with CRUD functionality and a simple user interface.
-* Create instance and class methods on a Rails model that use ActiveRecord methods and helpers.
-* Write model and feature tests that fully cover data logic and user behavior.
+*Instructions to be added*
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -123,10 +120,14 @@ For macOS users:
 <!-- INSTALLATION -->
 ### Installation
 
-1. Fork and clone the repository.
-2. In your console or terminal, navigate to the project directory and run `bundle install`.
-3. Run `bundle exec vite install`.
-4. Run `npm install`.
+Follow the steps below to install and set up the repository on your local machine:
+
+1. Fork the repository.
+2. Clone the forked repository to your local machine.
+3. Open your console or terminal and navigate to the project directory.
+4. Run `bundle install` to install the required Ruby gems.
+5. Execute `bundle exec vite install` to set up Vite.
+6. Run `npm install` to install the necessary npm packages.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -152,19 +153,6 @@ You will need two terminal windows (or tabs):
 1. **Terminal 1:** Navigate to the project directory and start the Vite server with `npm run dev`. This command starts the Vite server, which the tests will interact with. Ensure that the Vite server is always running in the background while executing the tests.
 
 2. **Terminal 2:** Navigate to the project directory and run `bundle exec rspec` to run the entire RSpec test suite. The test results will be output in this terminal window.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-<!-- Repository Installation -->
-### Repository Installation
-
-1. Clone the repository: `git clone https://github.com/msakr21/registration`
-1. Navigate to the cloned repository's directory: `cd registration`
-1. Install gem packages: `bundle install`
-1. Setup the database: `rails db:{create,migrate,seed}`
-1. Run local RSpec test suite, all tests should be passing: `bundle exec rspec`
-1. Start the server: `rails s`
-1. Open your web browser and navigate to `localhost:3000`. You should now see The Learning Source Enrollment Registration application running locally on your machine.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -228,22 +216,48 @@ The Learning Source Enrollment Registration utilizes the following JavaScript pa
 <!-- ROADMAP -->
 ## Roadmap
 
-MVP
+The following is a roadmap for our project, outlining our Minimum Viable Product (MVP) and the key steps towards achieving it:
 
-* Design a one-to-many relationship using a schema designer.
-* Write migrations to create tables with columns of varying data types and foreign keys.
-* Use Rails to create web pages that allow users to CRUD resources.
-* Create instance and class methods on a Rails model that use ActiveRecord methods and helpers.
-* Write model and feature tests that fully cover data logic and user behavior.
+### Initial Research & Decisions
 
-Stretch Goals
+- [x] Evaluate the feasibility of passing data between controller and React components in a monolithic MVC, RESTful architecture using Vite.
+- [x] Assess the potential for Test-Driven Development (TDD) using RSpec and Capybara for webpages that utilize JavaScript.
+- [x] Decide on project structure: whether to utilize a standard Rails monolith or a React + Rails setup with Vite.
 
-* Implement more winners and individual statistics.
-* Continue building out full user interface.
+### Enrollment Management
 
-See the [open issues](https://github.com/msakr21/registration/issues) for a full list of proposed features (and known issues).
+- [x] Develop the ability to create new enrollment sessions.
+- [x] Restrict the creation of new enrollment sessions to admins only.
+
+### Prospective Student Features
+
+- [x] Enable prospective students to view a list of enrollment sessions.
+- [x] Allow prospective students to select an enrollment session to join from the list of available sessions.
+- [x] Implement a cap on each session's student count (default of 30), after which prospective students won't have the option to join.
+- [ ] Upon successful joining of a session, redirect students to a confirmation page displaying registration details and staff contact information.
+
+### Admin Features
+
+- [x] Enable admins to view a list of enrollment sessions.
+- [ ] Develop the capability for admins to view the details of specific enrollment sessions.
+- [ ] Create editable and deletable buttons for admins to manage students within a specific enrollment session.
+- [ ] Build the ability for admins to modify details of a specific enrollment session.
+- [ ] Enable admins to add and/or remove students from a specific enrollment session.
+- [ ] Develop a filter for admins to identify returning prospective students, allowing staff to secure enrollment spots.
+
+### Database Enhancements
+
+- [ ] Add "language spoken" field to the student database schema.
+
+### Deployment & Documentation
+
+- [ ] Deploy the application on Render.
+- [ ] Create a detailed README file.
+
+Please refer to the [open issues](https://github.com/msakr21/registration/issues) for a full list of proposed features and known issues.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
 
 <!-- CONTACT -->
 ## Contact
