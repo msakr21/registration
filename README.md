@@ -6,8 +6,6 @@
 
 # The Learning Source Enrollment Registration
 
-</div>
-
 ## ESL Registration Portal Documentation
 
 <!-- TABLE OF CONTENTS -->
@@ -33,7 +31,7 @@
    - [Admin Features](#admin-features)
    - [Database Enhancements](#database-enhancements)
    - [Deployment and Documentation](#deployment-and-documentation)
-   - [Stretch Goals]
+   - [Stretch Goals](#stretch-goals)
 4. [Contact](#contact)
 5. [Acknowledgments](#acknowledgments)
 6. [License](#license)
