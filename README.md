@@ -4,11 +4,6 @@
 [![Issues][issues-shield]][issues-url]
 [![License][license-shield]][license-url]
 
-<!-- PROJECT LOGO -->
-<div align="center">
-
-[![The Learning Source Logo](public/TLS-logo.png)](https://github.com/msakr21/registration)
-
 # The Learning Source Enrollment Registration
 
 </div>
@@ -38,6 +33,7 @@
    - [Admin Features](#admin-features)
    - [Database Enhancements](#database-enhancements)
    - [Deployment and Documentation](#deployment-and-documentation)
+   - [Stretch Goals]
 4. [Contact](#contact)
 5. [Acknowledgments](#acknowledgments)
 6. [License](#license)
@@ -45,11 +41,11 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project aims to create an online enrollment registration website for The Learning Source (TLS), an organization committed to empowering students through education. The primary goal is to streamline the enrollment process for prospective students, based on staff insights and feedback.
+This project aims to create an online enrollment registration website for [The Learning Source (TLS)](https://www.thelearningsource.org/), an organization committed to empowering immigrant and refugee students through education. The primary goal is to streamline the enrollment process for prospective students, based on staff insights and feedback.
 
 Our web application harnesses React for frontend and Ruby on Rails for backend within a unique monolithic setup. We leverage HTML5, CSS3, JavaScript, Ruby, and PostgreSQL alongside Vite.js for a streamlined development experience. The design workflow is managed through GitHub Issues and documented using Google Docs.
 
-To ensure high quality, we employ a Test-Driven Development (TDD) approach using RSpec for unit tests, and Capybara, Selenium, and ChromeDriver for feature testing and cross-browser compatibility checks.
+To ensure high quality, we employ a Test-Driven Development (TDD) approach using RSpec for unit tests; and Capybara, Selenium, and ChromeDriver for feature testing and cross-browser compatibility checks.
 
 For our DevOps processes, we use Render and GitHub to maintain a smooth and reliable release pipeline. This project is an opportunity for us to explore the combination of Rails and React.js, enhance our understanding of TDD, and optimize our DevOps practices.
 
@@ -113,7 +109,7 @@ This section provides a step-by-step guide on how to install and run this projec
 <!-- PREREQUISITES -->
 ### Prerequisites
 
-Before you begin, make sure you have installed [Chrome Driver](https://sites.google.com/a/chromium.org/chromedriver/). This is needed for the selenium webdriver gem to function, allowing RSpec and Capybara to run JavaScript correctly and test the webpage contents.
+For tests to be run correctly then make sure you have installed [Chrome Driver](https://sites.google.com/a/chromium.org/chromedriver/) before you begin. This is needed for the selenium webdriver gem to function, allowing RSpec and Capybara to run JavaScript correctly and test the webpage contents.
 
 For macOS users:
 
@@ -282,22 +278,29 @@ The following is a roadmap for our project, outlining our Minimum Viable Product
 ### Admin Features
 
 - [x] Enable admins to view a list of enrollment sessions.
-- [ ] Develop the capability for admins to view the details of specific enrollment sessions.
-- [ ] Create editable and deletable buttons for admins to manage students within a specific enrollment session.
-- [ ] Build the ability for admins to modify details of a specific enrollment session.
-- [ ] Enable admins to add and/or remove students from a specific enrollment session.
-- [ ] Develop a filter for admins to identify returning prospective students, allowing staff to secure enrollment spots.
+- [x] Develop the capability for admins to view the details of specific enrollment sessions.
+- [x] Create editable and deletable buttons for admins to manage students within a specific enrollment session.
+- [x] Build the ability for admins to modify details of a specific enrollment session.
+- [x] Enable admins to add and/or remove students from a specific enrollment session.
+- [ ] Admin login authentication
+- [ ] Admin authorization within admin workflow
 
 <!-- DATABASE ENHANCEMENTS -->
 ### Database Enhancements
 
-- [ ] Add "language spoken" field to the student database schema.
+- [x] Add "language spoken" field to the student database schema.
 
 <!-- DEPLOYMENT AND DOCUMENTATION -->
 ### Deployment and Documentation
 
 - [ ] Deploy the application on Render.
 - [ ] Create a detailed README file.
+
+<!-- STRETCH GOALS -->
+### Stretch Goals
+
+- [ ] Add a language toggle for the student enrollment user experience to support Spanish, Arabic and Russian.
+- [ ] Add accessibility/Alt descriptive text to page elements
 
 Please refer to the [open issues](https://github.com/msakr21/registration/issues) for a full list of proposed features and known issues.
 
