@@ -5,13 +5,17 @@ class StudentsController < ApplicationController
 
   def create
     enrollment = Enrollment.find(params[:enrollment_id])
-    enrollment.students.create!(
-      first_name: params[:first_name],
-      last_name: params[:last_name],
-      email: params[:email],
-      phone: params[:phone],
-      language: params[:language]
-    )
-    redirect_to '/enrollments'
+    if enrollment.student_limit_check
+      enrollment.students.create!(
+        first_name: params[:first_name],
+        last_name: params[:last_name],
+        email: params[:email],
+        phone: params[:phone],
+        language: params[:language]
+      )
+      redirect_to '/enrollments'
+    else
+      redirect_to '/enrollments'
+    end
   end
 end
