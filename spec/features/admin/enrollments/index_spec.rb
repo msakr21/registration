@@ -111,8 +111,8 @@ RSpec.describe 'admin enrollments index page', driver: :selenium_chrome, js: tru
 
       click_button('Delete Session')
       expect(page).to have_css('body.modal-open')
-      within('body.modal-open') do
-        expect(page).to have_css('div.fade.modal.show')
+      within('body.modal-open', wait: 2) do
+        expect(page).to have_css('div.fade.modal.show', wait: 2)
         within('div.fade.modal.show') do
           expect(page).to have_css('div.modal-dialog')
           within('div.modal-dialog') do

@@ -8,7 +8,7 @@ RSpec.describe Enrollment do
   describe 'methods' do
     let!(:eloise_may) { create(:enrollment, schedule: DateTime.parse('2030-06-11T15:00:24.000Z'), location: 'Eloise May') }
     let!(:sheridan) { create(:enrollment, schedule: DateTime.parse('2030-06-12T15:00:24.000Z'), location: 'Sheridan', student_limit: 10) }
-    let!(:students) { create_list(:student, 2, enrollment: sheridan) }
+    let!(:students_sheridan) { create_list(:student, 2, enrollment: sheridan) }
 
     describe '#list_data' do
       it 'returns a list of enrollments as a JSON collection' do
@@ -46,6 +46,21 @@ RSpec.describe Enrollment do
       it 'returns the time in hh:mm meridiem format from the schedule Datetime attribute of enrollment' do
         expect(eloise_may.formatted_time).to eq('09:00 AM')
         expect(sheridan.formatted_time).to eq('09:00 AM')
+      end
+    end
+
+    describe '#student_limit_check' do
+      let!(:students_may) { create_list(:student, eloise_may.student_limit, enrollment: eloise_may) }
+
+      it 'returns true if number of students is below enrollment student limit and false otherwise' do
+        expect(sheridan.student_limit_check).to eq(true)
+        expect(eloise_may.students.length).to eq(30)
+        expect(eloise_may.student_limit_check).to eq(false)
+
+        thirty_first_student = create(:student, enrollment: eloise_may)
+        eloise_may.reload
+        expect(eloise_may.students.length).to eq(31)
+        expect(eloise_may.student_limit_check).to eq(false)
       end
     end
   end
