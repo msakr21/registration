@@ -2,55 +2,45 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
+[![License][license-shield]][license-url]
 
 <!-- PROJECT LOGO -->
-<br />
 <div align="center">
-  <a href="https://github.com/msakr21/registration">
-    <img src="public/TLS-logo.png" alt="Logo">
-  </a>
 
-  <h1 align="center">The Learning Source Enrollment Registration</h1>
+[![The Learning Source Logo](public/TLS-logo.png)](https://github.com/msakr21/registration)
 
-  <h3 align="center">
-    ESL Portal
-    <br />
-  </h3>
+# The Learning Source Enrollment Registration
+
 </div>
 
+## ESL Registration Portal Documentation
+
 <!-- TABLE OF CONTENTS -->
-<details open>
-  <summary><h2>Table of Contents</h2></summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#deployment-information">Deployment Information</a></li>
-        <li><a href="#built-with">Built With</a></li>
-        <li><a href="#database-schema">Database Schema</a></li>
-        <li><a href="#learning-goals">Learning Goals</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-        <ul>
-          <li><a href="#usage">Usage</a></li>
-          <li><a href="#to-use-the-repository">To use the repository</a></li>
-          <li><a href="#to-run-tests">To run tests</a></li>
-        </ul>
-        <li><a href="#gems-utilized">Gems Utilized</a></li>
-        <li><a href="#javascript-packages-utilized">JavaScript Packages Utilized</a></li>
-      </ul>
-    </li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-    <li><a href="#license">License</a></li>
-  </ol>
-</details>
+## Table of Contents
+
+1. [About The Project](#about-the-project)
+   - [Deployment Information](#deployment-information)
+   - [Built With](#built-with)
+   - [Database Schema](#database-schema)
+   - [Learning Goals](#learning-goals)
+2. [Getting Started](#getting-started)
+   - [Prerequisites](#prerequisites)
+   - [Installation](#installation)
+   - [Usage](#usage)
+     - [Repository Usage](#to-use-the-repository)
+     - [Running Tests](#to-run-tests)
+   - [Gems Utilized](#gems-utilized)
+   - [JavaScript Packages Utilized](#javascript-packages-utilized)
+3. [Roadmap](#roadmap)
+   - [Initial Research and Decisions](#initial-research-and-decisions)
+   - [Enrollment Management](#enrollment-managment)
+   - [Prospective Student Features](#prospective-student-features)
+   - [Admin Features](#admin-features)
+   - [Database Enhancements](#database-enhancements)
+   - [Deployment and Documentation](#deployment-and-documentation)
+4. [Contact](#contact)
+5. [Acknowledgments](#acknowledgments)
+6. [License](#license)
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -63,37 +53,57 @@ To ensure high quality, we employ a Test-Driven Development (TDD) approach using
 
 For our DevOps processes, we use Render and GitHub to maintain a smooth and reliable release pipeline. This project is an opportunity for us to explore the combination of Rails and React.js, enhance our understanding of TDD, and optimize our DevOps practices.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<div align="right">
+
+[(back to top)](#top)
+
+</div>
 
 <!-- Deployment Information -->
 ### Deployment Information
 
 The Learning Source Enrollment Registration will be deployed soon 🤗
 
-* ~~Render Deployment~~<br>
+- ~~Render Deployment~~
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<div align="right">
+
+[(back to top)](#top)
+
+</div>
 
 <!-- Built With -->
 ### Built With
 
-<img src="public/tech-stack.png" alt="Tech-Stack" width="90%" height="90%">
+![Tech-Stack](public/tech-stack.png)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<div align="right">
+
+[(back to top)](#top)
+
+</div>
 
 <!-- Database Schema -->
 ### Database Schema
 
-<img src="public/schema.png" alt="Database-Schema">
+![Database-Schema](public/schema.png)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<div align="right">
+
+[(back to top)](#top)
+
+</div>
 
 <!-- Learning Goals -->
 ### Learning Goals
 
 *Instructions to be added*
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<div align="right">
+
+[(back to top)](#top)
+
+</div>
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -111,11 +121,16 @@ For macOS users:
 2. Confirm installation by running `chromedriver -v`.
 
 > **Note:** In case Chrome Driver is quarantined by macOS:
+>
 > 1. Run `which chromedriver` to find the installation path. The output should look similar to `/usr/local/bin/chromedriver`.
 > 2. Run `xattr -d com.apple.quarantine /usr/local/bin/chromedriver`.
 > 3. Confirm it's working by repeating step 2 above.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<div align="right">
+
+[(back to top)](#top)
+
+</div>
 
 <!-- INSTALLATION -->
 ### Installation
@@ -129,21 +144,33 @@ Follow the steps below to install and set up the repository on your local machin
 5. Execute `bundle exec vite install` to set up Vite.
 6. Run `npm install` to install the necessary npm packages.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<div align="right">
+
+[(back to top)](#top)
+
+</div>
 
 <!-- USAGE -->
 ### Usage
 
 *Instructions to be added*
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<div align="right">
+
+[(back to top)](#top)
+
+</div>
 
 <!-- TO USE THE REPOSITORY -->
 #### To use the repository
 
 *Instructions to be added*
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<div align="right">
+
+[(back to top)](#top)
+
+</div>
 
 <!-- TO RUN TESTS -->
 #### To run tests
@@ -154,7 +181,11 @@ You will need two terminal windows (or tabs):
 
 2. **Terminal 2:** Navigate to the project directory and run `bundle exec rspec` to run the entire RSpec test suite. The test results will be output in this terminal window.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<div align="right">
+
+[(back to top)](#top)
+
+</div>
 
 <!-- Gems Utilized -->
 ### Gems Utilized
@@ -180,7 +211,11 @@ The Learning Source Enrollment Registration utilizes the following gems:
 - [rubocop-rspec](https://github.com/rubocop/rubocop-rspec) - Code analyzer for RSpec files.
 - [simplecov](https://github.com/simplecov-ruby/simplecov) - Code coverage analysis tool for Ruby.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<div align="right">
+
+[(back to top)](#top)
+
+</div>
 
 <!-- JavaScript Packages Utilized -->
 ### JavaScript Packages Utilized
@@ -211,24 +246,31 @@ The Learning Source Enrollment Registration utilizes the following JavaScript pa
 - [react-datetime-picker](https://www.npmjs.com/package/react-datetime-picker): A date/time picker for react (using bootstrap).
 - [react-dom](https://reactjs.org/docs/react-dom.html): Serves as the entry point to the DOM and server renderers for React.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<div align="right">
+
+[(back to top)](#top)
+
+</div>
 
 <!-- ROADMAP -->
 ## Roadmap
 
 The following is a roadmap for our project, outlining our Minimum Viable Product (MVP) and the key steps towards achieving it:
 
-### Initial Research & Decisions
+<!-- INITIAL RESEARCH AND DECISIONS -->
+### Initial Research and Decisions
 
 - [x] Evaluate the feasibility of passing data between controller and React components in a monolithic MVC, RESTful architecture using Vite.
 - [x] Assess the potential for Test-Driven Development (TDD) using RSpec and Capybara for webpages that utilize JavaScript.
 - [x] Decide on project structure: whether to utilize a standard Rails monolith or a React + Rails setup with Vite.
 
+<!-- ENROLLMENT MANAGEMENT -->
 ### Enrollment Management
 
 - [x] Develop the ability to create new enrollment sessions.
 - [x] Restrict the creation of new enrollment sessions to admins only.
 
+<!-- PROSPECTIVE STUDENT FEATURES -->
 ### Prospective Student Features
 
 - [x] Enable prospective students to view a list of enrollment sessions.
@@ -236,6 +278,7 @@ The following is a roadmap for our project, outlining our Minimum Viable Product
 - [x] Implement a cap on each session's student count (default of 30), after which prospective students won't have the option to join.
 - [ ] Upon successful joining of a session, redirect students to a confirmation page displaying registration details and staff contact information.
 
+<!-- ADMIN FEATURES -->
 ### Admin Features
 
 - [x] Enable admins to view a list of enrollment sessions.
@@ -245,19 +288,24 @@ The following is a roadmap for our project, outlining our Minimum Viable Product
 - [ ] Enable admins to add and/or remove students from a specific enrollment session.
 - [ ] Develop a filter for admins to identify returning prospective students, allowing staff to secure enrollment spots.
 
+<!-- DATABASE ENHANCEMENTS -->
 ### Database Enhancements
 
 - [ ] Add "language spoken" field to the student database schema.
 
-### Deployment & Documentation
+<!-- DEPLOYMENT AND DOCUMENTATION -->
+### Deployment and Documentation
 
 - [ ] Deploy the application on Render.
 - [ ] Create a detailed README file.
 
 Please refer to the [open issues](https://github.com/msakr21/registration/issues) for a full list of proposed features and known issues.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<div align="right">
 
+[(back to top)](#top)
+
+</div>
 
 <!-- CONTACT -->
 ## Contact
@@ -283,24 +331,35 @@ Please refer to the [open issues](https://github.com/msakr21/registration/issues
   </tr>
 </table>
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<div align="right">
+
+[(back to top)](#top)
+
+</div>
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
 [The Learning Source](https://www.thelearningsource.org/)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<div align="right">
+
+[(back to top)](#top)
+
+</div>
 
 <!-- LICENSE -->
 ## License
 
 This project is licensed under the terms of the MIT license. For more details, see the [LICENSE](./LICENSE) file.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<div align="right">
+
+[(back to top)](#top)
+
+</div>
 
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/msakr21/registration.svg?style=for-the-badge
 [contributors-url]: https://github.com/msakr21/registration/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/msakr21/registration.svg?style=for-the-badge
@@ -310,4 +369,4 @@ This project is licensed under the terms of the MIT license. For more details, s
 [issues-shield]: https://img.shields.io/github/issues/msakr21/registration.svg?style=for-the-badge
 [issues-url]: https://github.com/msakr21/registration/issues
 [license-shield]: https://img.shields.io/github/license/msakr21/registration.svg?style=for-the-badge
-[license-url]: https://github.com/msakr21/registration/blob/master/LICENSE.txt
+[license-url]: https://github.com/msakr21/registration/blob/main/LICENSE
