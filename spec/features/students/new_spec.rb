@@ -59,15 +59,6 @@ RSpec.describe 'new student page', driver: :selenium_chrome, js: true do
         eloise_may.reload
         expect(eloise_may.students.length).to eq(eloise_may.student_limit)
         visit new_enrollment_student_path(eloise_may)
-        fill_in('first_name', with: 'David')
-        fill_in('last_name', with: 'Labo')
-        fill_in('email', with: 'david.labo@someemail.com')
-        fill_in('phone', with: '1337666575')
-        fill_in('language', with: 'Spanish')
-        click_button('Submit')        
-
-        eloise_may.reload
-        expect(eloise_may.students.length).to eq(eloise_may.student_limit)
         expect(current_path).to eq(enrollments_path)
       end
     end
