@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :students, only: [:new, :create]
   end
 
+  get '/confirmation', to: 'pages#confirmation'
+
   namespace :admin do
     resources :enrollments do
       resources :students

@@ -6,6 +6,7 @@ import DeleteConfirmation from '~/components/DeleteConfirmation.jsx';
 function EnrollmentIndex(props) {
   const csrf_token = document.head.getElementsByTagName('meta')[2].content;
   const enrollments = JSON.parse(document.getElementById("data").getAttribute("enrollments"));
+  const newStudentError = document.getElementById("data").getAttribute("new_student_error");
   const [displayConfirmationModal, setDisplayConfirmationModal] = useState(false);
   const [deleteMessage, setDeleteMessage] = useState(null);
   const deleteConfirmation = document.getElementById("data").getAttribute("delete_confirmation");
@@ -29,11 +30,17 @@ function EnrollmentIndex(props) {
     return limit <= number;
   }
 
-  function DisplayDeleteSuccess(confirmation) {
-    if (confirmation === 'true') {
+  function DisplayDeleteSuccess() {
+    if (deleteConfirmation === 'true') {
       return <Alert variant="success" dismissible>"The enrollment was deleted successfully."</Alert>;
-    } else if (confirmation === 'error') {
+    } else if (deleteConfirmation === 'error') {
       return <Alert variant="danger" dismissible>"Can't delete session with registered students. Please remove students first."</Alert>;
+    }
+  }
+
+  function NewStudentError() {
+    if (newStudentError === 'true') {
+      return <Alert variant="danger" dismissible>"This session is no longer available."</Alert>;
     }
   }
 
@@ -123,7 +130,8 @@ function EnrollmentIndex(props) {
 
   return (
     <Card border="light">
-      {DisplayDeleteSuccess(deleteConfirmation)}
+      {DisplayDeleteSuccess()}
+      {NewStudentError()}
       {UserHeaderUI(props.admin)}
       <Card.Title style={{ textAlign: "center", margin: "2%" }}>Available Enrollment Sessions:</Card.Title>
       <Row xs={3} md={3} className="g-4">

@@ -20,6 +20,10 @@ class Enrollment < ApplicationRecord
     schedule.in_time_zone('Mountain Time (US & Canada)').strftime('%I:%M %p')
   end
 
+  def student_limit_check
+    self.students.length < self.student_limit
+  end
+
   def self.enrollment_hash(enrollment)
     {
       id: enrollment.id,
