@@ -6,16 +6,16 @@ class StudentsController < ApplicationController
   def create
     enrollment = Enrollment.find(params[:enrollment_id])
     if enrollment.student_limit_check
-      enrollment.students.create!(
+      student = enrollment.students.create!(
         first_name: params[:first_name],
         last_name: params[:last_name],
         email: params[:email],
         phone: params[:phone],
         language: params[:language]
       )
-      redirect_to '/enrollments'
+      redirect_to controller: 'pages', action: 'confirmation', name: student.first_name, time: enrollment.formatted_time, date: enrollment.formatted_date, location: enrollment.location
     else
-      redirect_to '/enrollments'
+      redirect_to controller: 'enrollments', action: 'index', error_adding: true
     end
   end
 end
