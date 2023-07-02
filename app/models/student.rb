@@ -13,11 +13,11 @@ class Student < ApplicationRecord
     students.to_json
   end
 
+  private
+
   def format_phone
     self.phone = Phonelib.parse(phone).e164
   end
-
-  private
 
   def email_or_phone_present
     return unless [email, phone].none?(&:present?)
