@@ -5,12 +5,56 @@ RSpec.describe Student do
     it { should belong_to :enrollment }
   end
 
+  describe 'validations' do
+    it { should validate_presence_of(:first_name) }
+    it { should validate_presence_of(:last_name) }
+    it { should validate_presence_of(:language) }
+
+    it 'is valid with valid email' do
+      student = create(:student, email: 'bob@aol.com')
+      expect(student).to be_valid
+    end
+
+    it 'is invalid with invalid email' do
+      student = build(:student, email: 'bademail')
+      expect(student).to_not be_valid
+    end
+
+    it 'is valid with valid US phone number' do
+      student = create(:student, phone: '(555) 555-5555')
+      expect(student).to be_valid
+    end
+
+    it 'is invalid with invalid phone number' do
+      student = build(:student, phone: '123')
+      expect(student).to_not be_valid
+    end
+
+    it 'is invalid with a non-US number' do
+      student = build(:student, phone: '+40 800 672 400')
+      expect(student).to_not be_valid
+    end
+
+    it 'is valid if either email or phone is present' do
+      student_with_email = create(:student, phone: nil)
+      student_with_phone = create(:student, email: nil)
+
+      expect(student_with_email).to be_valid
+      expect(student_with_phone).to be_valid
+    end
+
+    it 'is invalid if both email and phone are not present' do
+      student = build(:student, email: nil, phone: nil)
+      expect(student).to_not be_valid
+    end
+  end
+
   describe '#list_data' do
     let!(:eloise_may) { create(:enrollment, location: 'Eloise May') }
     let!(:sheridan) { create(:enrollment, location: 'Sheridan') }
 
-    let!(:bryan) { create(:student, enrollment: sheridan, first_name: 'Bryan', last_name: 'Keener', email: 'bryan.keener@persona.com', phone: '5555555555', language: 'English') }
-    let!(:mufasa) { create(:student, enrollment: sheridan, first_name: 'Mufasa', last_name: 'Skar', email: 'mufasa.skar@persona.com', phone: '7777777777', language: 'Aramaic') }
+    let!(:bryan) { create(:student, enrollment: sheridan) }
+    let!(:mufasa) { create(:student, enrollment: sheridan) }
 
     it 'returns a list of students as a JSON collection' do
       expect(Student.list_data).to eq([student_hash(bryan), student_hash(mufasa)].to_json)

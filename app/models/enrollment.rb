@@ -1,6 +1,10 @@
 class Enrollment < ApplicationRecord
   has_many :students
 
+  validates :location, presence: true
+  validates :schedule, presence: true
+  validates :student_limit, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+
   def self.list_data
     all.map { |enrollment| enrollment_hash(enrollment) }.to_json
   end
@@ -21,7 +25,7 @@ class Enrollment < ApplicationRecord
   end
 
   def student_limit_check
-    self.students.length < self.student_limit
+    students.length < student_limit
   end
 
   def self.enrollment_hash(enrollment)
