@@ -11,7 +11,7 @@ RSpec.describe Student do
     it { should validate_presence_of(:language) }
 
     it 'is valid with valid email' do
-      student = create(:student, email: 'bob@aol.com')
+      student = build(:student, email: 'bob@aol.com')
       expect(student).to be_valid
     end
 
@@ -21,7 +21,7 @@ RSpec.describe Student do
     end
 
     it 'is valid with valid US phone number' do
-      student = create(:student, phone: '(555) 555-5555')
+      student = build(:student, phone: '(555) 555-5555')
       expect(student).to be_valid
     end
 
@@ -36,8 +36,8 @@ RSpec.describe Student do
     end
 
     it 'is valid if either email or phone is present' do
-      student_with_email = create(:student, phone: nil)
-      student_with_phone = create(:student, email: nil)
+      student_with_email = build(:student, phone: nil)
+      student_with_phone = build(:student, email: nil)
 
       expect(student_with_email).to be_valid
       expect(student_with_phone).to be_valid
