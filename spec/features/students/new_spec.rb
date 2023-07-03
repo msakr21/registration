@@ -55,7 +55,7 @@ RSpec.describe 'new student page', driver: :selenium_chrome, js: true do
     context 'as a user if I visit the page when session is full' do
       let!(:students_may) { create_list(:student, eloise_may.student_limit, enrollment: eloise_may) }
 
-      it "I will be redirected to the enrollments index page" do
+      it 'I will be redirected to the enrollments index page' do
         eloise_may.reload
         expect(eloise_may.students.length).to eq(eloise_may.student_limit)
         visit new_enrollment_student_path(eloise_may)
@@ -66,16 +66,16 @@ RSpec.describe 'new student page', driver: :selenium_chrome, js: true do
     context 'as a user if I submit the form when an enrollment is full' do
       let!(:students_may) { create_list(:student, (eloise_may.student_limit - 1), enrollment: eloise_may) }
 
-      it "will not add me and instead redirect me to the enrollments index page with an error message that session is full" do
+      it 'will not add me and instead redirect me to the enrollments index page with an error message that session is full' do
         eloise_may.reload
         expect(eloise_may.students.length).to eq((eloise_may.student_limit - 1))
         visit new_enrollment_student_path(eloise_may)
 
-        sniper_student = create(:student, enrollment: eloise_may)
+        create(:student, enrollment: eloise_may)
         eloise_may.reload
 
-        # The above case is to simulate another prospective student submitting 
-        # a form right before I do in this context 
+        # The above case is to simulate another prospective student submitting
+        # a form right before I do in this context
         # so the limit is hit while I am actually on the page
 
         fill_in('first_name', with: 'David')
@@ -83,11 +83,11 @@ RSpec.describe 'new student page', driver: :selenium_chrome, js: true do
         fill_in('email', with: 'david.labo@someemail.com')
         fill_in('phone', with: '1337666575')
         fill_in('language', with: 'Spanish')
-        click_button('Submit')        
+        click_button('Submit')
 
         expect(eloise_may.students.length).to eq(eloise_may.student_limit)
         expect(current_path).to eq(enrollments_path)
-        expect(page).to have_content("This session is no longer available.")
+        expect(page).to have_content('This session is no longer available.')
       end
     end
   end

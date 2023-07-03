@@ -5,6 +5,12 @@ RSpec.describe Enrollment do
     it { should have_many :students }
   end
 
+  describe 'validations' do
+    it { should validate_presence_of :location }
+    it { should validate_presence_of :schedule }
+    it { should validate_numericality_of(:student_limit).only_integer.is_greater_than_or_equal_to(0) }
+  end
+
   describe 'methods' do
     let!(:eloise_may) { create(:enrollment, schedule: DateTime.parse('2030-06-11T15:00:24.000Z'), location: 'Eloise May') }
     let!(:sheridan) { create(:enrollment, schedule: DateTime.parse('2030-06-12T15:00:24.000Z'), location: 'Sheridan', student_limit: 10) }
@@ -53,14 +59,14 @@ RSpec.describe Enrollment do
       let!(:students_may) { create_list(:student, eloise_may.student_limit, enrollment: eloise_may) }
 
       it 'returns true if number of students is below enrollment student limit and false otherwise' do
-        expect(sheridan.student_limit_check).to eq(true)
+        expect(sheridan.student_limit_check).to be(true)
         expect(eloise_may.students.length).to eq(30)
-        expect(eloise_may.student_limit_check).to eq(false)
+        expect(eloise_may.student_limit_check).to be(false)
 
-        thirty_first_student = create(:student, enrollment: eloise_may)
+        create(:student, enrollment: eloise_may)
         eloise_may.reload
         expect(eloise_may.students.length).to eq(31)
-        expect(eloise_may.student_limit_check).to eq(false)
+        expect(eloise_may.student_limit_check).to be(false)
       end
     end
   end

@@ -17,7 +17,7 @@ RSpec.describe 'confirmation page', driver: :selenium_chrome, js: true do
       end
 
       it 'displays confirmation that application has been receied' do
-        expect(page).to have_content("Application Received")
+        expect(page).to have_content('Application Received')
       end
 
       it 'displays a line containing information about the enrolment session' do
@@ -25,19 +25,19 @@ RSpec.describe 'confirmation page', driver: :selenium_chrome, js: true do
       end
 
       it 'has a link leading to the google map page for the library' do
-        expect(page).to have_link("Eloise May", href: "https://goo.gl/maps/SCNgdrXSaN9SoVHt5")
-        click_link("Eloise May")
-        expect(current_url).to eq("https://www.google.com/maps/place/Eloise+May+Library+(Arapahoe+Libraries)/@39.6899334,-104.8938813,17z/data=!4m6!3m5!1s0x876c7d754dae30a1:0x35a1eceae7f50ae2!8m2!3d39.6899293!4d-104.8913064!16s%2Fg%2F1tcx2019?entry=tts&shorturl=1")
+        expect(page).to have_link('Eloise May', href: 'https://goo.gl/maps/SCNgdrXSaN9SoVHt5')
+        click_link('Eloise May')
+        expect(current_url).to eq('https://www.google.com/maps/place/Eloise+May+Library+(Arapahoe+Libraries)/@39.6899334,-104.8938813,17z/data=!4m6!3m5!1s0x876c7d754dae30a1:0x35a1eceae7f50ae2!8m2!3d39.6899293!4d-104.8913064!16s%2Fg%2F1tcx2019?entry=tts&shorturl=1')
       end
 
       it 'has an important notice' do
-        expect(page).to have_content("Important: Your registration is not yet complete. You will be contacted by someone from The Learning Source to confirm your registration")
+        expect(page).to have_content('Important: Your registration is not yet complete. You will be contacted by someone from The Learning Source to confirm your registration')
       end
 
       it 'has a line with a link directing back to the enrollments index page' do
-        expect(page).to have_content("Click here to return to the list of enrollments.")
-        expect(page).to have_link("here")
-        click_link("here")
+        expect(page).to have_content('Click here to return to the list of enrollments.')
+        expect(page).to have_link('here')
+        click_link('here')
         expect(current_path).to eq(enrollments_path)
       end
     end
