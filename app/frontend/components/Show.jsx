@@ -197,7 +197,7 @@ function AdminEnrollmentShow() {
   );
 
   return (
-    <div style={{ height: "95vh" }}>
+    <div style={{ height: "95vh", webkitTransition: "none !important", transition: "none !important" }}>
       {showEnrollment(enrollment, students)}
       {enrolledStudents(students)}
       <DeleteConfirmation showModal={displayConfirmationModal} confirmModal={submitDelete} hideModal={hideConfirmationModal} path={deletePath} message={deleteMessage} authenticity={csrf_token} />
