@@ -48,7 +48,13 @@ function AdminEnrollmentShow() {
     setEditFormLanguage(event.target.value);
   };
 
-  const print = () => window.print();
+  const print = () => {
+    setTimeout(function(){ window.print(); window.close(); },1000);
+  }
+  
+  // window.print();
+
+
 
   function ShowDeleteModal(type, id) {
     if (type === enrollment) {
@@ -197,7 +203,7 @@ function AdminEnrollmentShow() {
   );
 
   return (
-    <div className="d-print-flex" style={{ height: "95vh" }}>
+    <div id='printable' style={{ height: "95vh" }}>
       {showEnrollment(enrollment, students)}
       {enrolledStudents(students)}
       <DeleteConfirmation showModal={displayConfirmationModal} confirmModal={submitDelete} hideModal={hideConfirmationModal} path={deletePath} message={deleteMessage} authenticity={csrf_token} />
