@@ -197,7 +197,7 @@ function AdminEnrollmentShow() {
   );
 
   return (
-    <div class="visible-print-inline" style={{ height: "95vh" }}>
+    <div class="d-print-inline" style={{ height: "95vh" }}>
       {showEnrollment(enrollment, students)}
       {enrolledStudents(students)}
       <DeleteConfirmation showModal={displayConfirmationModal} confirmModal={submitDelete} hideModal={hideConfirmationModal} path={deletePath} message={deleteMessage} authenticity={csrf_token} />
