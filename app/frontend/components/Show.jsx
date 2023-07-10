@@ -6,6 +6,8 @@ import { MDBInput } from 'mdb-react-ui-kit';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSave } from "@fortawesome/free-regular-svg-icons"
 import { faPrint } from "@fortawesome/free-solid-svg-icons"
+import Print from 'print-js'
+
 
 function AdminEnrollmentShow() {
   const csrf_token = document.head.getElementsByTagName('meta')[2].content;
@@ -166,12 +168,12 @@ function AdminEnrollmentShow() {
   }
 
   const showEnrollment = (enrollment, students) => (
-    <Row display="block" className="d-print-block" media="all">
-      <Card display="block"  media="all" id="enrollmentCard" className="enrollment-card card mx-auto px-0 d-print-block" bg="light" text="dark" border="dark" style={{ width: "40%", height: "50%" }}>
-        <Card.Header display="block" className="d-print-block" media="all" style={{ textAlign: "center" }}>
+    <Row >
+      <Card id="enrollmentCard" className="enrollment-card card mx-auto px-0" bg="light" text="dark" border="dark" style={{ width: "40%", height: "50%" }}>
+        <Card.Header style={{ textAlign: "center" }}>
           <a href={"/admin/enrollments"}>Enrollment Index</a> &nbsp;&nbsp;
           <a href={"/admin/enrollments/new"}>New Enrollment Session</a> &nbsp;&nbsp;
-          <Button name="print" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={printPage}> <FontAwesomeIcon icon={faPrint} color="grey" /> </Button>
+          <Button name="print" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => {Print({ printable: 'printable', type: 'html', targetStyles: ['*']})}}> <FontAwesomeIcon icon={faPrint} color="grey" /> </Button>
         </Card.Header>
         <Card.Body style={{ textAlign: "center" }}>
           <Card.Title>{enrollment.location} — {enrollment.date}</Card.Title>
@@ -191,7 +193,7 @@ function AdminEnrollmentShow() {
   const enrolledStudents = (students) => (
     <div>
       {editForm()}
-      <Table className="d-print-block" media="all" striped bordered hover>
+      <Table striped bordered hover>
         <thead>
           <tr>
             <th className="text-center" width="4%" style={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>#</th>
@@ -214,7 +216,7 @@ function AdminEnrollmentShow() {
 
   return (
     <div style={{ height: "95vh" }}>
-      <div id='printable' display="block" className="d-print-block" media="all" style={{ height: "95vh" }}>
+      <div id='printable' style={{ height: "95vh" }}>
         {showEnrollment(enrollment, students)}
         {enrolledStudents(students)}
       </div>
