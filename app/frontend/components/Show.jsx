@@ -163,7 +163,7 @@ function AdminEnrollmentShow() {
   }
 
   const showEnrollment = (enrollment, students) => (
-    <Row>
+    <Row class="d-print-block" media="all">
       <Card id="enrollmentCard" className="enrollment-card card mx-auto px-0" bg="light" text="dark" border="dark" style={{ width: "40%", height: "50%" }}>
         <Card.Header style={{ textAlign: "center" }}>
           <a href={"/admin/enrollments"}>Enrollment Index</a> &nbsp;&nbsp;
@@ -188,7 +188,7 @@ function AdminEnrollmentShow() {
   const enrolledStudents = (students) => (
     <div>
       {editForm()}
-      <Table striped bordered hover>
+      <Table class="d-print-block" media="all" striped bordered hover>
         <thead>
           <tr>
             <th className="text-center" width="4%" style={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>#</th>
@@ -210,7 +210,7 @@ function AdminEnrollmentShow() {
   );
 
   return (
-    <div id='printable' class="d-print-block" style={{ height: "95vh" }}>
+    <div id='printable' class="d-print-block" media="all" style={{ height: "95vh" }}>
       {showEnrollment(enrollment, students)}
       {enrolledStudents(students)}
       <DeleteConfirmation showModal={displayConfirmationModal} confirmModal={submitDelete} hideModal={hideConfirmationModal} path={deletePath} message={deleteMessage} authenticity={csrf_token} />
