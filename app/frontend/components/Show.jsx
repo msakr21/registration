@@ -48,27 +48,19 @@ function AdminEnrollmentShow() {
   };
 
   const print = () => {
-    let printContents = document.getElementById('printable').innerHTML;
-    let originalContents = document.body.innerHTML;
-    document.body.innerHTML = printContents;
-    window.print();
-    document.body.innerHTML = originalContents;
-    location.reload()
+    // const elementToPrint = document.getElementById('printable')
+    const newWin = window.open(`/admin/enrollments/${enrollment.id}`);
+    // newWin.document.write('<html><head><title></title>');
+    // newWin.document.write('<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">')
+    // newWin.document.write('</head><body >');
+    // newWin.document.write(elementToPrint);
+    // newWin.document.write('<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>');
+    // newWin.document.write('<script src="https://cdn.jsdelivr.net/npm/@fortawesome/free-regular-svg-icons@6.4.0/index.min.js"></script>')
+    // newWin.document.write('<script src="https://cdn.jsdelivr.net/npm/@fortawesome/free-solid-svg-icons@6.4.0/index.min.js"></script>')
+    // newWin.document.write('</body></html>');
+    newWin.print();
+    // window.print
   }
-
-  // const print = () => {
-  //   const elementToPrint = document.getElementById('printable')
-  //   const newWin = window.open("");
-  //   newWin.document.write('<html><head><title></title>');
-  //   newWin.document.write('<link rel="stylesheet" type="text/css" href="vite_dev/assets/bootstrap-702c97b5.css" />')
-  //   newWin.document.write('</head><body >');
-  //   newWin.document.write('<script src="/vite_dev/assets/admin_enrollment_show-e0b9982c.js" crossorigin="anonymous" type="module"></script>');
-  //   newWin.document.write('<link rel="modulepreload" href="/vite_dev/assets/bootstrap.min-84795d78.js" as="script" crossorigin="anonymous"></link>');
-  //   newWin.document.write(elementToPrint.outerHTML);
-  //   newWin.document.write('</body></html>');
-  //   newWin.print();
-  //   newWin.close();
-  // }
 
   function ShowDeleteModal(type, id) {
     if (type === enrollment) {
