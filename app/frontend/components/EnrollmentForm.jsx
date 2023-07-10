@@ -12,7 +12,7 @@ function EnrollmentForm(props) {
   const csrf_token = document.head.getElementsByTagName('meta')[2].content;
   const [location, setLocation] = useState(props.location);
   const [schedule, setSchedule] = useState(props.schedule);
-  const [students, setStudents] = useState(30);
+  const [students, setStudents] = useState(props.students || 30);
   const method = props.method;
   const path = props.path;
 
