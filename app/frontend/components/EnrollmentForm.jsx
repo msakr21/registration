@@ -67,21 +67,15 @@ function EnrollmentForm(props) {
                   inputFormat="MM/dd/yyyy"
                   value={schedule}
                   onChange={handleScheduleChange}
-                  renderInput={(params) => <TextField {...params} />}
+                  slotProps={{ textField: { variant: 'outlined' } }}
                 />
                 <TimePicker
                   label="Please select a Start Time"
                   name="TimePicker"
                   value={schedule}
                   onChange={handleScheduleChange}
-                  renderInput={(params) => <TextField {...params} />}
+                  slotProps={{ textField: { variant: 'outlined' } }}
                 />
-                {/* <DateTimePicker
-                  label="Date&Time picker"
-                  value={value}
-                  onChange={handleDateChange}
-                  renderInput={(params) => <TextField {...params} />}
-                /> */}
               </Stack>
             </LocalizationProvider>
           </div>
