@@ -47,9 +47,9 @@ function AdminEnrollmentShow() {
     setEditFormLanguage(event.target.value);
   };
 
-  const print = () => {
+  function print() {
     // const elementToPrint = document.getElementById('printable')
-    const newWin = window.open(`/admin/enrollments/${enrollment.id}`);
+
     // newWin.document.write('<html><head><title></title>');
     // newWin.document.write('<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">')
     // newWin.document.write('</head><body >');
@@ -58,9 +58,8 @@ function AdminEnrollmentShow() {
     // newWin.document.write('<script src="https://cdn.jsdelivr.net/npm/@fortawesome/free-regular-svg-icons@6.4.0/index.min.js"></script>')
     // newWin.document.write('<script src="https://cdn.jsdelivr.net/npm/@fortawesome/free-solid-svg-icons@6.4.0/index.min.js"></script>')
     // newWin.document.write('</body></html>');
-    newWin.print();
-    newWin.close();
-    // window.print
+    window.print()
+    return null
   }
 
   function ShowDeleteModal(type, id) {
