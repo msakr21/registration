@@ -163,9 +163,9 @@ function AdminEnrollmentShow() {
   }
 
   const showEnrollment = (enrollment, students) => (
-    <Row class="d-print-block" media="all">
-      <Card id="enrollmentCard" className="enrollment-card card mx-auto px-0" bg="light" text="dark" border="dark" style={{ width: "40%", height: "50%" }}>
-        <Card.Header style={{ textAlign: "center" }}>
+    <Row display="block" class="d-print-block" media="all">
+      <Card display="block" class="d-print-block" media="all" id="enrollmentCard" className="enrollment-card card mx-auto px-0" bg="light" text="dark" border="dark" style={{ width: "40%", height: "50%" }}>
+        <Card.Header display="block" class="d-print-block" media="all" style={{ textAlign: "center" }}>
           <a href={"/admin/enrollments"}>Enrollment Index</a> &nbsp;&nbsp;
           <a href={"/admin/enrollments/new"}>New Enrollment Session</a> &nbsp;&nbsp;
           <Button name="print" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={printPage}> <FontAwesomeIcon icon={faPrint} color="grey" /> </Button>
@@ -188,7 +188,7 @@ function AdminEnrollmentShow() {
   const enrolledStudents = (students) => (
     <div>
       {editForm()}
-      <Table class="d-print-block" media="all" striped bordered hover>
+      <Table display="block" class="d-print-block" media="all" striped bordered hover>
         <thead>
           <tr>
             <th className="text-center" width="4%" style={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>#</th>
@@ -210,7 +210,7 @@ function AdminEnrollmentShow() {
   );
 
   return (
-    <div id='printable' class="d-print-block" media="all" style={{ height: "95vh" }}>
+    <div id='printable' display="block" class="d-print-block" media="all" style={{ height: "95vh" }}>
       {showEnrollment(enrollment, students)}
       {enrolledStudents(students)}
       <DeleteConfirmation showModal={displayConfirmationModal} confirmModal={submitDelete} hideModal={hideConfirmationModal} path={deletePath} message={deleteMessage} authenticity={csrf_token} />
