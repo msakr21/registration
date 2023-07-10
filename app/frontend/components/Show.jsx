@@ -59,6 +59,7 @@ function AdminEnrollmentShow() {
     // newWin.document.write('<script src="https://cdn.jsdelivr.net/npm/@fortawesome/free-solid-svg-icons@6.4.0/index.min.js"></script>')
     // newWin.document.write('</body></html>');
     newWin.print();
+    newWin.close();
     // window.print
   }
 
