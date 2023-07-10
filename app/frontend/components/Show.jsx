@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Card, Row, Table } from "react-bootstrap";
 import DeleteConfirmation from '~/components/DeleteConfirmation.jsx';
 import { Trash, Pencil } from "react-bootstrap-icons";
@@ -7,6 +6,7 @@ import { MDBInput } from 'mdb-react-ui-kit';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSave } from "@fortawesome/free-regular-svg-icons"
 import { faPrint } from "@fortawesome/free-solid-svg-icons"
+import Print from 'print-js'
 
 function AdminEnrollmentShow() {
   const csrf_token = document.head.getElementsByTagName('meta')[2].content;
@@ -47,8 +47,6 @@ function AdminEnrollmentShow() {
   const handleLanguageChange = (event) => {
     setEditFormLanguage(event.target.value);
   };
-
-  const print = () => window.print();
 
   function ShowDeleteModal(type, id) {
     if (type === enrollment) {
@@ -150,12 +148,12 @@ function AdminEnrollmentShow() {
   }
 
   const showEnrollment = (enrollment, students) => (
-    <Row>
+    <Row >
       <Card id="enrollmentCard" className="enrollment-card card mx-auto px-0" bg="light" text="dark" border="dark" style={{ width: "40%", height: "50%" }}>
         <Card.Header style={{ textAlign: "center" }}>
           <a href={"/admin/enrollments"}>Enrollment Index</a> &nbsp;&nbsp;
           <a href={"/admin/enrollments/new"}>New Enrollment Session</a> &nbsp;&nbsp;
-          <Button name="print" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={print}> <FontAwesomeIcon icon={faPrint} color="grey" /> </Button>
+          <Button name="print" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => {Print({ printable: 'printable', type: 'html', scanStyles: false, css: 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css'})}}> <FontAwesomeIcon icon={faPrint} color="grey" /> </Button>
         </Card.Header>
         <Card.Body style={{ textAlign: "center" }}>
           <Card.Title>{enrollment.location} — {enrollment.date}</Card.Title>
@@ -198,8 +196,10 @@ function AdminEnrollmentShow() {
 
   return (
     <div style={{ height: "95vh" }}>
-      {showEnrollment(enrollment, students)}
-      {enrolledStudents(students)}
+      <div id='printable' style={{ height: "95vh" }}>
+        {showEnrollment(enrollment, students)}
+        {enrolledStudents(students)}
+      </div>
       <DeleteConfirmation showModal={displayConfirmationModal} confirmModal={submitDelete} hideModal={hideConfirmationModal} path={deletePath} message={deleteMessage} authenticity={csrf_token} />
     </div>
   );

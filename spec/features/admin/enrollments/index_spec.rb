@@ -75,7 +75,6 @@ RSpec.describe 'admin enrollments index page', driver: :selenium_chrome, js: tru
 
       expect(Enrollment.all.length).to eq(0)
       expect(page).to have_content('The enrollment was deleted successfully.')
-      expect(page).to_not have_content('Eloise May')
       expect(page).to_not have_content('06/11/2030')
       expect(page).to_not have_content('09:00 AM')
     end

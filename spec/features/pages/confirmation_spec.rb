@@ -25,7 +25,9 @@ RSpec.describe 'confirmation page', driver: :selenium_chrome, js: true do
       end
 
       it 'has a link leading to the google map page for the library' do
-        expect(page).to have_link('Eloise May', href: 'https://goo.gl/maps/SCNgdrXSaN9SoVHt5')
+        using_wait_time 1 do
+          expect(page).to have_link('Eloise May', href: 'https://goo.gl/maps/SCNgdrXSaN9SoVHt5')
+        end
         click_link('Eloise May')
         expect(current_url).to eq('https://www.google.com/maps/place/Eloise+May+Library+(Arapahoe+Libraries)/@39.6899334,-104.8938813,17z/data=!4m6!3m5!1s0x876c7d754dae30a1:0x35a1eceae7f50ae2!8m2!3d39.6899293!4d-104.8913064!16s%2Fg%2F1tcx2019?entry=tts&shorturl=1')
       end

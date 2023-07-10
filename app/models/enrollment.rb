@@ -9,6 +9,10 @@ class Enrollment < ApplicationRecord
     all.map { |enrollment| enrollment_hash(enrollment) }.to_json
   end
 
+  def self.list_library_data(location)
+    all.where(location: location).map { |enrollment| enrollment_hash(enrollment) }.to_json
+  end
+
   def self.enrollment_detail(enrollment_id)
     enrollment = find_by(id: enrollment_id.to_i)
     return nil unless enrollment
