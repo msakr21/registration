@@ -47,9 +47,11 @@ function AdminEnrollmentShow() {
     setEditFormLanguage(event.target.value);
   };
 
-  function print() {
+  function printPage() {
     // const elementToPrint = document.getElementById('printable')
-
+   
+    window.print()
+   
     // newWin.document.write('<html><head><title></title>');
     // newWin.document.write('<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">')
     // newWin.document.write('</head><body >');
@@ -58,7 +60,6 @@ function AdminEnrollmentShow() {
     // newWin.document.write('<script src="https://cdn.jsdelivr.net/npm/@fortawesome/free-regular-svg-icons@6.4.0/index.min.js"></script>')
     // newWin.document.write('<script src="https://cdn.jsdelivr.net/npm/@fortawesome/free-solid-svg-icons@6.4.0/index.min.js"></script>')
     // newWin.document.write('</body></html>');
-    window.print()
     return null
   }
 
@@ -167,7 +168,7 @@ function AdminEnrollmentShow() {
         <Card.Header style={{ textAlign: "center" }}>
           <a href={"/admin/enrollments"}>Enrollment Index</a> &nbsp;&nbsp;
           <a href={"/admin/enrollments/new"}>New Enrollment Session</a> &nbsp;&nbsp;
-          <Button name="print" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={print}> <FontAwesomeIcon icon={faPrint} color="grey" /> </Button>
+          <Button name="print" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={printPage}> <FontAwesomeIcon icon={faPrint} color="grey" /> </Button>
         </Card.Header>
         <Card.Body style={{ textAlign: "center" }}>
           <Card.Title>{enrollment.location} — {enrollment.date}</Card.Title>
@@ -209,7 +210,7 @@ function AdminEnrollmentShow() {
   );
 
   return (
-    <div id='printable' style={{ height: "95vh" }}>
+    <div id='printable' class="d-print-block" style={{ height: "95vh" }}>
       {showEnrollment(enrollment, students)}
       {enrolledStudents(students)}
       <DeleteConfirmation showModal={displayConfirmationModal} confirmModal={submitDelete} hideModal={hideConfirmationModal} path={deletePath} message={deleteMessage} authenticity={csrf_token} />
