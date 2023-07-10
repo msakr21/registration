@@ -48,10 +48,13 @@ function AdminEnrollmentShow() {
   };
 
   function printPage() {
-    // const elementToPrint = document.getElementById('printable')
-   
-    window.print()
-   
+    // // const elementToPrint = document.getElementById('printable')
+    // let content = document.getElementById('printable')
+    // let newWin = window.open('')
+    // newWin.document.write(content)
+    // newWin.print()
+
+   window.print()
     // newWin.document.write('<html><head><title></title>');
     // newWin.document.write('<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">')
     // newWin.document.write('</head><body >');
@@ -163,9 +166,9 @@ function AdminEnrollmentShow() {
   }
 
   const showEnrollment = (enrollment, students) => (
-    <Row display="block" class="d-print-block" media="all">
-      <Card display="block" class="d-print-block" media="all" id="enrollmentCard" className="enrollment-card card mx-auto px-0" bg="light" text="dark" border="dark" style={{ width: "40%", height: "50%" }}>
-        <Card.Header display="block" class="d-print-block" media="all" style={{ textAlign: "center" }}>
+    <Row display="block" className="d-print-block" media="all">
+      <Card display="block"  media="all" id="enrollmentCard" className="enrollment-card card mx-auto px-0 d-print-block" bg="light" text="dark" border="dark" style={{ width: "40%", height: "50%" }}>
+        <Card.Header display="block" className="d-print-block" media="all" style={{ textAlign: "center" }}>
           <a href={"/admin/enrollments"}>Enrollment Index</a> &nbsp;&nbsp;
           <a href={"/admin/enrollments/new"}>New Enrollment Session</a> &nbsp;&nbsp;
           <Button name="print" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={printPage}> <FontAwesomeIcon icon={faPrint} color="grey" /> </Button>
@@ -188,7 +191,7 @@ function AdminEnrollmentShow() {
   const enrolledStudents = (students) => (
     <div>
       {editForm()}
-      <Table display="block" class="d-print-block" media="all" striped bordered hover>
+      <Table className="d-print-block" media="all" striped bordered hover>
         <thead>
           <tr>
             <th className="text-center" width="4%" style={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>#</th>
@@ -210,9 +213,11 @@ function AdminEnrollmentShow() {
   );
 
   return (
-    <div id='printable' display="block" class="d-print-block" media="all" style={{ height: "95vh" }}>
-      {showEnrollment(enrollment, students)}
-      {enrolledStudents(students)}
+    <div style={{ height: "95vh" }}>
+      <div id='printable' display="block" className="d-print-block" media="all" style={{ height: "95vh" }}>
+        {showEnrollment(enrollment, students)}
+        {enrolledStudents(students)}
+      </div>
       <DeleteConfirmation showModal={displayConfirmationModal} confirmModal={submitDelete} hideModal={hideConfirmationModal} path={deletePath} message={deleteMessage} authenticity={csrf_token} />
     </div>
   );
