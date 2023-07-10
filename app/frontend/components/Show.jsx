@@ -8,7 +8,6 @@ import { faSave } from "@fortawesome/free-regular-svg-icons"
 import { faPrint } from "@fortawesome/free-solid-svg-icons"
 import Print from 'print-js'
 
-
 function AdminEnrollmentShow() {
   const csrf_token = document.head.getElementsByTagName('meta')[2].content;
   const enrollment = JSON.parse(document.getElementById("data").getAttribute("enrollment"));
@@ -48,25 +47,6 @@ function AdminEnrollmentShow() {
   const handleLanguageChange = (event) => {
     setEditFormLanguage(event.target.value);
   };
-
-  function printPage() {
-    // // const elementToPrint = document.getElementById('printable')
-    // let content = document.getElementById('printable')
-    // let newWin = window.open('')
-    // newWin.document.write(content)
-    // newWin.print()
-
-   window.print()
-    // newWin.document.write('<html><head><title></title>');
-    // newWin.document.write('<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">')
-    // newWin.document.write('</head><body >');
-    // newWin.document.write(elementToPrint);
-    // newWin.document.write('<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>');
-    // newWin.document.write('<script src="https://cdn.jsdelivr.net/npm/@fortawesome/free-regular-svg-icons@6.4.0/index.min.js"></script>')
-    // newWin.document.write('<script src="https://cdn.jsdelivr.net/npm/@fortawesome/free-solid-svg-icons@6.4.0/index.min.js"></script>')
-    // newWin.document.write('</body></html>');
-    return null
-  }
 
   function ShowDeleteModal(type, id) {
     if (type === enrollment) {
