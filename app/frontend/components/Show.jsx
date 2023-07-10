@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Card, Row, Table } from "react-bootstrap";
 import DeleteConfirmation from '~/components/DeleteConfirmation.jsx';
 import { Trash, Pencil } from "react-bootstrap-icons";
@@ -49,12 +48,22 @@ function AdminEnrollmentShow() {
   };
 
   const print = () => {
-    setTimeout(function(){ window.print(); window.close(); },1000);
+    window.print();
   }
-  
-  // window.print();
 
-
+  // const print = () => {
+  //   const elementToPrint = document.getElementById('printable')
+  //   const newWin = window.open("");
+  //   newWin.document.write('<html><head><title></title>');
+  //   newWin.document.write('<link rel="stylesheet" type="text/css" href="vite_dev/assets/bootstrap-702c97b5.css" />')
+  //   newWin.document.write('</head><body >');
+  //   newWin.document.write('<script src="/vite_dev/assets/admin_enrollment_show-e0b9982c.js" crossorigin="anonymous" type="module"></script>');
+  //   newWin.document.write('<link rel="modulepreload" href="/vite_dev/assets/bootstrap.min-84795d78.js" as="script" crossorigin="anonymous"></link>');
+  //   newWin.document.write(elementToPrint.outerHTML);
+  //   newWin.document.write('</body></html>');
+  //   newWin.print();
+  //   newWin.close();
+  // }
 
   function ShowDeleteModal(type, id) {
     if (type === enrollment) {
