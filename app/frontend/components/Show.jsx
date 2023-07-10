@@ -48,7 +48,11 @@ function AdminEnrollmentShow() {
   };
 
   const print = () => {
+    let printContents = document.getElementById('printable').innerHTML;
+    let originalContents = document.body.innerHTML;
+    document.body.innerHTML = printContents;
     window.print();
+    document.body.innerHTML = originalContents; 
   }
 
   // const print = () => {
