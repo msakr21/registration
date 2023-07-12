@@ -40,5 +40,40 @@ RSpec.describe 'admin enrollments show page', driver: :selenium_chrome, js: true
         expect(page).to have_button('print')
       end
     end
+
+    xit 'can edit a student' do
+      students.first
+      find("button[name='pen']", match: :first).click
+    
+      within('#editForm') do
+        fill_in 'first_name', with: 'Billy'
+        fill_in 'last_name', with: 'Bob'
+        fill_in 'email', with: 'billybob@yahoo.com'
+        fill_in 'phone', with: '15684568547'
+        fill_in 'language', with: 'Spanish'
+      end
+    
+      find_by_id('editForm').click_button('Save')
+    
+      expect(page).to have_content('Billy')
+      expect(page).to have_content('Bob')
+      expect(page).to have_content('billybob@yahoo.com')
+      expect(page).to have_content('15684568547')
+      expect(page).to have_content('Spanish')
+    end
+    
+
+    it 'can delete a student' do
+      first_student = students.first
+      find("button[name='trash']", match: :first).click
+
+      within('.modal-dialog') do
+        click_button 'Delete'
+      end
+
+      expect(page).not_to have_content(first_student.last_name)
+      expect(page).not_to have_content(first_student.email)
+      expect(page).not_to have_content(first_student.phone)
+    end
   end
 end
