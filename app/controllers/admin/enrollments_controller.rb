@@ -25,12 +25,12 @@ class Admin::EnrollmentsController < ApplicationController
 
   def create
     Enrollment.create!(enrollment_params)
-    redirect_to '/admin/enrollments'
+    redirect_to admin_enrollments_path
   end
 
   def update
     @enrollment.update!(enrollment_params)
-    redirect_to '/admin/enrollments'
+    redirect_to admin_enrollments_path
   end
 
   def destroy
