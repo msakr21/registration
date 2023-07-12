@@ -41,27 +41,26 @@ RSpec.describe 'admin enrollments show page', driver: :selenium_chrome, js: true
       end
     end
 
-    xit 'can edit a student' do
-      students.first
+    it 'can edit a student' do
+      first_student = students.first
       find("button[name='pen']", match: :first).click
-    
-      within('#editForm') do
-        fill_in 'first_name', with: 'Billy'
-        fill_in 'last_name', with: 'Bob'
-        fill_in 'email', with: 'billybob@yahoo.com'
-        fill_in 'phone', with: '15684568547'
-        fill_in 'language', with: 'Spanish'
-      end
-    
-      find_by_id('editForm').click_button('Save')
-    
+
+      expect(page).to have_css('input[type="text"]', count: 5)
+
+      find("input[type='text'][value='#{first_student.first_name}']").set('Billy')
+      find("input[type='text'][value='#{first_student.last_name}']").set('Bob')
+      find("input[type='text'][value='#{first_student.email}']").set('billybob@yahoo.com')
+      find("input[type='text'][value='#{first_student.phone}']").set('(568)456-8547')
+      find("input[type='text'][value='#{first_student.language}']").set('Spanish')
+
+      find("button[name='save']", match: :first).click
+
       expect(page).to have_content('Billy')
       expect(page).to have_content('Bob')
       expect(page).to have_content('billybob@yahoo.com')
-      expect(page).to have_content('15684568547')
+      expect(page).to have_content('+15684568547')
       expect(page).to have_content('Spanish')
     end
-    
 
     it 'can delete a student' do
       first_student = students.first
