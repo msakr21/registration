@@ -16,7 +16,7 @@ RSpec.describe 'confirmation page', driver: :selenium_chrome, js: true do
         click_button('Submit')
       end
 
-      it 'displays confirmation that application has been receied' do
+      it 'displays confirmation that application has been received' do
         expect(page).to have_content('Application Received')
       end
 
