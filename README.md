@@ -193,6 +193,7 @@ The Learning Source Enrollment Registration utilizes the following gems:
 - [puma](https://github.com/puma/puma) - A Ruby/Rack web server built for concurrency.
 - [vite_rails](https://github.com/rails/vite_rails) - Integrates Vite with Rails.
 - [tzinfo-data](https://github.com/tzinfo/tzinfo-data) - Provides daylight savings time (DST) data.
+- [phonelib](https://github.com/daddyz/phonelib) - A library to validate phone numbers.
 - [capybara](https://github.com/teamcapybara/capybara) - Helps you test web applications by simulating how a real user would interact with your app.
 - [debug](https://github.com/ruby/debug) - A new Ruby debugging library (only for MRI and mingw platforms).
 - [factory_bot_rails](https://github.com/thoughtbot/factory_bot_rails) - A fixtures replacement for focused and readable tests.
@@ -291,7 +292,7 @@ The following is a roadmap for our project, outlining our Minimum Viable Product
 <!-- DEPLOYMENT AND DOCUMENTATION -->
 ### Deployment and Documentation
 
-- [ ] Deploy the application on Render.
+- [x] Deploy the application on Render.
 - [ ] Create a detailed README file.
 
 <!-- STRETCH GOALS -->
