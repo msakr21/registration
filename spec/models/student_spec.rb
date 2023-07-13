@@ -22,7 +22,7 @@ RSpec.describe Student do
       it 'is invalid' do
         student = build(:student, email: 'bademail')
 
-        expect(student).to_not be_valid
+        expect(student).not_to be_valid
         expect { student.save! }.to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: Email is invalid')
       end
     end
@@ -39,7 +39,7 @@ RSpec.describe Student do
       it 'is invalid' do
         student = build(:student, phone: '123')
 
-        expect(student).to_not be_valid
+        expect(student).not_to be_valid
         expect { student.save! }.to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: Phone is invalid')
       end
     end
@@ -48,7 +48,7 @@ RSpec.describe Student do
       it 'is invalid' do
         student = build(:student, phone: '+40 800 672 400')
 
-        expect(student).to_not be_valid
+        expect(student).not_to be_valid
         expect { student.save! }.to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: Phone is invalid')
       end
     end
@@ -67,8 +67,10 @@ RSpec.describe Student do
       it 'is invalid' do
         student = build(:student, email: nil, phone: nil)
 
-        expect(student).to_not be_valid
-        expect { student.save! }.to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: Either phone or email must be present')
+        expect(student).not_to be_valid
+        expect do
+          student.save!
+        end.to raise_error(ActiveRecord::RecordInvalid, 'Validation failed: Either phone or email must be present')
       end
     end
   end

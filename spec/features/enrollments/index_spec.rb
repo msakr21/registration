@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'enrollments index page', driver: :selenium_chrome, js: true do
   describe 'when I visit /enrollments' do
-    let!(:eloise_may) { create(:enrollment, location: 'Eloise May', schedule: DateTime.parse('2030-06-11T15:00:24.000Z')) }
+    let!(:eloise_may) do
+      create(:enrollment, location: 'Eloise May', schedule: DateTime.parse('2030-06-11T15:00:24.000Z'))
+    end
 
     before :each do
       visit enrollments_path
@@ -28,7 +30,9 @@ RSpec.describe 'enrollments index page', driver: :selenium_chrome, js: true do
 
       expect(page).to have_link('Register for this session', visible: false)
       # expect(page).to have_css('a.disabled', text: 'Register for this session') <-- alternative to above line
-      expect { click_link('Register for this session') }.to raise_error(Selenium::WebDriver::Error::ElementClickInterceptedError)
+      expect do
+        click_link('Register for this session')
+      end.to raise_error(Selenium::WebDriver::Error::ElementClickInterceptedError)
     end
   end
 end

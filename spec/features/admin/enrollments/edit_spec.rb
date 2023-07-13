@@ -1,7 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'edit enrollment page', driver: :selenium_chrome, js: true do
-  let!(:eloise_may) { create(:enrollment, location: 'Eloise May', schedule: DateTime.parse('2030-06-10T15:00:24.000Z')) }
+  let!(:eloise_may) do
+    create(:enrollment, location: 'Eloise May', schedule: DateTime.parse('2030-06-10T15:00:24.000Z'))
+  end
 
   before do
     visit edit_admin_enrollment_path(eloise_may)

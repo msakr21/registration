@@ -15,7 +15,8 @@ class StudentsController < ApplicationController
         phone: params[:phone],
         language: params[:language]
       )
-      redirect_to controller: 'pages', action: 'confirmation', name: student.first_name, time: enrollment.formatted_time, date: enrollment.formatted_date, location: enrollment.location
+      redirect_to controller: 'pages', action: 'confirmation', name: student.first_name,
+                  time: enrollment.formatted_time, date: enrollment.formatted_date, location: enrollment.location
     else
       redirect_to controller: 'enrollments', action: 'index', error_adding: true
     end

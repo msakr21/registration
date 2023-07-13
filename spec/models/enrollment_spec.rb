@@ -12,13 +12,20 @@ RSpec.describe Enrollment do
   end
 
   describe 'methods' do
-    let!(:eloise_may) { create(:enrollment, schedule: DateTime.parse('2030-06-11T15:00:24.000Z'), location: 'Eloise May') }
-    let!(:sheridan) { create(:enrollment, schedule: DateTime.parse('2030-06-12T15:00:24.000Z'), location: 'Sheridan', student_limit: 10) }
+    let!(:eloise_may) do
+      create(:enrollment, schedule: DateTime.parse('2030-06-11T15:00:24.000Z'), location: 'Eloise May')
+    end
+    let!(:sheridan) do
+      create(:enrollment, schedule: DateTime.parse('2030-06-12T15:00:24.000Z'), location: 'Sheridan', student_limit: 10)
+    end
     let!(:students_sheridan) { create_list(:student, 2, enrollment: sheridan) }
 
     describe '#list_data' do
       it 'returns a list of enrollments as a JSON collection' do
-        expect(JSON.parse(Enrollment.list_data)).to contain_exactly({ 'id' => eloise_may.id, 'location' => eloise_may.location, 'date' => '06/11/2030', 'time' => '09:00 AM', 'student_limit' => 30, 'students' => 0 }, { 'id' => sheridan.id, 'location' => sheridan.location, 'date' => '06/12/2030', 'time' => '09:00 AM', 'student_limit' => 10, 'students' => 2 })
+        expect(JSON.parse(Enrollment.list_data)).to contain_exactly(
+          { 'id' => eloise_may.id, 'location' => eloise_may.location, 'date' => '06/11/2030', 'time' => '09:00 AM',
+            'student_limit' => 30, 'students' => 0 }, { 'id' => sheridan.id, 'location' => sheridan.location, 'date' => '06/12/2030', 'time' => '09:00 AM', 'student_limit' => 10, 'students' => 2 }
+        )
       end
     end
 
@@ -26,7 +33,8 @@ RSpec.describe Enrollment do
       context 'when a valid id is provided' do
         it 'returns the details of a single enrollment' do
           expect(JSON.parse(Enrollment.enrollment_detail(eloise_may.id))).to eq(
-            { 'id' => eloise_may.id, 'location' => eloise_may.location, 'date' => '06/11/2030', 'time' => '09:00 AM', 'student_limit' => 30, 'students' => 0 }
+            { 'id' => eloise_may.id, 'location' => eloise_may.location, 'date' => '06/11/2030', 'time' => '09:00 AM',
+              'student_limit' => 30, 'students' => 0 }
           )
         end
       end
