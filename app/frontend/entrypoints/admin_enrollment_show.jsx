@@ -1,8 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import "bootstrap/dist/css/bootstrap.min.css";
-import AdminEnrollmentShow from '~/components/Show.jsx';
+import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import AdminEnrollmentShow from '~/components/Show';
 
 const container = document.getElementById('show');
-const root = ReactDOM.createRoot(container);
-root.render(<AdminEnrollmentShow />);
+
+ReactDOM.render(<AdminEnrollmentShow />, container);
