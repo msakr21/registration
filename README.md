@@ -56,9 +56,9 @@ For our DevOps processes, we use Render and GitHub to maintain a smooth and reli
 <!-- Deployment Information -->
 ### Deployment Information
 
-The Learning Source Enrollment Registration will be deployed soon 🤗
+The Learning Source Enrollment Registration is deployed on Render. Please see the link below.
 
-- ~~Render Deployment~~
+[Render Deployment](https://registration-test.onrender.com/)
 
 <div align="right">
 
