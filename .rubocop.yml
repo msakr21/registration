@@ -7,9 +7,6 @@ require:
 AllCops:
   NewCops: enable
 
-# Layout/LineLength:
-#   Enabled: false
-
 Style/FrozenStringLiteralComment:
   Enabled: false
 
@@ -31,16 +28,10 @@ Style/ClassAndModuleChildren:
 RSpec/ImplicitExpect:
   Enabled: false
 
-Capybara/CurrentPathExpectation:
-  Enabled: false
-
 RSpec/HookArgument:
   Enabled: false
 
 RSpec/EmptyExampleGroup:
-  Enabled: false
-
-FactoryBot/FactoryClassName:
   Enabled: false
 
 RSpec/DescribeClass:
@@ -53,6 +44,12 @@ RSpec/MultipleExpectations:
   Enabled: false
 
 RSpec/ExampleLength:
+  Enabled: false
+
+Capybara/CurrentPathExpectation:
+  Enabled: false
+
+FactoryBot/FactoryClassName:
   Enabled: false
 
 Rails/TimeZone:
