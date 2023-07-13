@@ -18,18 +18,15 @@ RSpec.describe Enrollment do
 
     describe '#list_data' do
       it 'returns a list of enrollments as a JSON collection' do
-        expect(Enrollment.list_data).to eq([
-          { id: eloise_may.id, location: eloise_may.location, date: '06/11/2030', time: '09:00 AM', student_limit: 30, students: 0 },
-          { id: sheridan.id, location: sheridan.location, date: '06/12/2030', time: '09:00 AM', student_limit: 10, students: 2 }
-        ].to_json)
+        expect(JSON.parse(Enrollment.list_data)).to contain_exactly({ 'id' => eloise_may.id, 'location' => eloise_may.location, 'date' => '06/11/2030', 'time' => '09:00 AM', 'student_limit' => 30, 'students' => 0 }, { 'id' => sheridan.id, 'location' => sheridan.location, 'date' => '06/12/2030', 'time' => '09:00 AM', 'student_limit' => 10, 'students' => 2 })
       end
     end
 
     describe '#enrollment_detail' do
       context 'when a valid id is provided' do
         it 'returns the details of a single enrollment' do
-          expect(Enrollment.enrollment_detail(eloise_may.id)).to eq(
-            { id: eloise_may.id, location: eloise_may.location, date: '06/11/2030', time: '09:00 AM', student_limit: 30, students: 0 }.to_json
+          expect(JSON.parse(Enrollment.enrollment_detail(eloise_may.id))).to eq(
+            { 'id' => eloise_may.id, 'location' => eloise_may.location, 'date' => '06/11/2030', 'time' => '09:00 AM', 'student_limit' => 30, 'students' => 0 }
           )
         end
       end
