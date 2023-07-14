@@ -3,9 +3,9 @@ class Admin::EnrollmentsController < ApplicationController
 
   def index
     @enrollments = Enrollment.list_data
-    @may_enrollments = Enrollment.list_library_data("Eloise May")
-    @sheridan_enrollments = Enrollment.list_library_data("Sheridan")
-    @smoky_enrollments = Enrollment.list_library_data("Smoky Hill")
+    @may_enrollments = Enrollment.list_library_data('Eloise May')
+    @sheridan_enrollments = Enrollment.list_library_data('Sheridan')
+    @smoky_enrollments = Enrollment.list_library_data('Smoky Hill')
     @delete_confirmation = params[:confirm_delete]
   end
 
@@ -25,12 +25,12 @@ class Admin::EnrollmentsController < ApplicationController
 
   def create
     Enrollment.create!(enrollment_params)
-    redirect_to '/admin/enrollments'
+    redirect_to admin_enrollments_path
   end
 
   def update
     @enrollment.update!(enrollment_params)
-    redirect_to '/admin/enrollments'
+    redirect_to admin_enrollments_path
   end
 
   def destroy

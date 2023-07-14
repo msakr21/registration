@@ -40,5 +40,39 @@ RSpec.describe 'admin enrollments show page', driver: :selenium_chrome, js: true
         expect(page).to have_button('print')
       end
     end
+
+    it 'can edit a student' do
+      first_student = students.first
+      find("button[name='pen']", match: :first).click
+
+      expect(page).to have_css('input[type="text"]', count: 5)
+
+      find("input[type='text'][value='#{first_student.first_name}']").set('Billy')
+      find("input[type='text'][value='#{first_student.last_name}']").set('Bob')
+      find("input[type='text'][value='#{first_student.email}']").set('billybob@yahoo.com')
+      find("input[type='text'][value='#{first_student.phone}']").set('(568)456-8547')
+      find("input[type='text'][value='#{first_student.language}']").set('Spanish')
+
+      find("button[name='save']", match: :first).click
+
+      expect(page).to have_content('Billy')
+      expect(page).to have_content('Bob')
+      expect(page).to have_content('billybob@yahoo.com')
+      expect(page).to have_content('+15684568547')
+      expect(page).to have_content('Spanish')
+    end
+
+    it 'can delete a student' do
+      first_student = students.first
+      find("button[name='trash']", match: :first).click
+
+      within('.modal-dialog') do
+        click_button 'Delete'
+      end
+
+      expect(page).not_to have_content(first_student.last_name)
+      expect(page).not_to have_content(first_student.email)
+      expect(page).not_to have_content(first_student.phone)
+    end
   end
 end

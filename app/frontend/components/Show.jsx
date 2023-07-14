@@ -3,10 +3,10 @@ import { Button, Card, Row, Table } from "react-bootstrap";
 import DeleteConfirmation from '~/components/DeleteConfirmation.jsx';
 import { Trash, Pencil } from "react-bootstrap-icons";
 import { MDBInput } from 'mdb-react-ui-kit';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSave } from "@fortawesome/free-regular-svg-icons"
-import { faPrint } from "@fortawesome/free-solid-svg-icons"
-import Print from 'print-js'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSave } from "@fortawesome/free-regular-svg-icons";
+import { faPrint } from "@fortawesome/free-solid-svg-icons";
+import Print from 'print-js';
 
 function AdminEnrollmentShow() {
   const csrf_token = document.head.getElementsByTagName('meta')[2].content;
@@ -145,10 +145,10 @@ function AdminEnrollmentShow() {
     } else {
       return `${('0' + (parseInt(time.slice(0, 2)) + 3)).slice(-2)}${time.slice(-6)}`;
     }
-  }
+  };
 
   const showEnrollment = (enrollment, students) => (
-    <Row >
+    <Row>
       <Card id="enrollmentCard" className="enrollment-card card mx-auto px-0" bg="light" text="dark" border="dark" style={{ width: "40%", height: "50%" }}>
         <Card.Header style={{ textAlign: "center" }}>
           <a href={"/admin/enrollments"}>Enrollment Index</a> &nbsp;&nbsp;
