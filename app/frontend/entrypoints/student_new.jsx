@@ -1,7 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import StudentForm from '~/components/StudentForm';
 
 const container = document.getElementById('new');
+const root = ReactDOM.createRoot(container);
 
-ReactDOM.render(<StudentForm admin="" />, container);
+root.render(<StudentForm admin="" />);

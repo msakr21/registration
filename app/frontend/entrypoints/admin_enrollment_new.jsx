@@ -1,16 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import EnrollmentForm from '~/components/EnrollmentForm';
 
 const container = document.getElementById('new');
+const root = ReactDOM.createRoot(container);
 
-ReactDOM.render(
+root.render(
   <EnrollmentForm
     location="Smoky Hill"
     schedule={new Date()}
     students={20}
     path="/admin/enrollments"
     method="post"
-  />,
-  container
+  />
 );
