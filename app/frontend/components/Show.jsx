@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Card, Row, Table } from "react-bootstrap";
 import DeleteConfirmation from '~/components/DeleteConfirmation.jsx';
+import endTime from '~/components/EndTime.js'
 import { Trash, Pencil } from "react-bootstrap-icons";
 import { MDBInput } from 'mdb-react-ui-kit';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -122,25 +123,6 @@ function AdminEnrollmentShow() {
 
   const submitDelete = () => {
     setDisplayConfirmationModal(false);
-  };
-
-  const endTime = (time) => {
-    let endHour = parseInt(time.slice(0, 2)) + 3;
-    const meridiemSwitch = {
-      "P": "A",
-      "A": "P"
-    };
-    if (endHour > 15) {
-      endHour -= 12;
-      return `0${endHour}${time.slice(-6)}`;
-    } else if (endHour > 12 && endHour <= 15) {
-      endHour -= 12;
-      return (('0' + `${endHour}`).slice(-2) + `${time.slice(2, 6)}` + `${meridiemSwitch[time[6]]}M`);
-    } else if (endHour === 12) {
-      return (('0' + `${endHour}`).slice(-2) + `${time.slice(2, 6)}` + `${meridiemSwitch[time[6]]}M`);
-    } else {
-      return `${('0' + (parseInt(time.slice(0, 2)) + 3)).slice(-2)}${time.slice(-6)}`;
-    }
   };
 
   const showEnrollment = (enrollment, students) => (
