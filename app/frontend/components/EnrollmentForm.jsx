@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import Stack from '@mui/material/Stack';
-import TextField from '@mui/material/TextField';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Form, Card, Row } from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, Form, Card, Row } from 'react-bootstrap';
 
 function EnrollmentForm(props) {
   const csrf_token = document.head.getElementsByTagName('meta')[2].content;
@@ -33,6 +32,8 @@ function EnrollmentForm(props) {
       return <input type="hidden" name="_method" value="PATCH" />;
     }
   }
+
+  //tweak method above to take all caps so it can be reusable for patch and delete and split into own component
 
   return (
     <Row style={{ height: "95vh" }}>

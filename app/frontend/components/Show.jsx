@@ -24,10 +24,6 @@ function AdminEnrollmentShow() {
   const [editFormPhone, setEditFormPhone] = useState("");
   const [editFormLanguage, setEditFormLanguage] = useState("");
 
-  function URISetter(main, id, sub, page) {
-    return `/${main}/${id}/${sub}${page}`;
-  }
-
   const handleFirstNameChange = (event) => {
     setEditFormFirstName(event.target.value);
   };
@@ -162,7 +158,7 @@ function AdminEnrollmentShow() {
           <Card.Text>Student Limit: {enrollment.student_limit}</Card.Text>
           <Card.Text>Number of Students: {students.length}</Card.Text>
           <Row xs={2} md={2}>
-            <Button href={URISetter("admin/enrollments", enrollment.id, "edit", "")} size="sm" variant="outline-dark">Edit Session</Button>
+            <Button href={`/admin/enrollments/${enrollment.id}/edit`} size="sm" variant="outline-dark">Edit Session</Button>
             <Button size="sm" variant="outline-dark" onClick={() => ShowDeleteModal(enrollment, enrollment.id)}>Delete Session</Button>
           </Row>
         </Card.Body>

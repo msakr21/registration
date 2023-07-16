@@ -1,6 +1,5 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Stack, Container } from 'react-bootstrap';
 
 function HomePage() {
   return (

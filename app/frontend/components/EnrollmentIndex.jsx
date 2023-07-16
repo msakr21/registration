@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
+import AtCapacity from '~/components/AtCapacity.js'
 import { Button, Card, Col, Row, Alert } from "react-bootstrap";
 import DeleteConfirmation from '~/components/DeleteConfirmation.jsx';
+import DisplayDeleteSuccess from '~/components/DisplayDeleteSuccess.jsx';
 
 function EnrollmentIndex(props) {
   const csrf_token = document.head.getElementsByTagName('meta')[2].content;
@@ -28,33 +30,17 @@ function EnrollmentIndex(props) {
     setDisplayConfirmationModal(false);
   };
 
-  function isAtCapacity(limit, number) {
-    return limit <= number;
-  }
-
-  function DisplayDeleteSuccess() {
-    if (deleteConfirmation === 'true') {
-      return <Alert variant="success" dismissible>"The enrollment was deleted successfully."</Alert>;
-    } else if (deleteConfirmation === 'error') {
-      return <Alert variant="danger" dismissible>"Can't delete session with registered students. Please remove students first."</Alert>;
-    }
-  }
-
   function NewStudentError() {
     if (newStudentError === 'true') {
       return <Alert variant="danger" dismissible>"This session is no longer available."</Alert>;
     }
   }
 
-  function URISetter(main, id, sub, page) {
-    return `/${main}/${id}/${sub}${page}`;
-  }
-
   function LinkRendering(capacity, id) {
     if (capacity) {
       return "/enrollments";
     } else {
-      return URISetter("enrollments", id, "students", "/new");
+      return `/enrollments/${id}/students/new`;
     }
   }
 
@@ -79,9 +65,9 @@ function EnrollmentIndex(props) {
           <Card.Text>Student Limit: {enrollment.student_limit}</Card.Text>
           <Card.Text>Number of Students: {enrollment.students}</Card.Text>
           <Row xs={2} md={2}>
-            <Button disabled={isAtCapacity(enrollment.student_limit, enrollment.students)} href={URISetter("admin/enrollments", enrollment.id, "students", "/new")} size="sm" variant="outline-dark">Add Student</Button>
-            <Button href={URISetter("admin/enrollments", enrollment.id, "edit", "")} size="sm" variant="outline-dark">Edit Session</Button>
-            <Button href={URISetter("admin/enrollments", enrollment.id, "", "")} size="sm" variant="outline-dark">Show Details</Button>
+            <Button disabled={AtCapacity(enrollment.student_limit, enrollment.students)} href={`admin/enrollments/${enrollment.id}/students/new`} size="sm" variant="outline-dark">Add Student</Button>
+            <Button href={`admin/enrollments/${enrollment.id}/edit`} size="sm" variant="outline-dark">Edit Session</Button>
+            <Button href={`admin/enrollments/${enrollment.id}`} size="sm" variant="outline-dark">Show Details</Button>
             <Button size="sm" variant="outline-dark" onClick={() => ShowDeleteModal(enrollment, enrollment.id)}>Delete Session</Button>
           </Row>
         </div>
@@ -89,9 +75,9 @@ function EnrollmentIndex(props) {
     } else {
       return (
         <div id="student">
-          {StudentText(isAtCapacity(enrollment.student_limit, enrollment.students), enrollment)}
+          {StudentText(AtCapacity(enrollment.student_limit, enrollment.students), enrollment)}
           <div className="text-center">
-            <Button disabled={isAtCapacity(enrollment.student_limit, enrollment.students)} href={LinkRendering(isAtCapacity(enrollment.student_limit, enrollment.students), enrollment.id)} size="sm" variant="outline-dark">Register for this session</Button>
+            <Button disabled={AtCapacity(enrollment.student_limit, enrollment.students)} href={LinkRendering(AtCapacity(enrollment.student_limit, enrollment.students), enrollment.id)} size="sm" variant="outline-dark">Register for this session</Button>
           </div>
         </div>
       );
@@ -116,19 +102,6 @@ function EnrollmentIndex(props) {
       return `${('0'+ (parseInt(time.slice(0,2))+3)).slice(-2)}${time.slice(-6)}`;
     }
   }
-
-  // const listEnrollments = enrollments.map((enrollment) =>
-  //   <Col key={enrollment.id}>
-  //     <Card className="enrollment-card" bg="light" text="dark" border="dark">
-  //       <Card.Body style={{ textAlign: "center" }}>
-  //         <Card.Title>{enrollment.location}</Card.Title>
-  //         <Card.Subtitle>{enrollment.date}<br />{enrollment.time} — {endTime(enrollment.time)}</Card.Subtitle>
-  //         <br />
-  //         {UserListUI(props.admin, enrollment)}
-  //       </Card.Body>
-  //     </Card>
-  //   </Col>
-  // );
 
   const listMayEnrollments = mayEnrollments.map((enrollment) =>
     <Col key={enrollment.id}>
@@ -171,7 +144,7 @@ function EnrollmentIndex(props) {
 
   return (
     <Card border="light">
-      {DisplayDeleteSuccess()}
+      {DisplayDeleteSuccess(deleteConfirmation)}
       {NewStudentError()}
       {UserHeaderUI(props.admin)}
       <Card.Title style={{ textAlign: "center", margin: "2%" }}>Eloise May Enrollment Sessions:</Card.Title>

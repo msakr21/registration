@@ -13,6 +13,8 @@ function ConfirmationPage() {
     "Smoky Hill": "https://goo.gl/maps/7Cij99GWWYapuPX89",
   };
 
+  //split the dictionary to its own part for ease of set up
+
   return (
     <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
       <h3 style={{ position: "absolute", top: "25%" }}>Application Received</h3>
