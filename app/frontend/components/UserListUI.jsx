@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button, Card, Row} from "react-bootstrap";
 import AtCapacity from '~/components/AtCapacity.js'
 import StudentText from '~/components/StudentText.jsx';
 import LinkRendering from '~/components/LinkRendering.js';
 
-function UserListUI(userType, enrollment) {
+function UserListUI(userType, enrollment, deletePath, setDeletePath, deleteMessage, setDeleteMessage, displayConfirmationModal, setDisplayConfirmationModal) {
+  function showDeleteModal(enrollment, id) {
+    setDeletePath(`/admin/enrollments/${id}`);
+    setDeleteMessage(`Are you sure you want to delete the enrollment in ${enrollment.location} on ${enrollment.date} at ${enrollment.time}`);
+    setDisplayConfirmationModal(true);
+  };
+
   if (userType === "admin") {
     return (
       <div id="admin">
@@ -14,7 +20,7 @@ function UserListUI(userType, enrollment) {
           <Button disabled={AtCapacity(enrollment.student_limit, enrollment.students)} href={`/admin/enrollments/${enrollment.id}/students/new`} size="sm" variant="outline-dark">Add Student</Button>
           <Button href={`/admin/enrollments/${enrollment.id}/edit`} size="sm" variant="outline-dark">Edit Session</Button>
           <Button href={`/admin/enrollments/${enrollment.id}`} size="sm" variant="outline-dark">Show Details</Button>
-          <Button size="sm" variant="outline-dark" onClick={() => ShowDeleteModal}>Delete Session</Button>
+          <Button size="sm" variant="outline-dark" onClick={() => showDeleteModal(enrollment, enrollment.id)}>Delete Session</Button>
         </Row>
       </div>
     );

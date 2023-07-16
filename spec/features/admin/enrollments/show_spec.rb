@@ -66,7 +66,7 @@ RSpec.describe 'admin enrollments show page', driver: :selenium_chrome, js: true
       first_student = students.first
       find("button[name='trash']", match: :first).click
 
-      within('.modal-dialog') do
+      within('.modal-dialog', wait: 2) do
         click_button 'Delete'
       end
 
