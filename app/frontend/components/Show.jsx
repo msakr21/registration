@@ -3,10 +3,8 @@ import { Button, Card, Row, Table } from "react-bootstrap";
 import DeleteConfirmation from '~/components/DeleteConfirmation.jsx';
 import endTime from '~/components/EndTime.js'
 import showDeleteModal from '~/components/showDeleteModal.js';
-import { Trash, Pencil } from "react-bootstrap-icons";
-import { MDBInput } from 'mdb-react-ui-kit';
+import TableRows from '~/components/TableRows.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSave } from "@fortawesome/free-regular-svg-icons";
 import { faPrint } from "@fortawesome/free-solid-svg-icons";
 import Print from 'print-js';
 
@@ -18,94 +16,40 @@ function AdminEnrollmentShow() {
   const [deleteMessage, setDeleteMessage] = useState(null);
   const [deletePath, setDeletePath] = useState(null);
   const [rowEdit, setRowEdit] = useState(false);
-  const [rowEditID, setRowEditID] = useState(null);
-  const [studentID, setStudentID] = useState(0);
-  const [editFormFirstName, setEditFormFirstName] = useState("");
-  const [editFormLastName, setEditFormLastName] = useState("");
-  const [editFormEmail, setEditFormEmail] = useState("");
-  const [editFormPhone, setEditFormPhone] = useState("");
-  const [editFormLanguage, setEditFormLanguage] = useState("");
 
-  const handleFirstNameChange = (event) => {
-    setEditFormFirstName(event.target.value);
+  const [formValue, setFormValue] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    language: "",
+    rowID: null,
+    studentID: 0
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormValue((prevState) => {
+      return {
+        ...prevState,
+        [name]: value,
+      };
+    });
   };
-
-  const handleLastNameChange = (event) => {
-    setEditFormLastName(event.target.value);
-  };
-
-  const handleEmailChange = (event) => {
-    setEditFormEmail(event.target.value);
-  };
-
-  const handlePhoneChange = (event) => {
-    setEditFormPhone(event.target.value);
-  };
-
-  const handleLanguageChange = (event) => {
-    setEditFormLanguage(event.target.value);
-  };
-
-  function clickToEditRow(student, index) {
-    setRowEdit(!rowEdit);
-    setEditFormFirstName(student.first_name);
-    setEditFormLastName(student.last_name);
-    setEditFormEmail(student.email);
-    setEditFormPhone(student.phone);
-    setEditFormLanguage(student.language);
-    setStudentID(student.id);
-    setRowEditID(index);
-  }
 
   const editForm = () => {
     return (
-      <form id="editForm" action={`/admin/enrollments/${enrollment.id}/students/${studentID}`} method="post">
+      <form id="editForm" action={`/admin/enrollments/${enrollment.id}/students/${formValue.studentID}`} method="post">
         <input type="hidden" name="authenticity_token" value={csrf_token} />
         <input type="hidden" name="_method" value="PATCH" />
-        <input type="hidden" name="first_name" value={editFormFirstName} />
-        <input type="hidden" name="last_name" value={editFormLastName} />
-        <input type="hidden" name="email" value={editFormEmail} />
-        <input type="hidden" name="phone" value={editFormPhone} />
-        <input type="hidden" name="language" value={editFormLanguage} />
+        <input type="hidden" name="first_name" value={formValue.firstName} />
+        <input type="hidden" name="last_name" value={formValue.lastName} />
+        <input type="hidden" name="email" value={formValue.email} />
+        <input type="hidden" name="phone" value={formValue.phone} />
+        <input type="hidden" name="language" value={formValue.language} />
       </form>
     );
   };
-
-  function populateRow(rowEdit, rowEditID, student, index) {
-    if (rowEdit === true && rowEditID === index) {
-      return (
-        <tr id={index} key={index}>
-          <td className="text-center align-middle">{index + 1}</td>
-          <td><MDBInput className="text-center align-middle" type='text' value={editFormFirstName} onChange={handleFirstNameChange}></MDBInput></td>
-          <td><MDBInput className="text-center align-middle" type='text' value={editFormLastName} onChange={handleLastNameChange}></MDBInput></td>
-          <td><MDBInput className="text-center align-middle" type='text' value={editFormEmail} onChange={handleEmailChange}></MDBInput></td>
-          <td><MDBInput className="text-center align-middle" type='text' value={editFormPhone} onChange={handlePhoneChange}></MDBInput></td>
-          <td><MDBInput className="text-center align-middle" type='text' value={editFormLanguage} onChange={handleLanguageChange}></MDBInput></td>
-          <td>
-            <Button name="pen" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => clickToEditRow(student, index)}> <Pencil color="blue" /> </Button>
-            <Button name="save" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} type="submit" form={"editForm"}> <FontAwesomeIcon icon={faSave} color="blue" /> </Button>
-            <Button name="trash" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => showDeleteModal(student, student.id, setDeletePath, setDeleteMessage, setDisplayConfirmationModal, enrollment)}> <Trash color="red" /> </Button>
-          </td>
-        </tr>
-      );
-    } else {
-      return (
-        <tr id={index} key={index} >
-          <td className="text-center align-middle" style={{ padding: "0px" }}>{index + 1}</td>
-          <td className="text-center align-middle" style={{ padding: "0px" }}>{student.first_name}</td>
-          <td className="text-center align-middle" style={{ padding: "0px" }}>{student.last_name}</td>
-          <td className="text-center align-middle" style={{ padding: "0px" }}>{student.email}</td>
-          <td className="text-center align-middle" style={{ padding: "0px" }}>{student.phone}</td>
-          <td className="text-center align-middle" style={{ padding: "0px" }}>{student.language}</td>
-          <td className="text-center align-middle" style={{ padding: "0px" }}>
-            <Button name="pen" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => clickToEditRow(student, index)}> <Pencil color="blue" /> </Button>
-            <Button name="save" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} disabled={true}> <FontAwesomeIcon icon={faSave} color="lightgrey" /> </Button>
-            <Button name="trash" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => showDeleteModal(student, student.id, setDeletePath, setDeleteMessage, setDisplayConfirmationModal, enrollment)}> <Trash color="red" /> </Button>
-          </td>
-        </tr>
-      );
-    }
-  }
 
   const hideConfirmationModal = () => {
     setDisplayConfirmationModal(false);
@@ -155,7 +99,7 @@ function AdminEnrollmentShow() {
         </thead>
         <tbody>
           {students.map((student, index) => (
-            populateRow(rowEdit, rowEditID, student, index)
+            TableRows(rowEdit, formValue, student, index, handleChange, enrollment, setRowEdit, setFormValue, setDeletePath, setDeleteMessage, setDisplayConfirmationModal)
           ))}
         </tbody>
       </Table>
