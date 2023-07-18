@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Card, Row, Table } from "react-bootstrap";
 import DeleteConfirmation from '~/components/DeleteConfirmation.jsx';
 import endTime from '~/components/EndTime.js'
+import showDeleteModal from '~/components/showDeleteModal.js';
 import { Trash, Pencil } from "react-bootstrap-icons";
 import { MDBInput } from 'mdb-react-ui-kit';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -45,17 +46,6 @@ function AdminEnrollmentShow() {
     setEditFormLanguage(event.target.value);
   };
 
-  function ShowDeleteModal(type, id) {
-    if (type === enrollment) {
-      setDeletePath(`/admin/enrollments/${id}`);
-      setDeleteMessage(`Are you sure you want to delete the enrollment in ${type.location} on ${type.date} at ${type.time}`);
-    } else {
-      setDeletePath(`/admin/enrollments/${enrollment.id}/students/${id}`);
-      setDeleteMessage(`Are you sure you want to remove ${type.first_name} registered at ${enrollment.location} on ${enrollment.date} at ${enrollment.time}`);
-    }
-    setDisplayConfirmationModal(true);
-  }
-
   function clickToEditRow(student, index) {
     setRowEdit(!rowEdit);
     setEditFormFirstName(student.first_name);
@@ -94,7 +84,7 @@ function AdminEnrollmentShow() {
           <td>
             <Button name="pen" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => clickToEditRow(student, index)}> <Pencil color="blue" /> </Button>
             <Button name="save" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} type="submit" form={"editForm"}> <FontAwesomeIcon icon={faSave} color="blue" /> </Button>
-            <Button name="trash" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => ShowDeleteModal(student, student.id)}> <Trash color="red" /> </Button>
+            <Button name="trash" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => showDeleteModal(student, student.id, setDeletePath, setDeleteMessage, setDisplayConfirmationModal, enrollment)}> <Trash color="red" /> </Button>
           </td>
         </tr>
       );
@@ -110,7 +100,7 @@ function AdminEnrollmentShow() {
           <td className="text-center align-middle" style={{ padding: "0px" }}>
             <Button name="pen" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => clickToEditRow(student, index)}> <Pencil color="blue" /> </Button>
             <Button name="save" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} disabled={true}> <FontAwesomeIcon icon={faSave} color="lightgrey" /> </Button>
-            <Button name="trash" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => ShowDeleteModal(student, student.id)}> <Trash color="red" /> </Button>
+            <Button name="trash" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => showDeleteModal(student, student.id, setDeletePath, setDeleteMessage, setDisplayConfirmationModal, enrollment)}> <Trash color="red" /> </Button>
           </td>
         </tr>
       );
@@ -141,7 +131,7 @@ function AdminEnrollmentShow() {
           <Card.Text>Number of Students: {students.length}</Card.Text>
           <Row xs={2} md={2}>
             <Button href={`/admin/enrollments/${enrollment.id}/edit`} size="sm" variant="outline-dark">Edit Session</Button>
-            <Button size="sm" variant="outline-dark" onClick={() => ShowDeleteModal(enrollment, enrollment.id)}>Delete Session</Button>
+            <Button size="sm" variant="outline-dark" onClick={() => showDeleteModal(enrollment, enrollment.id, setDeletePath, setDeleteMessage, setDisplayConfirmationModal)}>Delete Session</Button>
           </Row>
         </Card.Body>
       </Card>

@@ -33,15 +33,15 @@ function EnrollmentIndex(props) {
       {UserHeaderUI(props.admin)}
       <Card.Title style={{ textAlign: "center", margin: "2%" }}>Eloise May Enrollment Sessions:</Card.Title>
       <Row xs={2} md={3} className="g-4 justify-content-center">
-        {ListLocationEnrollments(props.admin, mayEnrollments, deletePath, setDeletePath, deleteMessage, setDeleteMessage, displayConfirmationModal, setDisplayConfirmationModal)}
+        {ListLocationEnrollments(props.admin, mayEnrollments, setDeletePath, setDeleteMessage, setDisplayConfirmationModal)}
       </Row>
       <Card.Title style={{ textAlign: "center", margin: "2%" }}>Sheridan Enrollment Sessions:</Card.Title>
       <Row xs={2} md={3} className="g-4 justify-content-center">
-        {ListLocationEnrollments(props.admin, sheridanEnrollments, deletePath, setDeletePath, deleteMessage, setDeleteMessage, displayConfirmationModal, setDisplayConfirmationModal)}
+        {ListLocationEnrollments(props.admin, sheridanEnrollments, setDeletePath, setDeleteMessage, setDisplayConfirmationModal)}
       </Row>
       <Card.Title style={{ textAlign: "center", margin: "2%" }}>Smoky Hill Enrollment Sessions:</Card.Title>
       <Row xs={2} md={3} className="g-4 justify-content-center">
-      {ListLocationEnrollments(props.admin, smokyEnrollments, deletePath, setDeletePath, deleteMessage, setDeleteMessage, displayConfirmationModal, setDisplayConfirmationModal)}
+        {ListLocationEnrollments(props.admin, smokyEnrollments, setDeletePath, setDeleteMessage, setDisplayConfirmationModal)}
       </Row>
       <DeleteConfirmation showModal={displayConfirmationModal} confirmModal={submitDelete} hideModal={hideConfirmationModal} path={deletePath} message={deleteMessage} authenticity={csrf_token} />
     </Card>
