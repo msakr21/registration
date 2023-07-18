@@ -7,21 +7,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSave } from "@fortawesome/free-regular-svg-icons";
 
 function TableRows(rowEdit, formValue, student, index, handleChange, enrollment, setRowEdit, setFormValue, setDeletePath, setDeleteMessage, setDisplayConfirmationModal) {
-  function slicePhone(phone) {
-    if(phone[0]+phone[1] === '+1') {
-      return phone.slice(2)
-    } else {
-      return phone
-    };
-  };
-
   function clickToEditRow(student, index) {
     setRowEdit(!rowEdit);
     setFormValue({
       firstName: student.first_name,
       lastName: student.last_name,
       email: student.email,
-      phone: slicePhone(student.phone),
+      phone: student.phone,
       language: student.language,
       rowID: index,
       studentID: student.id
