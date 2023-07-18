@@ -1,4 +1,4 @@
-function endTime(time) {
+function EndTime(time) {
   let endHour = parseInt(time.slice(0,2)) + 3;
   const meridiemSwitch = {
     "P": "A",
@@ -14,7 +14,7 @@ function endTime(time) {
     return (('0'+`${endHour}`).slice(-2)+`${time.slice(2,6)}`+`${meridiemSwitch[time[6]]}M`);
   } else { 
     return `${('0'+ (parseInt(time.slice(0,2))+3)).slice(-2)}${time.slice(-6)}`;
-  }
+  };
 };
 
-export default endTime;
+export default EndTime;
