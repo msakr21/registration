@@ -1,10 +1,11 @@
 import React from 'react';
 import { Button, Card, Row } from "react-bootstrap";
-import endTime from '~/components/endTime'
+import endTime from 'app/frontend/components/endTime.js'
 import showDeleteModal from '~/components/showDeleteModal.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPrint } from "@fortawesome/free-solid-svg-icons";
 import Print from 'print-js';
+
 
 const ShowEnrollmentCard = (enrollment, students, setDeletePath, setDeleteMessage, setDisplayConfirmationModal) => (
   <Row>
