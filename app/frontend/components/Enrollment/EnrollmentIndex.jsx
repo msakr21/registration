@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, Row} from "react-bootstrap";
-import DeleteConfirmation from '~/components/DeleteConfirmation.jsx';
-import DisplayDeleteSuccess from '~/components/DisplayDeleteSuccess.jsx';
-import NewStudentError from '~/components/NewStudentError.jsx';
-import UserHeaderUI from '~/components/UserHeaderUI.jsx';
-import ListLocationEnrollments from '~/components/ListLocationEnrollments.jsx';
+import DeleteConfirmation from '~/components/Enrollment/Common/Modals/DeleteConfirmation.jsx';
+import DisplayDeleteSuccess from '~/components/Enrollment/Common/Modals/DisplayDeleteSuccess.jsx';
+import NewStudentError from '~/components/Enrollment/Common/NewStudentError.jsx';
+import UserHeaderUI from '~/components/Enrollment/UserHeaderUI.jsx';
+import ListLocationEnrollments from '~/components/Enrollment/ListLocationEnrollments.jsx';
 
 function EnrollmentIndex(props) {
   const csrf_token = document.head.getElementsByTagName('meta')[2].content;

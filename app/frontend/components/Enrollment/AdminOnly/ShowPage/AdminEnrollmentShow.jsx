@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import DeleteConfirmation from '~/components/Enrollment/Common/Modals/DeleteConfirmation.jsx';
-import ShowEnrollmentCard from '~/components/Enrollment/Admin/ShowEnrollmentCard.jsx';
-import EnrolledStudents from '~/components/Enrollment/Admin/EnrolledStudents.jsx'; 
+import ShowEnrollmentCard from '~/components/Enrollment/AdminOnly/ShowPage/ShowEnrollmentCard.jsx';
+import EnrolledStudents from '~/components/Enrollment/AdminOnly/ShowPage/EnrolledStudents.jsx'; 
 
 function AdminEnrollmentShow() {
   const csrf_token = document.head.getElementsByTagName('meta')[2].content;

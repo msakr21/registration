@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from "react-bootstrap";
-import TableEditForm from '~/components/TableEditForm.jsx';
-import TableRows from '~/components/TableRows.jsx';
+import TableEditForm from '~/components/Enrollment/AdminOnly/ShowPage/TableEditForm.jsx';
+import TableRows from '~/components/Enrollment/AdminOnly/ShowPage/TableRows.jsx';
 
 const EnrolledStudents = (students, rowEdit, enrollment, formValue, csrf_token, handleChange, setRowEdit, setFormValue, setDeletePath, setDeleteMessage, setDisplayConfirmationModal) => (
   <div>

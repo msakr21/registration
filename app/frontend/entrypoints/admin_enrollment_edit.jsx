@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import EnrollmentForm from '~/components/EnrollmentForm';
+import EnrollmentForm from '~/components/Enrollment/AdminOnly/EnrollmentForm';
 
 const enrollment_id = document.getElementById("data").getAttribute("enrollmentID");
 const location = document.getElementById("data").getAttribute("location");
