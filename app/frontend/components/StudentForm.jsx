@@ -74,6 +74,6 @@ function NewStudent(props) {
       </Card>
     </Row>
   );
-}
+};
 
 export default NewStudent;
