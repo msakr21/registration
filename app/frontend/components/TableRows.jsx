@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from "react-bootstrap";
-import showDeleteModal from '~/components/showDeleteModal.js';
+import showDeleteModal from '~/components/ShowDeleteModal.js';
 import { Trash, Pencil } from "react-bootstrap-icons";
 import { MDBInput } from 'mdb-react-ui-kit';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

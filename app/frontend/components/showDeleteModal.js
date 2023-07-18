@@ -9,4 +9,4 @@ function showDeleteModal(type, id, setDeletePath, setDeleteMessage, setDisplayCo
   setDisplayConfirmationModal(true);
 };
 
-export default ShowDeleteModal;
+export default showDeleteModal;
