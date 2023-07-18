@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Form, Card, Row } from "react-bootstrap";
 
-function NewStudent(props) {
+function NewStudentForm(props) {
   const csrf_token = document.head.getElementsByTagName('meta')[2].content;
   const enrollment_id = document.getElementById("data").getAttribute("enrollmentID");
   const [firstName, setFirstName] = useState("");
@@ -76,4 +76,4 @@ function NewStudent(props) {
   );
 };
 
-export default NewStudent;
+export default NewStudentForm;
