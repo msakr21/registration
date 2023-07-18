@@ -1,4 +1,4 @@
-function linkRendering(capacity, id) {
+function LinkRendering(capacity, id) {
   if (capacity) {
     return "/enrollments";
   } else {
@@ -6,4 +6,4 @@ function linkRendering(capacity, id) {
   }
 };
 
-export default linkRendering;
+export default LinkRendering;

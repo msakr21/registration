@@ -1,5 +1,5 @@
-function atCapacity(limit, number) {
+function AtCapacity(limit, number) {
   return limit <= number;
 };
 
-export default atCapacity;
+export default AtCapacity;

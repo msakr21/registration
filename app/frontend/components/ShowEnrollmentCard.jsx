@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Card, Row } from "react-bootstrap";
-import endTime from '~/components/EndTime.js';
-import showDeleteModal from '~/components/ShowDeleteModal.js';
+import EndTime from '~/components/EndTime.js';
+import ShowDeleteModal from '~/components/ShowDeleteModal.js';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPrint } from "@fortawesome/free-solid-svg-icons";
 import Print from 'print-js';
@@ -17,13 +17,13 @@ const ShowEnrollmentCard = (enrollment, students, setDeletePath, setDeleteMessag
       </Card.Header>
       <Card.Body style={{ textAlign: "center" }}>
         <Card.Title>{enrollment.location} — {enrollment.date}</Card.Title>
-        <Card.Subtitle>{enrollment.time} — {endTime(enrollment.time)}</Card.Subtitle>
+        <Card.Subtitle>{enrollment.time} — {EndTime(enrollment.time)}</Card.Subtitle>
         <br />
         <Card.Text>Student Limit: {enrollment.student_limit}</Card.Text>
         <Card.Text>Number of Students: {students.length}</Card.Text>
         <Row xs={2} md={2}>
           <Button href={`/admin/enrollments/${enrollment.id}/edit`} size="sm" variant="outline-dark">Edit Session</Button>
-          <Button size="sm" variant="outline-dark" onClick={() => showDeleteModal(enrollment, enrollment.id, setDeletePath, setDeleteMessage, setDisplayConfirmationModal)}>Delete Session</Button>
+          <Button size="sm" variant="outline-dark" onClick={() => ShowDeleteModal(enrollment, enrollment.id, setDeletePath, setDeleteMessage, setDisplayConfirmationModal)}>Delete Session</Button>
         </Row>
       </Card.Body>
     </Card>

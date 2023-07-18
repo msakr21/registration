@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from "react-bootstrap";
-import showDeleteModal from '~/components/ShowDeleteModal.js';
+import ShowDeleteModal from '~/components/ShowDeleteModal.js';
 import { Trash, Pencil } from "react-bootstrap-icons";
 import { MDBInput } from 'mdb-react-ui-kit';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -32,7 +32,7 @@ function TableRows(rowEdit, formValue, student, index, handleChange, enrollment,
         <td>
           <Button name="pen" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => clickToEditRow(student, index)}> <Pencil color="blue" /> </Button>
           <Button name="save" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} type="submit" form={"editForm"}> <FontAwesomeIcon icon={faSave} color="blue" /> </Button>
-          <Button name="trash" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => showDeleteModal(student, student.id, setDeletePath, setDeleteMessage, setDisplayConfirmationModal, enrollment)}> <Trash color="red" /> </Button>
+          <Button name="trash" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => ShowDeleteModal(student, student.id, setDeletePath, setDeleteMessage, setDisplayConfirmationModal, enrollment)}> <Trash color="red" /> </Button>
         </td>
       </tr>
     );
@@ -48,7 +48,7 @@ function TableRows(rowEdit, formValue, student, index, handleChange, enrollment,
         <td className="text-center align-middle" style={{ padding: "0px" }}>
           <Button name="pen" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => clickToEditRow(student, index)}> <Pencil color="blue" /> </Button>
           <Button name="save" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} disabled={true}> <FontAwesomeIcon icon={faSave} color="lightgrey" /> </Button>
-          <Button name="trash" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => showDeleteModal(student, student.id, setDeletePath, setDeleteMessage, setDisplayConfirmationModal, enrollment)}> <Trash color="red" /> </Button>
+          <Button name="trash" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => ShowDeleteModal(student, student.id, setDeletePath, setDeleteMessage, setDisplayConfirmationModal, enrollment)}> <Trash color="red" /> </Button>
         </td>
       </tr>
     );

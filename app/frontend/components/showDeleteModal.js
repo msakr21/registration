@@ -1,4 +1,4 @@
-function showDeleteModal(type, id, setDeletePath, setDeleteMessage, setDisplayConfirmationModal, enrollment = null) {
+function ShowDeleteModal(type, id, setDeletePath, setDeleteMessage, setDisplayConfirmationModal, enrollment = null) {
   if (enrollment === null) {
     setDeletePath(`/admin/enrollments/${id}`);
     setDeleteMessage(`Are you sure you want to delete the enrollment in ${type.location} on ${type.date} at ${type.time}`);
@@ -9,4 +9,4 @@ function showDeleteModal(type, id, setDeletePath, setDeleteMessage, setDisplayCo
   setDisplayConfirmationModal(true);
 };
 
-export default showDeleteModal;
+export default ShowDeleteModal;
