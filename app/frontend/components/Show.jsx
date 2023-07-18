@@ -3,6 +3,7 @@ import { Button, Card, Row, Table } from "react-bootstrap";
 import DeleteConfirmation from '~/components/DeleteConfirmation.jsx';
 import endTime from '~/components/EndTime.js'
 import showDeleteModal from '~/components/showDeleteModal.js';
+import TableEditForm from '~/components/TableEditForm.jsx';
 import TableRows from '~/components/TableRows.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPrint } from "@fortawesome/free-solid-svg-icons";
@@ -35,20 +36,6 @@ function AdminEnrollmentShow() {
         [name]: value,
       };
     });
-  };
-
-  const editForm = () => {
-    return (
-      <form id="editForm" action={`/admin/enrollments/${enrollment.id}/students/${formValue.studentID}`} method="post">
-        <input type="hidden" name="authenticity_token" value={csrf_token} />
-        <input type="hidden" name="_method" value="PATCH" />
-        <input type="hidden" name="first_name" value={formValue.firstName} />
-        <input type="hidden" name="last_name" value={formValue.lastName} />
-        <input type="hidden" name="email" value={formValue.email} />
-        <input type="hidden" name="phone" value={formValue.phone} />
-        <input type="hidden" name="language" value={formValue.language} />
-      </form>
-    );
   };
 
   const hideConfirmationModal = () => {
@@ -84,7 +71,7 @@ function AdminEnrollmentShow() {
 
   const enrolledStudents = (students) => (
     <div>
-      {editForm()}
+      {TableEditForm(enrollment, formValue, csrf_token)}
       <Table striped bordered hover>
         <thead>
           <tr>
