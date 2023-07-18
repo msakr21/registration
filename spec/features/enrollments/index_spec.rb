@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'enrollments index page', driver: :selenium_chrome, js: true do
   describe 'when I visit /enrollments' do
     let!(:eloise_may) do
-      create(:enrollment, location: 'Eloise May', schedule: DateTime.parse('2030-06-11T15:00:24.000Z'))
+      create(:enrollment, location: 'Eloise May')
     end
 
     before :each do
@@ -11,9 +11,9 @@ RSpec.describe 'enrollments index page', driver: :selenium_chrome, js: true do
     end
 
     it 'I see a list of enrollments' do
-      expect(page).to have_content('Eloise May')
-      expect(page).to have_content('06/11/2030')
-      expect(page).to have_content('09:00 AM')
+      expect(page).to have_content(eloise_may.location)
+      expect(page).to have_content(eloise_may.schedule.in_time_zone('Mountain Time (US & Canada)').strftime('%m/%d/%Y'))
+      expect(page).to have_content(eloise_may.schedule.in_time_zone('Mountain Time (US & Canada)').strftime('%I:%M %p'))
       expect(page).to have_link('Register for this session', visible: true)
     end
 

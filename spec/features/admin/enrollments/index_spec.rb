@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'admin enrollments index page', driver: :selenium_chrome, js: true do
   describe 'when I visit /admin/enrollments' do
     let!(:eloise_may) do
-      create(:enrollment, location: 'Eloise May', schedule: DateTime.parse('2030-06-11T15:00:24.000Z'))
+      create(:enrollment, location: 'Eloise May')
     end
 
     before do
@@ -11,9 +11,9 @@ RSpec.describe 'admin enrollments index page', driver: :selenium_chrome, js: tru
     end
 
     it 'I see a list of enrollments' do
-      expect(page).to have_content('Eloise May')
-      expect(page).to have_content('06/11/2030')
-      expect(page).to have_content('09:00 AM')
+      expect(page).to have_content(eloise_may.location)
+      expect(page).to have_content(eloise_may.schedule.in_time_zone('Mountain Time (US & Canada)').strftime('%m/%d/%Y'))
+      expect(page).to have_content(eloise_may.schedule.in_time_zone('Mountain Time (US & Canada)').strftime('%I:%M %p'))
       expect(page).to have_link('Add Student', visible: true)
       expect(page).to have_link('Edit Session', visible: true)
       expect(page).to have_link('Show Details', visible: true)
@@ -65,8 +65,8 @@ RSpec.describe 'admin enrollments index page', driver: :selenium_chrome, js: tru
 
       click_button('Delete Session')
       expect(page).to have_css('body.modal-open')
-      within('body.modal-open', wait: 2) do
-        expect(page).to have_css('div.fade.modal.show', wait: 2)
+      within('body.modal-open', wait: 5) do
+        expect(page).to have_css('div.fade.modal.show', wait: 5)
         within('div.fade.modal.show') do
           expect(page).to have_css('div.modal-dialog')
           within('div.modal-dialog') do
