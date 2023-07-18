@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import NewStudentForm from '~/components/NewStudentForm';
+import NewStudentForm from '~/components/Student/NewStudentForm/NewStudentForm';
 
 const container = document.getElementById('new');
 const root = ReactDOM.createRoot(container);
