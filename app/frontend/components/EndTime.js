@@ -1,4 +1,4 @@
-const endTime = (time) => {
+function endTime(time) {
   let endHour = parseInt(time.slice(0,2)) + 3;
   const meridiemSwitch = {
     "P": "A",
