@@ -1,5 +1,5 @@
 import React from 'react';
-import EndTime from '~/components/EndTime.js';
+import EndTime from '~/components/EndTime.jsx';
 import { Card, Col } from "react-bootstrap";
 import UserListUI from '~/components/UserListUI.jsx';
   

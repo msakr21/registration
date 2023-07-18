@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Card, Row } from "react-bootstrap";
-import EndTime from '~/components/EndTime.js';
-import ShowDeleteModal from '~/components/ShowDeleteModal.js';
+import EndTime from '~/components/EndTime.jsx';
+import ShowDeleteModal from '~/components/ShowDeleteModal.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPrint } from "@fortawesome/free-solid-svg-icons";
 import Print from 'print-js';

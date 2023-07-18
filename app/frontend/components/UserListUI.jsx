@@ -1,9 +1,9 @@
 import React from 'react';
 import { Button, Card, Row} from "react-bootstrap";
-import AtCapacity from '~/components/AtCapacity.js'
+import AtCapacity from '~/components/AtCapacity.jsx'
 import StudentText from '~/components/StudentText.jsx';
-import LinkRendering from '~/components/LinkRendering.js';
-import ShowDeleteModal from '~/components/ShowDeleteModal.js';
+import LinkRendering from '~/components/LinkRendering.jsx';
+import ShowDeleteModal from '~/components/ShowDeleteModal.jsx';
 
 function UserListUI(userType, enrollment, setDeletePath, setDeleteMessage, setDisplayConfirmationModal) {
   if (userType === "admin") {
