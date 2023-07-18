@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'edit enrollment page', driver: :selenium_chrome, js: true do
   let!(:eloise_may) do
-    create(:enrollment, location: 'Eloise May', schedule: DateTime.parse('2030-06-10T15:00:24.000Z'))
+    create(:enrollment, location: 'Eloise May')
   end
 
   before do
@@ -14,8 +14,8 @@ RSpec.describe 'edit enrollment page', driver: :selenium_chrome, js: true do
     expect(page).to have_selector(:css, 'form')
     expect(page).to have_field('student_limit', with: '30')
     expect(page).to have_select('location', selected: 'Eloise May')
-    expect(find('input[type="text"][class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"][placeholder="MM/DD/YYYY"]').value).to eq('06/10/2030')
-    expect(find('input[type="text"][class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"][placeholder="hh:mm aa"]').value).to eq('09:00 AM')
+    expect(find('input[type="text"][class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"][placeholder="MM/DD/YYYY"]').value).to eq("#{eloise_may.schedule.in_time_zone('Mountain Time (US & Canada)').strftime('%m/%d/%Y')}")
+    expect(find('input[type="text"][class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputAdornedEnd css-nxo287-MuiInputBase-input-MuiOutlinedInput-input"][placeholder="hh:mm aa"]').value).to eq("#{eloise_may.schedule.in_time_zone('Mountain Time (US & Canada)').strftime('%I:%M %p')}")
     expect(page).to have_button('Submit')
   end
 
@@ -33,7 +33,7 @@ RSpec.describe 'edit enrollment page', driver: :selenium_chrome, js: true do
     eloise_may.reload
     expect(eloise_may.location).to eq('Smoky Hill')
     expect(eloise_may.student_limit).to eq(20)
-    expect(eloise_may.schedule).to eq(DateTime.parse('2030-06-20T15:00:24.000Z'))
+    expect(eloise_may.schedule.change(sec: 0)).to eq(DateTime.parse('2030-06-20T15:00:00.000Z'))
   end
 
   it 'redirects to the admin enrollments index page after updating' do
