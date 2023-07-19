@@ -7,6 +7,6 @@ function ShowDeleteModal(type, id, setDeletePath, setDeleteMessage, setDisplayCo
     setDeleteMessage(`Are you sure you want to remove ${type.first_name} registered at ${enrollment.location} on ${enrollment.date} at ${enrollment.time}`);
   }
   setDisplayConfirmationModal(true);
-};
+}
 
 export default ShowDeleteModal;

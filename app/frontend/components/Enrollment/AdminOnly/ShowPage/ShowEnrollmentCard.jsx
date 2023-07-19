@@ -6,14 +6,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPrint } from "@fortawesome/free-solid-svg-icons";
 import Print from 'print-js';
 
-
 const ShowEnrollmentCard = (enrollment, students, setDeletePath, setDeleteMessage, setDisplayConfirmationModal) => (
   <Row>
     <Card id="enrollmentCard" className="enrollment-card card mx-auto px-0" bg="light" text="dark" border="dark" style={{ width: "40%", height: "50%" }}>
       <Card.Header style={{ textAlign: "center" }}>
         <a href={"/admin/enrollments"}>Enrollment Index</a> &nbsp;&nbsp;
         <a href={"/admin/enrollments/new"}>New Enrollment Session</a> &nbsp;&nbsp;
-        <Button name="print" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => {Print({ printable: 'printable', type: 'html', scanStyles: false, css: 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css'})}}> <FontAwesomeIcon icon={faPrint} color="grey" /> </Button>
+        <Button name="print" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => {Print({ printable: 'printable', type: 'html', scanStyles: false, css: 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css'})}}>
+          <FontAwesomeIcon icon={faPrint} color="grey" />
+        </Button>
       </Card.Header>
       <Card.Body style={{ textAlign: "center" }}>
         <Card.Title>{enrollment.location} — {enrollment.date}</Card.Title>

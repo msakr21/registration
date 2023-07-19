@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import DeleteConfirmation from '~/components/Enrollment/Common/Modals/DeleteConfirmation.jsx';
 import ShowEnrollmentCard from '~/components/Enrollment/AdminOnly/ShowPage/ShowEnrollmentCard.jsx';
-import EnrolledStudents from '~/components/Enrollment/AdminOnly/ShowPage/EnrolledStudents.jsx'; 
+import EnrolledStudents from '~/components/Enrollment/AdminOnly/ShowPage/EnrolledStudents.jsx';
 
 function AdminEnrollmentShow() {
   const csrf_token = document.head.getElementsByTagName('meta')[2].content;
@@ -43,12 +43,37 @@ function AdminEnrollmentShow() {
   return (
     <div style={{ height: "95vh" }}>
       <div id='printable' style={{ height: "95vh" }}>
-        {ShowEnrollmentCard(enrollment, students, setDeletePath, setDeleteMessage, setDisplayConfirmationModal)}
-        {EnrolledStudents(students, rowEdit, enrollment, formValue, csrf_token, handleChange, setRowEdit, setFormValue, setDeletePath, setDeleteMessage, setDisplayConfirmationModal)}
+        {ShowEnrollmentCard(
+          enrollment,
+          students,
+          setDeletePath,
+          setDeleteMessage,
+          setDisplayConfirmationModal
+        )}
+        {EnrolledStudents(
+          students,
+          rowEdit,
+          enrollment,
+          formValue,
+          csrf_token,
+          handleChange,
+          setRowEdit,
+          setFormValue,
+          setDeletePath,
+          setDeleteMessage,
+          setDisplayConfirmationModal
+        )}
       </div>
-      <DeleteConfirmation showModal={displayConfirmationModal} confirmModal={submitDelete} hideModal={hideConfirmationModal} path={deletePath} message={deleteMessage} authenticity={csrf_token} />
+      <DeleteConfirmation
+        showModal={displayConfirmationModal}
+        confirmModal={submitDelete}
+        hideModal={hideConfirmationModal}
+        path={deletePath}
+        message={deleteMessage}
+        authenticity={csrf_token}
+      />
     </div>
   );
-};
+}
 
 export default AdminEnrollmentShow;

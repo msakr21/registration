@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Card, Row} from "react-bootstrap";
+import { Card, Row } from "react-bootstrap";
 import DeleteConfirmation from '~/components/Enrollment/Common/Modals/DeleteConfirmation.jsx';
 import DisplayDeleteSuccess from '~/components/Enrollment/Common/Modals/DisplayDeleteSuccess.jsx';
 import NewStudentError from '~/components/Enrollment/Common/NewStudentError.jsx';
@@ -46,6 +46,6 @@ function EnrollmentIndex(props) {
       <DeleteConfirmation showModal={displayConfirmationModal} confirmModal={submitDelete} hideModal={hideConfirmationModal} path={deletePath} message={deleteMessage} authenticity={csrf_token} />
     </Card>
   );
-};
+}
 
 export default EnrollmentIndex;

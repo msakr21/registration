@@ -74,6 +74,6 @@ function NewStudentForm(props) {
       </Card>
     </Row>
   );
-};
+}
 
 export default NewStudentForm;

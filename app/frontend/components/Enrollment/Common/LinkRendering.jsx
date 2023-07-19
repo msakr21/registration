@@ -4,6 +4,6 @@ function LinkRendering(capacity, id) {
   } else {
     return `/enrollments/${id}/students/new`;
   }
-};
+}
 
 export default LinkRendering;

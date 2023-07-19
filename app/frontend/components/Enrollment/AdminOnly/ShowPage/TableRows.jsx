@@ -17,18 +17,18 @@ function TableRows(rowEdit, formValue, student, index, handleChange, enrollment,
       language: student.language,
       rowID: index,
       studentID: student.id
-    })
-  };
+    });
+  }
 
   if (rowEdit === true && formValue.rowID === index) {
     return (
       <tr id={index} key={index}>
         <td className="text-center align-middle">{index + 1}</td>
         <td><MDBInput name="firstName" className="text-center align-middle" type='text' onChange={handleChange} value={formValue.firstName}></MDBInput></td>
-        <td><MDBInput name="lastName"className="text-center align-middle" type='text' onChange={handleChange} value={formValue.lastName}></MDBInput></td>
+        <td><MDBInput name="lastName" className="text-center align-middle" type='text' onChange={handleChange} value={formValue.lastName}></MDBInput></td>
         <td><MDBInput name="email" className="text-center align-middle" type='text' onChange={handleChange} value={formValue.email}></MDBInput></td>
         <td><MDBInput name="phone" className="text-center align-middle" type='text' onChange={handleChange} value={formValue.phone}></MDBInput></td>
-        <td><MDBInput name="language" className="text-center align-middle" type='text' onChange={handleChange}  value={formValue.language}></MDBInput></td>
+        <td><MDBInput name="language" className="text-center align-middle" type='text' onChange={handleChange} value={formValue.language}></MDBInput></td>
         <td>
           <Button name="pen" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => clickToEditRow(student, index)}> <Pencil color="blue" /> </Button>
           <Button name="save" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} type="submit" form={"editForm"}> <FontAwesomeIcon icon={faSave} color="blue" /> </Button>
@@ -52,7 +52,7 @@ function TableRows(rowEdit, formValue, student, index, handleChange, enrollment,
         </td>
       </tr>
     );
-  };
-};
+  }
+}
 
 export default TableRows;

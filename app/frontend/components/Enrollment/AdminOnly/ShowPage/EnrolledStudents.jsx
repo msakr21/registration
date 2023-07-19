@@ -20,7 +20,19 @@ const EnrolledStudents = (students, rowEdit, enrollment, formValue, csrf_token, 
       </thead>
       <tbody>
         {students.map((student, index) => (
-          TableRows(rowEdit, formValue, student, index, handleChange, enrollment, setRowEdit, setFormValue, setDeletePath, setDeleteMessage, setDisplayConfirmationModal)
+          TableRows(
+            rowEdit,
+            formValue,
+            student,
+            index,
+            handleChange,
+            enrollment,
+            setRowEdit,
+            setFormValue,
+            setDeletePath,
+            setDeleteMessage,
+            setDisplayConfirmationModal
+          )
         ))}
       </tbody>
     </Table>

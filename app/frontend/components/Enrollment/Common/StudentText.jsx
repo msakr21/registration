@@ -7,6 +7,6 @@ function StudentText(capacity, enrollment) {
   } else {
     return <Card.Text>Available seats: {enrollment.student_limit - enrollment.students}</Card.Text>;
   }
-};
+}
 
 export default StudentText;
