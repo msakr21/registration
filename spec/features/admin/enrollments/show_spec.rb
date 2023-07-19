@@ -11,8 +11,8 @@ RSpec.describe 'admin enrollments show page', driver: :selenium_chrome, js: true
 
     it 'sees the current enrollment with its information' do
       expect(page).to have_content(enrollment.location)
-      expect(page).to have_content(enrollment.schedule.in_time_zone('Mountain Time (US & Canada)').strftime('%m/%d/%Y'))
-      expect(page).to have_content(enrollment.schedule.in_time_zone('Mountain Time (US & Canada)').strftime('%I:%M %p'))
+      expect(page).to have_content(enrollment.formatted_date)
+      expect(page).to have_content(enrollment.formatted_time)
       expect(page).to have_content(enrollment.student_limit)
       expect(page).to have_content(enrollment.students.count)
       expect(page).to have_link('Edit Session', visible: true)
