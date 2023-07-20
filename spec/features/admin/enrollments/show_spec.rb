@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Admin Enrollments Show Page', driver: :selenium_chrome, js: true do
-  describe 'When I visit /admin/enrollments/:id' do
+  describe 'When visiting /admin/enrollments/:id' do
     let(:enrollment) { create(:enrollment) }
     let!(:students) { create_list(:student, 20, enrollment:) }
 
