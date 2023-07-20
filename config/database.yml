@@ -16,17 +16,17 @@ default: &default
 
 development:
   <<: *default
-  database: registeration_development
+  database: registration_development
 
 test:
   <<: *default
-  database: registeration_test
+  database: registration_test
 
 production:
   <<: *default
-  database: registeration_production
-  username: registeration
-  password: <%= ENV["REGISTERATION_DATABASE_PASSWORD"] %>
+  database: registration_production
+  username: registration
+  password: <%= ENV["REGISTRATION_DATABASE_PASSWORD"] %>
 
 # Note: The database defined as "test" will be erased and re-generated from your
 # development database when you run "rake". Do not set this db to the same as 
