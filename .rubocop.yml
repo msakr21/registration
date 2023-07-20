@@ -1,11 +1,50 @@
 require:
-  - rubocop-rspec
-  - rubocop-rails
   - rubocop-capybara
   - rubocop-factory_bot
+  - rubocop-rails
+  - rubocop-rspec
 
 AllCops:
   NewCops: enable
+
+Capybara/CurrentPathExpectation:
+  Enabled: false
+
+FactoryBot/FactoryClassName:
+  Enabled: false
+
+Rails/Output:
+  Enabled: false
+
+Rails/TimeZone:
+  Enabled: false
+
+RSpec/DescribeClass:
+  Enabled: false
+
+RSpec/DescribedClass:
+  Enabled: false
+
+RSpec/EmptyExampleGroup:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/HookArgument:
+  Enabled: false
+
+RSpec/ImplicitExpect:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+RSpec/Rails/HttpStatus:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
 
 Style/FrozenStringLiteralComment:
   Enabled: false
@@ -20,43 +59,4 @@ Style/RedundantInterpolation:
   Enabled: false
 
 Style/SymbolArray:
-  Enabled: false
-
-Style/ClassAndModuleChildren:
-  Enabled: false
-
-RSpec/ImplicitExpect:
-  Enabled: false
-
-RSpec/HookArgument:
-  Enabled: false
-
-RSpec/EmptyExampleGroup:
-  Enabled: false
-
-RSpec/DescribeClass:
-  Enabled: false
-
-RSpec/DescribedClass:
-  Enabled: false
-
-RSpec/MultipleExpectations:
-  Enabled: false
-
-RSpec/ExampleLength:
-  Enabled: false
-
-Capybara/CurrentPathExpectation:
-  Enabled: false
-
-FactoryBot/FactoryClassName:
-  Enabled: false
-
-Rails/TimeZone:
-  Enabled: false
-
-Rails/Output:
-  Enabled: false
-
-RSpec/Rails/HttpStatus:
   Enabled: false
