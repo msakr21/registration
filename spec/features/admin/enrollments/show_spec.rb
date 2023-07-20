@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe 'Admin Enrollments Show Page', driver: :selenium_chrome, js: true do
-  describe 'When visiting /admin/enrollments/:id' do
+RSpec.describe 'admin enrollments show page', driver: :selenium_chrome, js: true do
+  describe 'when visiting /admin/enrollments/:id' do
     let(:enrollment) { create(:enrollment) }
     let!(:students) { create_list(:student, 20, enrollment:) }
 
@@ -9,7 +9,7 @@ RSpec.describe 'Admin Enrollments Show Page', driver: :selenium_chrome, js: true
       visit admin_enrollment_path(enrollment.id)
     end
 
-    describe 'Viewing the current enrollment with its information' do
+    describe 'viewing the current enrollment with its information' do
       it 'shows the current enrollment with its information' do
         expect(page).to have_content(enrollment.location)
         expect(page).to have_content(enrollment.formatted_date)
@@ -21,7 +21,7 @@ RSpec.describe 'Admin Enrollments Show Page', driver: :selenium_chrome, js: true
       end
     end
 
-    describe 'Viewing a list of all enrolled students' do
+    describe 'viewing a list of all enrolled students' do
       it 'shows a list of all enrolled students' do
         students.each do |student|
           expect(page).to have_content(student.first_name)
@@ -33,7 +33,7 @@ RSpec.describe 'Admin Enrollments Show Page', driver: :selenium_chrome, js: true
       end
     end
 
-    context 'When looking at the action buttons for every student' do
+    context 'when looking at the action buttons for every student' do
       it 'shows a trash button, a pen button, and a save button (disabled by default) for every student' do
         expect(page).to have_button('trash', count: 20)
         expect(page).to have_button('pen', count: 20)
@@ -41,7 +41,7 @@ RSpec.describe 'Admin Enrollments Show Page', driver: :selenium_chrome, js: true
       end
     end
 
-    context 'When looking at the enrollment details' do
+    context 'when looking at the enrollment details' do
       it 'shows a print button' do
         within '#enrollmentCard' do
           expect(page).to have_button('print')
@@ -49,7 +49,7 @@ RSpec.describe 'Admin Enrollments Show Page', driver: :selenium_chrome, js: true
       end
     end
 
-    context 'When editing a student' do
+    context 'when editing a student' do
       it 'can edit a student' do
         first_student = students.first
         find("button[name='pen']", match: :first).click
@@ -72,7 +72,7 @@ RSpec.describe 'Admin Enrollments Show Page', driver: :selenium_chrome, js: true
       end
     end
 
-    context 'When deleting a student' do
+    context 'when deleting a student' do
       it 'can delete a student' do
         first_student = students.first
         find("button[name='trash']", match: :first).click
