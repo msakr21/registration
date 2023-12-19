@@ -56,9 +56,9 @@ For our DevOps processes, we use Render and GitHub to maintain a smooth and reli
 <!-- Deployment Information -->
 ### Deployment Information
 
-The Learning Source Enrollment Registration is deployed on Render. Please see the link below.
+The Learning Source Enrollment Registration was, but is no longer, deployed on Render. Further development of this project has been put on hiatus due to a combination of organizational structure change, this having been a volunteer project, and development of other projects professionally at work. 
 
-[Render Deployment](https://registration-test.onrender.com/)
+There are still features to experiment with and work on, for learning purposes, and once there is time to do so the project will be re-deployed.
 
 <div align="right">
 
@@ -91,7 +91,7 @@ The Learning Source Enrollment Registration is deployed on Render. Please see th
 <!-- Learning Goals -->
 ### Learning Goals
 
-*Instructions to be added*
+The primary learning goal for this project was to learn how to use Javascript and React. The secondary goal was to learn how to integrate it into Rails within a Monolith application where the normal Rails workflow would apply but the view pages would be rendered using React instead of Rails. Both of these goals were accomplished within the scope of the project.
 
 <div align="right">
 
