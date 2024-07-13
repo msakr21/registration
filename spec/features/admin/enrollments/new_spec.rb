@@ -2,10 +2,16 @@ require 'rails_helper'
 
 RSpec.describe 'new enrollment page', driver: :selenium_chrome, js: true do
   let(:new_enrollment_path) { '/admin/enrollments/new' }
+  let(:location) { 'Eloise May' }
+  let(:student_limit) { 30 }
+  let(:date) { '06/20/2030' }
+  let(:time) { '09:00 AM' }
+
+  before do
+    visit new_enrollment_path
+  end
 
   describe 'display of the form' do
-    before { visit new_enrollment_path }
-
     it 'displays a form to be filled' do
       expect(page).to have_content('Please fill the form below:')
       expect(page).to have_selector(:css, 'form')
@@ -18,14 +24,7 @@ RSpec.describe 'new enrollment page', driver: :selenium_chrome, js: true do
   end
 
   describe 'form submission' do
-    let(:location) { 'Eloise May' }
-    let(:student_limit) { 30 }
-    let(:date) { '06/20/2030' }
-    let(:time) { '09:00 AM' }
-
-    def fill_and_submit_form(location:, student_limit:, date:, time:)
-      visit new_enrollment_path
-
+    before do
       within('div#location') do
         find("option[value='#{location}']").click
       end
@@ -38,15 +37,6 @@ RSpec.describe 'new enrollment page', driver: :selenium_chrome, js: true do
     end
 
     context 'when the form is filled out correctly' do
-      before do
-        fill_and_submit_form(
-          location:,
-          student_limit:,
-          date:,
-          time:
-        )
-      end
-
       it 'creates a new enrollment upon submitting form' do
         expect(Enrollment.all.length).to eq(1)
         expect(Enrollment.first.location).to eq(location)
