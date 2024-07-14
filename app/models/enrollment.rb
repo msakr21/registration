@@ -21,7 +21,7 @@ class Enrollment < ApplicationRecord
   end
 
   def formatted_date
-    schedule.in_time_zone('Mountain Time (US & Canada)').strftime('%m/%d/%Y') #modify this to be day of week name, month name number should be %A, %B %d -bonus add ordinalize method from stack overflow article
+    schedule.in_time_zone('Mountain Time (US & Canada)').strftime("%A, %B #{schedule.in_time_zone('Mountain Time (US & Canada)').day.ordinalize}") #modify this to be day of week name, month name number should be %A, %B %d -bonus add ordinalize method from stack overflow article
   end
 
   def formatted_time
