@@ -24,7 +24,7 @@ RSpec.describe 'edit enrollment page', driver: :selenium_chrome, js: true do
       expect(page).to have_field('student_limit', with: '30')
       expect(page).to have_select('location', selected: 'Eloise May')
 
-      expect(find(date_field_css).value).to eq(eloise_may.formatted_date)
+      expect(find(date_field_css).value).to eq(eloise_may.schedule.in_time_zone('Mountain Time (US & Canada)').strftime('%m/%d/%Y'))
       expect(find(time_field_css).value).to eq(eloise_may.formatted_time)
       expect(page).to have_button('Submit')
     end
