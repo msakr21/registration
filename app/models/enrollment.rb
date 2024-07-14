@@ -10,7 +10,7 @@ class Enrollment < ApplicationRecord
   end
 
   def self.list_library_data(location)
-    all.where(location:).map { |enrollment| enrollment_hash(enrollment) }.to_json #.order(:schedule) before .map
+    all.where(location:).order(:schedule).map { |enrollment| enrollment_hash(enrollment) }.to_json 
   end
 
   def self.enrollment_detail(enrollment_id)
