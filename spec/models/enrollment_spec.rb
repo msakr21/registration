@@ -23,8 +23,8 @@ RSpec.describe Enrollment do
     describe '#list_data' do
       it 'returns a list of enrollments as a JSON collection' do
         expect(JSON.parse(Enrollment.list_data)).to contain_exactly(
-          { 'id' => eloise_may.id, 'location' => eloise_may.location, 'date' => '06/11/2030', 'time' => '09:00 AM',
-            'student_limit' => 30, 'students' => 0 }, { 'id' => sheridan.id, 'location' => sheridan.location, 'date' => '06/12/2030', 'time' => '09:00 AM', 'student_limit' => 10, 'students' => 2 }
+          { 'id' => eloise_may.id, 'location' => eloise_may.location, 'date' => 'Tuesday, June 11th', 'time' => '09:00 AM',
+            'student_limit' => 30, 'students' => 0 }, { 'id' => sheridan.id, 'location' => sheridan.location, 'date' => 'Wednesday, June 12th', 'time' => '09:00 AM', 'student_limit' => 10, 'students' => 2 }
         )
       end
     end
@@ -33,7 +33,7 @@ RSpec.describe Enrollment do
       context 'when a valid id is provided' do
         it 'returns the details of a single enrollment' do
           expect(JSON.parse(Enrollment.enrollment_detail(eloise_may.id))).to eq(
-            { 'id' => eloise_may.id, 'location' => eloise_may.location, 'date' => '06/11/2030', 'time' => '09:00 AM',
+            { 'id' => eloise_may.id, 'location' => eloise_may.location, 'date' => 'Tuesday, June 11th', 'time' => '09:00 AM',
               'student_limit' => 30, 'students' => 0 }
           )
         end
@@ -48,8 +48,8 @@ RSpec.describe Enrollment do
 
     describe '#formatted_date' do
       it 'returns the date in mm/dd/yyyy format from the schedule Datetime attribute of enrollment' do
-        expect(eloise_may.formatted_date).to eq('06/11/2030')
-        expect(sheridan.formatted_date).to eq('06/12/2030')
+        expect(eloise_may.formatted_date).to eq('Tuesday, June 11th')
+        expect(sheridan.formatted_date).to eq('Wednesday, June 12th')
       end
     end
 

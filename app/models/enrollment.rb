@@ -10,7 +10,7 @@ class Enrollment < ApplicationRecord
   end
 
   def self.list_library_data(location)
-    all.where(location:).map { |enrollment| enrollment_hash(enrollment) }.to_json #.order(:schedule) before .map
+    all.where(location:).order(:schedule).map { |enrollment| enrollment_hash(enrollment) }.to_json 
   end
 
   def self.enrollment_detail(enrollment_id)
@@ -21,9 +21,9 @@ class Enrollment < ApplicationRecord
   end
 
   def formatted_date
-    schedule.in_time_zone('Mountain Time (US & Canada)').strftime('%m/%d/%Y') #modify this to be day of week name, month name number should be %A, %B %d -bonus add ordinalize method from stack overflow article
+    schedule.in_time_zone('Mountain Time (US & Canada)').strftime("%A, %B #{schedule.in_time_zone('Mountain Time (US & Canada)').day.ordinalize}")
   end
-
+  
   def formatted_time
     schedule.in_time_zone('Mountain Time (US & Canada)').strftime('%I:%M %p')
   end
