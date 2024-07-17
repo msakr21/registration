@@ -9,7 +9,14 @@ class StudentsController < ApplicationController
   def create
     if @enrollment.student_limit_check
       student = @enrollment.students.create(student_params)
-      redirect_to confirmation_page_path(student, @enrollment)
+      @errors = student.errors.messages
+      case @errors
+      when {}
+        redirect_to confirmation_page_path(student, @enrollment)
+      else
+        redirect_to new_enrollment_student_path
+      end
+      # binding.pry
     else
       redirect_to enrollments_path(error_adding: true)
     end
