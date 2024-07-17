@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Form, Card, Row } from "react-bootstrap";
+import NewStudentFormError from '../Enrollment/Common/NewStudentFormError';
 
 function NewStudentForm(props) {
   const csrf_token = document.head.getElementsByTagName('meta')[2].content;
   const enrollment_id = document.getElementById("data").getAttribute("enrollmentID");
+  const errors = JSON.parse(document.getElementById("data").getAttribute("errors"));
+  const studentParams = document.getElementById("data").getAttribute("student_params");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -35,6 +38,7 @@ function NewStudentForm(props) {
 
   return (
     <Row style={{ height: "95vh" }}>
+      {NewStudentFormError(errors)}
       <Card className="card mx-auto my-auto" style={{ width: "60%" }}>
         <Card.Title className="text-center" style={{ marginTop: "25px", marginBottom: "20px" }}>
           Please fill the form below:
