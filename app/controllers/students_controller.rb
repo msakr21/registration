@@ -4,12 +4,21 @@ class StudentsController < ApplicationController
   def new
     redirect_to enrollments_path unless @enrollment.student_limit_check
     @enrollment_id = params[:enrollment_id]
+    @errors = params[:errors].to_json
+    @student_params = params[:student_params].to_json
+    # binding.pry
   end
 
   def create
     if @enrollment.student_limit_check
       student = @enrollment.students.create(student_params)
-      redirect_to confirmation_page_path(student, @enrollment)
+      @errors = student.errors.messages
+      case @errors
+      when {}
+        redirect_to confirmation_page_path(student, @enrollment)
+      else
+        redirect_to new_enrollment_student_path(errors: @errors, student_params: student_params)
+      end
     else
       redirect_to enrollments_path(error_adding: true)
     end

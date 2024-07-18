@@ -1,15 +1,19 @@
 import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Form, Card, Row } from "react-bootstrap";
+import NewStudentFormError from '../Enrollment/Common/NewStudentFormError';
+import StudentParamCheck from '../Enrollment/Common/StudentParamCheck';
 
 function NewStudentForm(props) {
   const csrf_token = document.head.getElementsByTagName('meta')[2].content;
   const enrollment_id = document.getElementById("data").getAttribute("enrollmentID");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [language, setLanguage] = useState("");
+  const errors = JSON.parse(document.getElementById("data").getAttribute("errors"));
+  const studentParams = JSON.parse(document.getElementById("data").getAttribute("student_params"));
+  const [firstName, setFirstName] = useState(StudentParamCheck(studentParams, "first_name") || "");
+  const [lastName, setLastName] = useState(StudentParamCheck(studentParams, "last_name") || "");
+  const [email, setEmail] = useState(StudentParamCheck(studentParams, "email") || "");
+  const [phone, setPhone] = useState(StudentParamCheck(studentParams, "phone")|| "");
+  const [language, setLanguage] = useState(StudentParamCheck(studentParams, "language") || "");
 
   const uri = `${props.admin}/enrollments/${enrollment_id}/students`;
 
@@ -35,6 +39,7 @@ function NewStudentForm(props) {
 
   return (
     <Row style={{ height: "95vh" }}>
+      {NewStudentFormError(errors)}
       <Card className="card mx-auto my-auto" style={{ width: "60%" }}>
         <Card.Title className="text-center" style={{ marginTop: "25px", marginBottom: "20px" }}>
           Please fill the form below:
