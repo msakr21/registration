@@ -10,6 +10,13 @@ Rails.application.routes.draw do
   # Confirmation page
   get '/confirmation', to: 'pages#confirmation'
 
+  # Login page
+  get '/login', to: 'admin/sessions#new'
+  post '/admin/sessions', to: 'admin/sessions#create'
+
+  #Logout page
+  delete '/logout', to: 'admin/sessions#destroy'
+
   # Admin routes
   namespace :admin do
     resources :enrollments do

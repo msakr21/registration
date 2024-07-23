@@ -11,6 +11,7 @@ gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
 gem 'sprockets-rails' # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'vite_rails' # Modern JavaScript in Rails [https://github.com/rails/vite_ruby]
+gem 'bcrypt'
 
 group :development, :test do
   gem 'capybara'

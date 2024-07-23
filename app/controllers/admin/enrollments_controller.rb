@@ -1,5 +1,6 @@
 class Admin::EnrollmentsController < ApplicationController
   before_action :set_enrollment, only: [:edit, :update, :destroy]
+  before_action :authenticate_user!
 
   def index
     @enrollments = Enrollment.list_data
