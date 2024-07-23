@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   # Login page
   get '/login', to: 'admin/sessions#new'
-  post '/admin/sessions', to: 'admin/sessions#create'
+  post '/admin/sessions/create', to: 'admin/sessions#create'
 
   #Logout page
   delete '/logout', to: 'admin/sessions#destroy'
