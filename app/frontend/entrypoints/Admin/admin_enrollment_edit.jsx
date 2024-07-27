@@ -18,5 +18,6 @@ root.render(
     students={students}
     path={uri}
     method="patch"
+    admin="admin"
   />
 );

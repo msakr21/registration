@@ -31,15 +31,15 @@ function EnrollmentIndex(props) {
       {DisplayDeleteSuccess(deleteConfirmation)}
       {NewStudentError(newStudentError)}
       {UserHeaderUI(props.admin)}
-      <Card.Title style={{ textAlign: "center", margin: "2%" }}>Eloise May Enrollment Sessions:</Card.Title>
+      <Card.Title style={{ textDecorationLine: "underline", fontSize: "28px", fontWeight: "bold", textAlign: "center", margin: "2%" }}>Eloise May Enrollment Sessions:</Card.Title>
       <Row xs={2} md={3} className="g-4 justify-content-center">
         {ListLocationEnrollments(props.admin, mayEnrollments, setDeletePath, setDeleteMessage, setDisplayConfirmationModal)}
       </Row>
-      <Card.Title style={{ textAlign: "center", margin: "2%" }}>Sheridan Enrollment Sessions:</Card.Title>
+      <Card.Title style={{ textDecorationLine: "underline", fontSize: "28px", fontWeight: "bold", textAlign: "center", margin: "2%" }}>Sheridan Enrollment Sessions:</Card.Title>
       <Row xs={2} md={3} className="g-4 justify-content-center">
         {ListLocationEnrollments(props.admin, sheridanEnrollments, setDeletePath, setDeleteMessage, setDisplayConfirmationModal)}
       </Row>
-      <Card.Title style={{ textAlign: "center", margin: "2%" }}>Smoky Hill Enrollment Sessions:</Card.Title>
+      <Card.Title style={{ textDecorationLine: "underline", fontSize: "28px", fontWeight: "bold", textAlign: "center", margin: "2%" }}>Smoky Hill Enrollment Sessions:</Card.Title>
       <Row xs={2} md={3} className="g-4 justify-content-center">
         {ListLocationEnrollments(props.admin, smokyEnrollments, setDeletePath, setDeleteMessage, setDisplayConfirmationModal)}
       </Row>

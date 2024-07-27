@@ -6,6 +6,7 @@ import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Form, Card, Row } from 'react-bootstrap';
+import UserHeaderUI from '~/components/Enrollment/UserHeaderUI.jsx';
 
 function EnrollmentForm(props) {
   const csrf_token = document.head.getElementsByTagName('meta')[2].content;
@@ -36,6 +37,7 @@ function EnrollmentForm(props) {
   //tweak method above to take all caps so it can be reusable for patch and delete and split into own component
 
   return (
+    <div>{UserHeaderUI(props.admin)}
     <Row style={{ height: "95vh" }}>
       <Card className="card mx-auto my-auto" style={{ width: "40%" }}>
         <Card.Title style={{ marginTop: "25px", marginBottom: "20px" }} className="text-center">Please fill the form below:</Card.Title>
@@ -87,6 +89,7 @@ function EnrollmentForm(props) {
         </Form>
       </Card>
     </Row>
+    </div>
   );
 }
 

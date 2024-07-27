@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Form, Card, Row } from "react-bootstrap";
 import NewStudentFormError from '../Enrollment/Common/NewStudentFormError';
 import StudentParamCheck from '../Enrollment/Common/StudentParamCheck';
+import UserHeaderUI from '~/components/Enrollment/UserHeaderUI.jsx';
 
 function NewStudentForm(props) {
   const csrf_token = document.head.getElementsByTagName('meta')[2].content;
@@ -38,6 +39,7 @@ function NewStudentForm(props) {
   };
 
   return (
+    <div>{UserHeaderUI(props.admin)}
     <Row style={{ height: "95vh" }}>
       {NewStudentFormError(errors)}
       <Card className="card mx-auto my-auto" style={{ width: "60%" }}>
@@ -78,6 +80,7 @@ function NewStudentForm(props) {
         </Form>
       </Card>
     </Row>
+    </div>
   );
 }
 
