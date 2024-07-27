@@ -1,6 +1,7 @@
 class Admin::StudentsController < ApplicationController
   before_action :set_enrollment, only: [:create]
   before_action :set_student, only: [:update, :destroy]
+  before_action :authenticate_user!
 
   def new
     @enrollment_id = params[:enrollment_id]

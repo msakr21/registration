@@ -70,6 +70,7 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.2)
     base64 (0.2.0)
+    bcrypt (3.1.20)
     builder (3.3.0)
     capybara (3.40.0)
       addressable
@@ -292,6 +293,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  bcrypt
   capybara
   debug
   factory_bot_rails

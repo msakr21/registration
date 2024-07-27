@@ -12,5 +12,6 @@ root.render(
     students={20}
     path="/admin/enrollments"
     method="post"
+    admin="admin"
   />
 );
