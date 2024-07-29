@@ -17,10 +17,10 @@ function ConfirmationPage() {
 
   return (
     <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-      <h3 style={{ position: "absolute", top: "25%" }}>Application Received</h3>
+      <h3 style={{ position: "absolute", top: "27%" }}>Request Received</h3>
       <div style={{ position: "absolute", top: "35%" }}>
         <p style={{ textAlign: "center" }}>
-          Thank you, {name}, for applying to the {time} enrollment at{' '}
+          Thank you, {name}, for requesting an appointment for the {time} enrollment session at{' '}
           <a href={`${locationMapLinkDictionary[location]}`}>{location}</a> Library on {date}.
         </p>
         <p style={{ textAlign: "center" }}>
@@ -29,8 +29,9 @@ function ConfirmationPage() {
               <u>Important:</u>
             </b>
           </font>{' '}
-          Your registration is not yet complete. You will be contacted by someone from The Learning Source to confirm your registration.
+          Your request is not yet complete. You will be contacted by the Library ELA program within 3 to 5 business days to confirm your appointment.
         </p>
+        <p style={{ textAlign: "center" }}>Please take a screenshot or save this page as a pdf for future reference in case it's needed.</p>
         <p style={{ textAlign: "center" }}>
           Click <a href="/enrollments">here</a> to return to the list of enrollments.
         </p>

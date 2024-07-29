@@ -44,7 +44,7 @@ function NewStudentForm(props) {
       {NewStudentFormError(errors)}
       <Card className="card mx-auto my-auto" style={{ width: "60%" }}>
         <Card.Title className="text-center" style={{ marginTop: "25px", marginBottom: "20px" }}>
-          Please fill the form below:
+          Please fill out the form below:
         </Card.Title>
         <Form action={uri} method="post">
           <input type="hidden" name="authenticity_token" value={csrf_token} />
