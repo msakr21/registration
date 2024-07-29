@@ -4,9 +4,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function HomePage() {
   return (
     <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-      <h3 style={{ position: "absolute", top: "25%" }}>Enrollment Registration System</h3>
-      <div style={{ position: "absolute", top: "35%" }}>If you're an admin, please click <a href="/admin/enrollments">here</a></div>
-      <div style={{ position: "absolute", top: "45%" }}>If you're a student, please click <a href="/enrollments">here</a></div>
+      <div style={{ position: "absolute", top: "35%" }}>Please choose a session at the library where you wish to take classes.</div>
+      <div style={{ position: "absolute", top: "40%" }}>Each prospective student may register for only one session. Space is limited.</div>
+      <div style={{ position: "absolute", top: "50%" }}>Please click <a href="/enrollments">here</a> to see a list of enrollment sessions to choose from.</div>
     </div>
   );
 }
