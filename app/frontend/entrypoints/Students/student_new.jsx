@@ -5,4 +5,4 @@ import NewStudentForm from '~/components/Student/NewStudentForm';
 const container = document.getElementById('new');
 const root = ReactDOM.createRoot(container);
 
-root.render(<NewStudentForm admin="" />);
+root.render(<NewStudentForm admin="" slash=""/>);
