@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   # Admin routes
   namespace :admin do
     resources :enrollments do
-      resources :students
+      resources :students, only:[:new, :create, :destroy, :update]
     end
   end
 end

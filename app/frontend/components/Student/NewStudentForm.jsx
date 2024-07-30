@@ -16,7 +16,7 @@ function NewStudentForm(props) {
   const [phone, setPhone] = useState(StudentParamCheck(studentParams, "phone")|| "");
   const [language, setLanguage] = useState(StudentParamCheck(studentParams, "language") || "");
 
-  const uri = `${props.admin}/enrollments/${enrollment_id}/students`;
+  const uri = `/${props.admin}/enrollments/${enrollment_id}/students`;
 
   const handleFirstNameChange = (event) => {
     setFirstName(event.target.value);

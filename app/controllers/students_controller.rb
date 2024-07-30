@@ -6,7 +6,6 @@ class StudentsController < ApplicationController
     @enrollment_id = params[:enrollment_id]
     @errors = params[:errors].to_json
     @student_params = params[:student_params].to_json
-    # binding.pry
   end
 
   def create
