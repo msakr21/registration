@@ -3,7 +3,6 @@ class Admin::EnrollmentsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    # binding.pry
     @enrollments = Enrollment.list_data
     @may_enrollments = Enrollment.list_library_data('Eloise May')
     @sheridan_enrollments = Enrollment.list_library_data('Sheridan')
