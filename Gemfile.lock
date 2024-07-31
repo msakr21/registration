@@ -107,7 +107,6 @@ GEM
     irb (1.14.0)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
-    jemalloc (1.0.1)
     json (2.7.2)
     language_server-protocol (3.17.0.3)
     logger (1.6.0)
@@ -299,7 +298,6 @@ DEPENDENCIES
   debug
   factory_bot_rails
   faker
-  jemalloc
   pg (~> 1.1)
   phonelib
   pry

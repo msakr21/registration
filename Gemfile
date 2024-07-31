@@ -13,7 +13,6 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby] # Windows does not
 gem 'vite_rails' # Modern JavaScript in Rails [https://github.com/rails/vite_ruby]
 gem 'bcrypt'
 gem 'rexml', '>= 3.3.2'
-gem 'jemalloc'
 
 group :development, :test do
   gem 'capybara'
