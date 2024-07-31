@@ -50,17 +50,17 @@ function NewStudentForm(props) {
           <input type="hidden" name="authenticity_token" value={csrf_token} />
           <Form.Group controlId="formFirstName">
             <Form.Label>First Name:</Form.Label>
-            <Form.Control type="text" placeholder="Please Enter First Name" name="first_name" value={firstName} onChange={handleFirstNameChange} />
+            <Form.Control type="text" placeholder="Please Enter First Name" name="first_name" maxlength="100" value={firstName} onChange={handleFirstNameChange} />
           </Form.Group>
           <br />
           <Form.Group controlId="formLastName">
             <Form.Label>Last Name:</Form.Label>
-            <Form.Control type="text" placeholder="Please Enter Last Name" name="last_name" value={lastName} onChange={handleLastNameChange} />
+            <Form.Control type="text" placeholder="Please Enter Last Name" name="last_name" maxlength="100" value={lastName} onChange={handleLastNameChange} />
           </Form.Group>
           <br />
           <Form.Group controlId="formEmail">
             <Form.Label>Email:</Form.Label>
-            <Form.Control type="text" placeholder="Please Enter Email" name="email" value={email} onChange={handleEmailChange} />
+            <Form.Control type="text" placeholder="Please Enter Email" name="email" value={email} maxlength="100" onChange={handleEmailChange} />
           </Form.Group>
           <br />
           <Form.Group controlId="formPhone">
@@ -70,7 +70,7 @@ function NewStudentForm(props) {
           <br />
           <Form.Group controlId="formLanguage">
             <Form.Label>What language(s) do you speak?</Form.Label>
-            <Form.Control type="text" placeholder="Please Enter Language(s)" name="language" value={language} onChange={handleLanguageChange} />
+            <Form.Control type="text" placeholder="Please Enter Language(s)" name="language" maxlength="100" value={language} onChange={handleLanguageChange} />
           </Form.Group>
           <div className="text-center">
             <Button size="sm" variant="outline-primary" style={{ margin: "25px" }} type="submit">

@@ -1,8 +1,8 @@
 class Student < ApplicationRecord
   belongs_to :enrollment
 
-  validates :first_name, :last_name, :language, presence: true
-  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, if: :email_present?
+  validates :first_name, :last_name, :language, presence: true, length: {maximum: 100}
+  validates :email, length: {maximum: 100}, format: { with: URI::MailTo::EMAIL_REGEXP }, if: :email_present?
   validates :phone, phone: { possible: true, allow_blank: true, countries: :us }, if: :phone_present?
   validate :email_or_phone_present
 
