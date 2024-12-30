@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.1'
+ruby '3.2.2'
 
 # Rails
 gem 'pg', '~> 1.1' # Use postgresql as the database for Active Record
