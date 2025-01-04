@@ -31,7 +31,15 @@ function ConfirmationPage() {
           </font>{' '}
           Your request is not yet complete. You will be contacted by the Library ELA program within 3 to 5 business days to confirm your appointment.
         </p>
-        <p style={{ textAlign: "center" }}>Please take a screenshot or save this page as a pdf for future reference in case it's needed.</p>
+        <p style={{ textAlign: "center" }}> 
+          <b>
+            <u>Please note:</u>
+          </b>{' '}
+          Registering for an enrollment session does not guarantee a spot in a class. Space is limited and will be filled in the order in which we receive your online reservation and the availability of the class you qualify for.
+        </p>
+        <br />
+        <p style={{ textAlign: "center" }}> <b><u>Please take a screenshot or save this page as a pdf for future reference in case it's needed.</u></b></p>
+        <br />
         <p style={{ textAlign: "center" }}>
           Click <a href="/enrollments">here</a> to return to the list of enrollments.
         </p>
