@@ -271,7 +271,7 @@ The following is a roadmap for our project, outlining our Minimum Viable Product
 - [x] Enable prospective students to view a list of enrollment sessions.
 - [x] Allow prospective students to select an enrollment session to join from the list of available sessions.
 - [x] Implement a cap on each session's student count (default of 30), after which prospective students won't have the option to join.
-- [ ] Upon successful joining of a session, redirect students to a confirmation page displaying registration details and staff contact information.
+- [x] Upon successful joining of a session, redirect students to a confirmation page displaying registration details and staff contact information.
 
 <!-- ADMIN FEATURES -->
 ### Admin Features
@@ -281,8 +281,8 @@ The following is a roadmap for our project, outlining our Minimum Viable Product
 - [x] Create editable and deletable buttons for admins to manage students within a specific enrollment session.
 - [x] Build the ability for admins to modify details of a specific enrollment session.
 - [x] Enable admins to add and/or remove students from a specific enrollment session.
-- [ ] Admin login authentication
-- [ ] Admin authorization within admin workflow
+- [x] Admin login authentication
+- [x] Admin authorization within admin workflow
 
 <!-- DATABASE ENHANCEMENTS -->
 ### Database Enhancements
