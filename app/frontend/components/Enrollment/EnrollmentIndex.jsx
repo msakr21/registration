@@ -9,6 +9,8 @@ import ListLocationEnrollments from '~/components/Enrollment/ListLocationEnrollm
 
 function EnrollmentIndex(props) {
   const csrf_token = document.head.getElementsByTagName('meta')[2].content;
+  const enrollments = JSON.parse(document.getElementById("data").getAttribute("enrollments"));
+  const students = JSON.parse(document.getElementById("data").getAttribute("students"));
   const mayEnrollments = JSON.parse(document.getElementById("data").getAttribute("may_enrollments"));
   const sheridanEnrollments = JSON.parse(document.getElementById("data").getAttribute("sheridan_enrollments"));
   const smokyEnrollments = JSON.parse(document.getElementById("data").getAttribute("smoky_enrollments"));
@@ -30,7 +32,7 @@ function EnrollmentIndex(props) {
     <Card border="light">
       {DisplayDeleteSuccess(deleteConfirmation)}
       {NewStudentError(newStudentError)}
-      {UserHeaderUI(props.admin)}
+      {UserHeaderUI(props.admin, enrollments, students)}
       <Card.Title style={{ textDecorationLine: "underline", fontSize: "28px", fontWeight: "bold", textAlign: "center", margin: "2%" }}>Eloise May Library Enrollment Sessions:</Card.Title>
       <Row xs={2} md={3} className="g-4 justify-content-center">
         {ListLocationEnrollments(props.admin, mayEnrollments, setDeletePath, setDeleteMessage, setDisplayConfirmationModal)}

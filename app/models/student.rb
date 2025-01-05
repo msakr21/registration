@@ -13,6 +13,11 @@ class Student < ApplicationRecord
     students.to_json
   end
 
+  def self.csv_data
+    students = all.select(:id, :first_name, :last_name, :email, :phone, :language, :enrollment_id)
+    students.to_json
+  end
+
   private
 
   def format_phone

@@ -4,6 +4,7 @@ class Admin::EnrollmentsController < ApplicationController
 
   def index
     @enrollments = Enrollment.list_data
+    @students = Student.csv_data
     @may_enrollments = Enrollment.list_library_data('Eloise May')
     @sheridan_enrollments = Enrollment.list_library_data('Sheridan')
     @smoky_enrollments = Enrollment.list_library_data('Smoky Hill')

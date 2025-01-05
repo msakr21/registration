@@ -1,7 +1,9 @@
 <%= vite_javascript_tag 'entrypoints/Admin/admin_enrollments_index.jsx' %>
 
 <div 
-    id="data" 
+    id="data"
+    enrollments="<%= @enrollments %>"
+    students="<%= @students %>" 
     may_enrollments="<%= @may_enrollments %>" 
     sheridan_enrollments="<%= @sheridan_enrollments %>" 
     smoky_enrollments="<%= @smoky_enrollments %>" 
