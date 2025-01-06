@@ -16,9 +16,14 @@ class Admin::EnrollmentsController < ApplicationController
     @students = Enrollment.find(params[:id]).students.list_data
   end
 
-  def new; end
+  def new; 
+    @enrollments = Enrollment.list_data
+    @all_students = Student.csv_data
+  end
 
   def edit
+    @enrollments = Enrollment.list_data
+    @all_students = Student.csv_data
     @enrollment_id = @enrollment.id
     @location = @enrollment.location
     @schedule = @enrollment.schedule

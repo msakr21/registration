@@ -10,6 +10,8 @@ import UserHeaderUI from '~/components/Enrollment/UserHeaderUI.jsx';
 
 function EnrollmentForm(props) {
   const csrf_token = document.head.getElementsByTagName('meta')[2].content;
+  const enrollments = JSON.parse(document.getElementById("data").getAttribute("enrollments"));
+  const allStudents = JSON.parse(document.getElementById("data").getAttribute("all_students"));
   const [location, setLocation] = useState(props.location);
   const [schedule, setSchedule] = useState(props.schedule);
   const [students, setStudents] = useState(props.students || 30);
@@ -37,7 +39,7 @@ function EnrollmentForm(props) {
   //tweak method above to take all caps so it can be reusable for patch and delete and split into own component
 
   return (
-    <div>{UserHeaderUI(props.admin)}
+    <div>{UserHeaderUI(props.admin, enrollments, allStudents)}
     <Row style={{ height: "95vh" }}>
       <Card className="card mx-auto my-auto" style={{ width: "40%" }}>
         <Card.Title style={{ marginTop: "25px", marginBottom: "20px" }} className="text-center">Please fill the form below:</Card.Title>
