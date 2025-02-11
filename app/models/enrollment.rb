@@ -22,6 +22,7 @@ class Enrollment < ApplicationRecord
 
   def formatted_date
     schedule.in_time_zone('Mountain Time (US & Canada)').strftime("%A, %B #{schedule.in_time_zone('Mountain Time (US & Canada)').day.ordinalize}")
+    # I18n.with_locale("ar") {I18n.l(test, format: :default)}.tr("0-9", "٠-٩")
   end
   
   def formatted_time
