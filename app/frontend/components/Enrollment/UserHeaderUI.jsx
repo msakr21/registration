@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Navbar} from 'react-bootstrap';
+import {Button, Navbar, Form, Row, Col} from 'react-bootstrap';
 import { CSVLink } from "react-csv";
 
 
@@ -14,7 +14,23 @@ function UserHeaderUI(userType, enrollmentCSVData, studentsCSVData) {
       </form>
       </div>
       </Navbar>)
+  } else {
+    return (
+      <Row>
+        <Col>
+        </Col>
+        <Col xs="auto">
+          <Form.Select aria-label="language selection">
+            <option value="en">English</option>
+            <option value="es">español</option>
+            <option value="ru">русский</option>
+            <option value="ar">العربية</option>
+          </Form.Select>
+        </Col>
+      </Row>
+    )
   }
+  //send values as params to backend via on change and link?
 }
 
 export default UserHeaderUI;
