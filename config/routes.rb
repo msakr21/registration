@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   # Enrollment and student routes for users
-  resources :enrollments, only: [:index, :show] do
-    resources :students, only: [:new, :create]
+  scope "/:locale" do
+    resources :enrollments, only: [:index, :show] do
+      resources :students, only: [:new, :create]
+    end
   end
 
   # Confirmation page
