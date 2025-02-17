@@ -5,7 +5,8 @@ import { CSVLink } from "react-csv";
 
 function UserHeaderUI(userType, enrollmentCSVData, studentsCSVData) {
   const token = document.head.getElementsByTagName('meta')[2].content;
-  const [displayLanguage, setDisplayLanguage] = useState("en")
+  const currentPageLanguage = window.location.pathname.split("/")[1]
+  const [displayLanguage, setDisplayLanguage] = useState(currentPageLanguage)
 
   const handleDisplayLanguageChange = (event) => {
     setDisplayLanguage(event.target.value);
@@ -14,8 +15,10 @@ function UserHeaderUI(userType, enrollmentCSVData, studentsCSVData) {
 
   const toggleLanguage = (value) => {
     const currentURL = window.location.pathname;
-    window.location.href = currentURL + value
-    console.log(window.location.href)
+    const currentURLParts = currentURL.split("/")
+    currentURLParts[1] = value
+    const newURL = currentURLParts.join("/")
+    window.location.href = newURL
   }
 
   if (userType === "admin") {

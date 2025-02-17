@@ -5,4 +5,4 @@ import HomePage from '~/components/HomePage/HomePage';
 const container = document.getElementById('home');
 const root = ReactDOM.createRoot(container);
 
-root.render(<HomePage />);
+root.render(<HomePage admin=""/>);
