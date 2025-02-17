@@ -1,4 +1,7 @@
 ru:
+  # time:
+  #   formats:
+  #     default:
   date:
     formats:
       default: "%A, %d %B"

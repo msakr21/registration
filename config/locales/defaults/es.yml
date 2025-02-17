@@ -1,4 +1,7 @@
 es:
+  # time:
+  #   formats:
+  #     default:
   date:
     formats:
       default: "%A, %d de %B"
