@@ -13,10 +13,12 @@ Rails.application.routes.draw do
     end
 
     get "/", to: "pages#home", as: :locale_root
+
+    get '/confirmation', to: 'pages#confirmation'
   end
 
   # Confirmation page
-  get '/confirmation', to: 'pages#confirmation'
+  # get '/confirmation', to: 'pages#confirmation'
 
   # Login page
   get '/login', to: 'admin/sessions#new'
