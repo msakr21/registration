@@ -1,5 +1,7 @@
 es:
   time:
+    am: "am"
+    pm: "pm"
     formats:
       default: "%l:%M %P"
   date:
