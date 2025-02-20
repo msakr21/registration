@@ -1,7 +1,7 @@
 ar:
-  # time:
-  #   formats:
-  #     default:
+  time:
+    formats:
+      default: "%I:%M %p"
   date:
     formats:
       default: "%A، %d %B %Y"

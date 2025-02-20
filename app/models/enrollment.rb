@@ -31,7 +31,11 @@ class Enrollment < ApplicationRecord
   end
   
   def formatted_time(locale)
-    schedule.in_time_zone('Mountain Time (US & Canada)').strftime('%I:%M %p')
+    if locale == "ar"
+      I18n.with_locale("ar") {I18n.l(schedule.in_time_zone('Mountain Time (US & Canada)').to_time, format: :default)}.tr("0-9", "٠-٩")
+    else
+      I18n.with_locale(locale) {I18n.l(schedule.in_time_zone('Mountain Time (US & Canada)').to_time, format: :default)}
+    end
   end
 
   def student_limit_check
