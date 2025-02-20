@@ -1,14 +1,24 @@
 Rails.application.routes.draw do
   # Root path
-  root 'pages#home'
+  # root 'pages#home'
+
+  # scope "/:locale", locale: /en|es|ar|ru/ do
+  #   get "/", to: "pages#home", as: :locale_root
+  # end
 
   # Enrollment and student routes for users
-  resources :enrollments, only: [:index, :show] do
-    resources :students, only: [:new, :create]
+  scope "(:locale)", locale: /en|es|ar|ru/ do
+    resources :enrollments, only: [:index, :show] do
+      resources :students, only: [:new, :create]
+    end
+
+    get "/", to: "pages#home", as: :locale_root
+
+    get '/confirmation', to: 'pages#confirmation'
   end
 
   # Confirmation page
-  get '/confirmation', to: 'pages#confirmation'
+  # get '/confirmation', to: 'pages#confirmation'
 
   # Login page
   get '/login', to: 'admin/sessions#new'
