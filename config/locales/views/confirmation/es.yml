@@ -1,8 +1,11 @@
 es:
-  first_part: "Thank you, "
-  second_part: ", for requesting an appointment for the "
-  third_part: " enrollment session at "
-  last_part: " on "
-  note: "your request is not yet complete. You will be contacted by the Library ELA program within 3 to 5 business days to confirm your appointment."
-  please_note: "Please note:"
-  second_note: "registering for an enrollment session does not guarantee a spot in a class. Space is limited and will be filled in the order in which we receive your request and the availability of the class you qualify for."
+  success: Solicitud recibida
+  first_part: "Gracias "
+  second_part: " por solicitar una cita  a las "
+  third_part: " para tu sesión de inscripción en la bibliioteca "
+  last_part: " el "
+  note: "Tu solicitud aún no está completa. El programa ELA de la biblioteca se pondrá en contacto contigo en un período de 3 a 5 días hábiles para confirmar la cita."
+  please_note: "Nota importante: "
+  second_note: "registrarse en una sesión de inscripción no garantiza un cupo en una clase. El espacio es limitado y se llenará según el orden en que lleguen las solicitudes y la disponibilidad de la clase para la que calificas."
+  screenshot: Please take a screenshot or save this page as a pdf for future reference in case it’s needed.
+  return: Click here to return to the list of enrollments
