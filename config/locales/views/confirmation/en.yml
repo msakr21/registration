@@ -8,4 +8,6 @@ en:
   please_note: "Please note: "
   second_note: "registering for an enrollment session does not guarantee a spot in a class. Space is limited and will be filled in the order in which we receive your request and the availability of the class you qualify for."
   screenshot: Please take a screenshot or save this page as a pdf for future reference in case it’s needed.
-  return: Click here to return to the list of enrollments
+  click: "Click "
+  here: here
+  return: " to return to the list of enrollments."

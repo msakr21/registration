@@ -1,12 +1,14 @@
 ar:
-  success: request received
-  first_part: "Thank you, "
-  second_part: ", for requesting an appointment for the "
-  third_part: " enrollment session at "
-  last_part: " on "
-  note: "your request is not yet complete. You will be contacted by the Library ELA program within 3 to 5 business days to confirm your appointment."
-  please_note: "Please note:"
-  second_note: "registering for an enrollment session does not guarantee a spot in a class. Space is limited and will be filled in the order in which we receive your request and the availability of the class you qualify for."
-  screenshot: Please take a screenshot or save this page as a pdf for future reference in case it’s needed.
-  return: Click here to return to the list of enrollments
+  success: تم التقديم بنجاح
+  first_part: " شكراً،"
+  second_part: "، للتسجيل بموعد ال"
+  third_part: " بمكتبة "
+  last_part: " يوم "
+  note: "طلب التقديم لم يكتمل بعد. سيتم الإتصال بك من قبل أحد العاملين ببرنامج اللغة الإنجليزية في غضون ٣ إلى ٥ أيام عمل للتأكيد على موعدك."
+  please_note: "من باب العلم بالشيء:"
+  second_note: "التقديم على الإلتحاق لا يضمن مكان بالدورة. للأسف الأماكن محدودة و يتم التسجيل على أساس ترتيب التقديمات التي نستلمها و توفر أماكن بالمستويات المناسبة للمقدمين."
+  screenshot: الرجاء أخذ لقطة للشاشة أو حفظ الصفحة كملف pdf للرجوع إليها في حال أن إحتجنا لذلك مستقبلاً
+  click: " إضغط"
+  here: "هنا"
+  return: " للرجوع إلى قائمة المواعيد"
   
