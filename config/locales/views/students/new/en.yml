@@ -1,0 +1,19 @@
+en:  
+  enter_first_name: Please Enter First Name
+  enter_last_name: Please Enter Last Name
+  enter_email: Please Enter Email
+  enter_phone_number: Please Enter Phone Number
+  top_message: Please enter all information in English
+  first_name: First Name
+  last_name: Last Name
+  email: Email
+  phone: Phone Number
+  interpreter_question: Do you need interpretation for the enrollment session?
+  affirmative: Yes
+  language_question: What language(s) do you speak? 
+  interpreting_note: We cannot guarantee interpretation of every language, but will do our best to accommodate as many languages as possible.
+  level_question: Based on your own assessment, what level of English are you?
+  first_option: "Beginner – I know little to no English. I need help with speaking, listening, reading, and writing."
+  second_option: "Intermediate – I can ask and answer questions about everyday life (like work, shopping, health, or family). I can understand simple conversations, give short answers, and write basic sentences."
+  third_option: "Advanced – I can speak, understand, read, and write English well. I can have conversations, read news articles, and write emails or short essays with little to no mistakes."
+  submit: Submit

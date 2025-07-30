@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  # Root path
-  # root 'pages#home'
-
-  # scope "/:locale", locale: /en|es|ar|ru/ do
-  #   get "/", to: "pages#home", as: :locale_root
-  # end
 
   # Enrollment and student routes for users
   scope "(:locale)", locale: /en|es|ar|ru/ do

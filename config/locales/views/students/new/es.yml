@@ -1,0 +1,19 @@
+es:
+  enter_first_name: Por favor, escribe tu nombre
+  enter_last_name: Por favor, escribe tu apellido
+  enter_email: Por favor, escribe tu correo electrónico
+  enter_phone_number: Por favor, escribe tu número de teléfono
+  top_message: "Por favor, llena el siguiente formulario:"
+  first_name: Nombre
+  last_name: Apellido
+  email: Correo electrónico
+  phone: Número de teléfono
+  interpreter_question: ¿Necesitas un intérprete para la sesión de inscripción?
+  affirmative: Si
+  language_question: ¿Qué idioma(s) hablas? 
+  interpreting_note: No podemos garantizar la interpretación de todos los idiomas, pero haremos todo lo posible para dar cabida a tantos idiomas como sea posible.
+  level_question: Basado en tu propia evaluación, ¿En qué nivel de inglés te encuentras?
+  first_option: Nivel principiante - sé poco o nada de inglés. Necesito ayuda para hablar, escuchar, leer y escribir.
+  second_option: Nivel intermedio - Puedo hacer y responder preguntas sobre la vida cotidiana (como trabajo, compras, salud o familia) Puedo entender conversaciones sencillas, dar respuestas cortas y escribir frases básicas.
+  third_option: Nivel avanzado - puedo hablar, entender, leer y escribir inglés bien. Puedo tener conversaciones, leer artículos de noticias y escribir correos electrónicos o ensayos cortos con pocos errores.
+  submit: Enviar
