@@ -3,11 +3,16 @@
 <div 
     id="data"
     enrollments="<%= @enrollments %>"
-    students="<%= @students %>" 
     may_enrollments="<%= @may_enrollments %>" 
     sheridan_enrollments="<%= @sheridan_enrollments %>" 
-    smoky_enrollments="<%= @smoky_enrollments %>" 
+    smoky_enrollments="<%= @smoky_enrollments %>"
+    students="<%= @students %>" 
     delete_confirmation="<%= @delete_confirmation %>"
 />
+
+<div id="locale" content=""/>
+<div id="register" content="<%= I18n.t :register %>"/>
+<div id="available_space" content="<%= I18n.t :available_space %>"/>
+<div id="registration_closed" content="<%= I18n.t :registration_closed %>"/> 
 
 <div id="index" />

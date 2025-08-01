@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import EnrollmentForm from '~/components/Enrollment/AdminOnly/EnrollmentForm';
 
-const enrollment_id = document.getElementById("data").getAttribute("enrollmentID");
+const enrollmentID = document.getElementById("data").getAttribute("enrollmentID");
 const location = document.getElementById("data").getAttribute("location");
-const schedule = new Date(document.getElementById("data").getAttribute("schedule"));
+const startTime = new Date(document.getElementById("data").getAttribute("start_time"));
+const endTime = new Date(document.getElementById("data").getAttribute("end_time"));
 const students = document.getElementById("data").getAttribute("students");
-const uri = `/admin/enrollments/${enrollment_id}`;
+const uri = `/admin/enrollments/${enrollmentID}`;
 
 const container = document.getElementById('edit');
 const root = ReactDOM.createRoot(container);
@@ -14,7 +15,8 @@ const root = ReactDOM.createRoot(container);
 root.render(
   <EnrollmentForm
     location={location}
-    schedule={schedule}
+    startTime={startTime}
+    endTime={endTime}
     students={students}
     path={uri}
     method="patch"

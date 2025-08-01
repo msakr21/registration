@@ -2,10 +2,18 @@
 
 <div 
     id="data" 
-    may_enrollments="<%= @may_enrollments %>" 
-    sheridan_enrollments="<%= @sheridan_enrollments %>" 
-    smoky_enrollments="<%= @smoky_enrollments %>" 
+    may_enrollments="<%= @may_enrollments %>"
+    sheridan_enrollments="<%= @sheridan_enrollments %>"
+    smoky_enrollments="<%= @smoky_enrollments %>"
     new_student_error="<%= @error_adding %>"
+    branch="<%= @branch %>"
 />
+
+
+<div id="locale" content="<%= @locale %>"/>
+<div id="register" content="<%= I18n.t :register %>"/>
+<div id="available_space" content="<%= I18n.t :available_space %>"/>
+<div id="registration_closed" content="<%= I18n.t :registration_closed %>"/>
+<div id="title" content="<%= I18n.t :eloise_may %>"/>
 
 <div id="index" />

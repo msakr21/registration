@@ -1,16 +1,16 @@
 class Enrollment < ApplicationRecord
   has_many :students
-
   validates :location, presence: true
-  validates :schedule, presence: true
+  validates :start_time, presence: true
+  validates :end_time, presence: true
   validates :student_limit, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
-  def self.list_data
-    all.map { |enrollment| enrollment_hash(enrollment, "en") }.to_json
+  def self.list_data(locale="en")
+    all.order(:start_time).map { |enrollment| enrollment_hash(enrollment, locale) }.to_json
   end
 
-  def self.list_library_data(location, locale)
-    all.where(location:).order(:schedule).map { |enrollment| enrollment_hash(enrollment, locale) }.to_json 
+  def self.list_library_data(location, locale="en")
+    all.where(location:).order(:start_time).map { |enrollment| enrollment_hash(enrollment, locale) }.to_json 
   end
 
   def self.enrollment_detail(enrollment_id, locale)
@@ -21,20 +21,20 @@ class Enrollment < ApplicationRecord
   end
 
   def formatted_date(locale)
-    if locale == "en"
-      schedule.in_time_zone('Mountain Time (US & Canada)').strftime("%A, %B #{schedule.in_time_zone('Mountain Time (US & Canada)').day.ordinalize}")
-    elsif locale == "ar"
-      I18n.with_locale("ar") {I18n.l(schedule.in_time_zone('Mountain Time (US & Canada)').to_date, format: :default)}.tr("0-9", "٠-٩")
+    if locale == "en" || locale == :en
+      start_time.in_time_zone('Mountain Time (US & Canada)').strftime("%A, %B #{start_time.in_time_zone('Mountain Time (US & Canada)').day.ordinalize}")
+    elsif locale == "ar" || locale == :ar
+      I18n.with_locale("ar") {I18n.l(start_time.in_time_zone('Mountain Time (US & Canada)').to_date, format: :default)}.tr("0-9", "٠-٩")
     else
-      I18n.with_locale(locale) {I18n.l(schedule.in_time_zone('Mountain Time (US & Canada)').to_date, format: :default)}
+      I18n.with_locale(locale) {I18n.l(start_time.in_time_zone('Mountain Time (US & Canada)').to_date, format: :default)}
     end
   end
   
-  def formatted_time(locale)
-    if locale == "ar"
-      I18n.with_locale("ar") {I18n.l(schedule.in_time_zone('Mountain Time (US & Canada)').to_time, format: :default)}.tr("0-9", "٠-٩")
+  def formatted_time(time, locale)
+    if locale == "ar" || locale == :ar
+      I18n.with_locale("ar") {I18n.l(time.in_time_zone('Mountain Time (US & Canada)').to_time, format: :default)}.tr("0-9", "٠-٩")
     else
-      I18n.with_locale(locale) {I18n.l(schedule.in_time_zone('Mountain Time (US & Canada)').to_time, format: :default)}
+      I18n.with_locale(locale) {I18n.l(time.in_time_zone('Mountain Time (US & Canada)').to_time, format: :default)}
     end
   end
 
@@ -47,7 +47,8 @@ class Enrollment < ApplicationRecord
       id: enrollment.id,
       location: enrollment.location,
       date: enrollment.formatted_date(locale),
-      time: enrollment.formatted_time(locale),
+      start_time: enrollment.formatted_time(enrollment.start_time, locale),
+      end_time: enrollment.formatted_time(enrollment.end_time, locale),
       student_limit: enrollment.student_limit,
       students: enrollment.students.count
     }

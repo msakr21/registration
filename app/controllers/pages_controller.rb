@@ -1,10 +1,11 @@
 class PagesController < ApplicationController
-  def home; end
-
+  def home
+    @locale = params[:locale] || set_locale
+  end
   def confirmation
+    @locale = params[:locale] || set_locale
     @name = params[:name]
     @time = params[:time]
-    @date = params[:date]
     @location = params[:location]
   end
 end
