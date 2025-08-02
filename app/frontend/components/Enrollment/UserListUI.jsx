@@ -7,6 +7,7 @@ import ShowDeleteModal from '~/components/Enrollment/Common/Modals/ShowDeleteMod
 import CapitalizeDateDaySpanish from "~/components/Enrollment/Common/CapitalizeDateDaySpanish.jsx";
 
 function UserListUI(userType, enrollment, setDeletePath, setDeleteMessage, setDisplayConfirmationModal, locale) {
+  const registerButton = document.getElementById("register").getAttribute("content");
   if (userType === "admin") {
     return (
       <div id="admin">
@@ -30,7 +31,7 @@ function UserListUI(userType, enrollment, setDeletePath, setDeleteMessage, setDi
         <br />
         {StudentText(AtCapacity(enrollment.student_limit, enrollment.students), enrollment, locale)}
         <div className="text-center">
-          <Button disabled={AtCapacity(enrollment.student_limit, enrollment.students)} href={LinkRendering(AtCapacity(enrollment.student_limit, enrollment.students), enrollment.id)} size="sm" variant="outline-dark">Register for this session</Button>
+          <Button disabled={AtCapacity(enrollment.student_limit, enrollment.students)} href={LinkRendering(AtCapacity(enrollment.student_limit, enrollment.students), enrollment.id, locale)} size="sm" variant="outline-dark">{registerButton}</Button>
         </div>
       </div>
     );

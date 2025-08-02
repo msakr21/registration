@@ -1,8 +1,6 @@
 import React from 'react';
 import { Card, Col } from "react-bootstrap";
 import UserListUI from '~/components/Enrollment/UserListUI.jsx';
-import CapitalizeDateDaySpanish from "~/components/Enrollment/Common/CapitalizeDateDaySpanish.jsx";
-  
   
 const ListLocationEnrollments = (user, enrollments, setDeletePath, setDeleteMessage, setDisplayConfirmationModal, locale) => {
   

@@ -9,8 +9,9 @@ en:
   email: Email
   phone: Phone Number
   interpreter_question: Do you need interpretation for the enrollment session?
-  affirmative: Yes
-  language_question: What language(s) do you speak? 
+  "yes": "Yes"
+  language_question: What language(s) do you speak?
+  language: Please enter language
   interpreting_note: We cannot guarantee interpretation of every language, but will do our best to accommodate as many languages as possible.
   level_question: Based on your own assessment, what level of English are you?
   first_option: "Beginner – I know little to no English. I need help with speaking, listening, reading, and writing."

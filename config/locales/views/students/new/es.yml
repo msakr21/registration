@@ -9,8 +9,9 @@ es:
   email: Correo electrónico
   phone: Número de teléfono
   interpreter_question: ¿Necesitas un intérprete para la sesión de inscripción?
-  affirmative: Si
-  language_question: ¿Qué idioma(s) hablas? 
+  "yes": Si
+  language_question: ¿Qué idioma(s) hablas?
+  language: Por favor, ingrese el idioma 
   interpreting_note: No podemos garantizar la interpretación de todos los idiomas, pero haremos todo lo posible para dar cabida a tantos idiomas como sea posible.
   level_question: Basado en tu propia evaluación, ¿En qué nivel de inglés te encuentras?
   first_option: Nivel principiante - sé poco o nada de inglés. Necesito ayuda para hablar, escuchar, leer y escribir.
