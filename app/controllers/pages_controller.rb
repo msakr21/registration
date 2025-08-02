@@ -6,6 +6,7 @@ class PagesController < ApplicationController
     @locale = params[:locale] || set_locale
     @name = params[:name]
     @time = params[:time]
+    @date = params[:date]
     @location = params[:location]
   end
 end

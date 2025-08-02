@@ -38,3 +38,6 @@ en:
       default: "%D %m, %Y"
     month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
     day_names: [~, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday]
+  eloise_may_library: "Eloise May Library"
+  smoky_hill_library: "Smoky Hill Library"
+  sheridan_library: "Sheridan Library"

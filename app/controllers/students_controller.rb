@@ -22,7 +22,7 @@ class StudentsController < ApplicationController
         redirect_to new_enrollment_student_path(errors: @errors, student_params: student_params)
       end
     else
-      redirect_to enrollments_path(error_adding: true)
+      redirect_to home_path(error_adding: true, locale: locale)
     end
   end
 
@@ -38,6 +38,6 @@ class StudentsController < ApplicationController
 
   def confirmation_page_path(student, enrollment, locale)
     confirmation_path(name: student.first_name, time: enrollment.formatted_time(enrollment.start_time, locale),
-                      location: enrollment.location, locale: locale)
+                      location: enrollment.location, date: enrollment.formatted_date(locale), locale: locale)
   end
 end

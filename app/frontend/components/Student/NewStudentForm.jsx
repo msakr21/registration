@@ -96,7 +96,7 @@ function NewStudentForm(props) {
         <Form action={uri} method="post">
           <input type="hidden" name="authenticity_token" value={csrf_token} />
           <input type="hidden" name="locale" value={locale} />
-          <input type="hidden" name="interpretation_needed" value={interpretationNeeded[isChecked]} />
+          <input type="hidden" name="interpretation" value={interpretationNeeded[isChecked]} />
           <Form.Group controlId="formFirstName">
             <Form.Label>{firstNameDisplay}</Form.Label>
             <Form.Control type="text" placeholder={firstNamePlaceholder} name="first_name" maxLength="100" value={firstName} onChange={handleFirstNameChange} />
@@ -122,12 +122,13 @@ function NewStudentForm(props) {
             <Form.Check type="Checkbox" id="interpreting_checkbox" style={{ width: width}} name="interpreting_checkbox" label={affirmative} checked={isChecked} onChange={handleCheckboxChange}/>
             {interpretingNote}
           </Form.Group>
+
           <br />
           <Form.Group controlId="formLanguage">
             <Form.Label>{languageQuestion}</Form.Label>
             <Form.Control type="text" placeholder={languageDisplay} name="language" maxLength="100" value={language} onChange={handleLanguageChange} />
           </Form.Group>
-                    <br />
+          <br />
           <Form.Group controlId="level">
             <Form.Label>{levelQuestion}</Form.Label>
             <Form.Select name="level" value={level} onChange={handleLevelChange}>

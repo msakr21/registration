@@ -1,11 +1,30 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function ConfirmationPage() {
-  const name = document.getElementById("data").getAttribute("name");
-  const date = document.getElementById("data").getAttribute("date");
-  const time = document.getElementById("data").getAttribute("time");
-  const location = document.getElementById("data").getAttribute("location");
+function ConfirmationPage(props) {
+  const name = document.getElementById("name").getAttribute("content");
+  const locale = document.getElementById("locale").getAttribute("content");
+  const firstPart = document.getElementById("first_part").getAttribute("content");
+  const time = document.getElementById("time").getAttribute("content");
+  const date = document.getElementById("date").getAttribute("content");
+  const secondPart = document.getElementById("second_part").getAttribute("content");
+  const libraryNames = JSON.parse(document.getElementById("library_names").getAttribute("content"));
+  const thirdPart = document.getElementById("third_part").getAttribute("content");
+  const location = document.getElementById("location").getAttribute("content");
+  const lastPart = document.getElementById("last_part").getAttribute("content");
+  const title = document.getElementById("title").getAttribute("content");
+  const note = document.getElementById("note").getAttribute("content");
+  const important = document.getElementById("important").getAttribute("content");
+  const pleaseNote = document.getElementById("please_note").getAttribute("content");
+  const otherNote = document.getElementById("other_note").getAttribute("content");
+  const screenshot = document.getElementById("screenshot").getAttribute("content");
+  const here = document.getElementById("here").getAttribute("content");
+  const click = document.getElementById("click").getAttribute("content");
+  const returnSentence = document.getElementById("return").getAttribute("content");
+  let textDirection = "ltr"
+  if (locale === "ar") {
+    textDirection = "rtl"
+  }
 
   const locationMapLinkDictionary = {
     "Eloise May": "https://goo.gl/maps/SCNgdrXSaN9SoVHt5",
@@ -16,32 +35,32 @@ function ConfirmationPage() {
   // Split the dictionary to its own part for ease of set up
 
   return (
-    <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-      <h3 style={{ position: "absolute", top: "27%" }}>Request Received</h3>
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", direction: textDirection}}>
+      <h3 style={{ position: "absolute", top: "27%" }}>{title}</h3>
       <div style={{ position: "absolute", top: "35%" }}>
         <p style={{ textAlign: "center" }}>
-          Thank you, {name}, for requesting an appointment for the {time} enrollment session at{' '}
-          <a href={`${locationMapLinkDictionary[location]}`}>{location}</a> Library on {date}.
+          {firstPart}{name}{secondPart}{time}{thirdPart}
+          <a href={`${locationMapLinkDictionary[location]}`}>{libraryNames[location]}</a>{lastPart}{date}.
         </p>
         <p style={{ textAlign: "center" }}>
           <font color="red">
             <b>
-              <u>Important:</u>
+              <u>{important}</u>
             </b>
           </font>{' '}
-          Your request is not yet complete. You will be contacted by the Library ELA program within 3 to 5 business days to confirm your appointment.
+          {note}
         </p>
         <p style={{ textAlign: "center" }}> 
           <b>
-            <u>Please note:</u>
-          </b>{' '}
-          Registering for an enrollment session does not guarantee a spot in a class. Space is limited and will be filled in the order in which we receive your online reservation and the availability of the class you qualify for.
+            <u>{pleaseNote}</u>
+          </b>
+          {otherNote}
         </p>
         <br />
-        <p style={{ textAlign: "center" }}> <b><u>Please take a screenshot or save this page as a pdf for future reference in case it's needed.</u></b></p>
+        <p style={{ textAlign: "center" }}> <b><u>{screenshot}</u></b></p>
         <br />
         <p style={{ textAlign: "center" }}>
-          Click <a href="/enrollments">here</a> to return to the list of enrollments.
+          {click}<a href={`/?locale=${locale}`}>{here}</a>{returnSentence}.
         </p>
       </div>
     </div>

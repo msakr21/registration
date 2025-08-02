@@ -1,5 +1,5 @@
 en:
-  success: request received
+  success: Request Received
   first_part: "Thank you, "
   second_part: ", for requesting an appointment for the "
   third_part: " enrollment session at "

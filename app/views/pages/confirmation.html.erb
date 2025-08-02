@@ -1,11 +1,23 @@
 <%= vite_javascript_tag 'entrypoints/Students/confirmation.jsx' %>
 
-<div 
-    id="data" 
-    name="<%= @name %>" 
-    location="<%= @location %>" 
-    time="<%= @time %>" 
-    date="<%= @date %>"
-/>
+<div id="name" content="<%= @name %>" />
+<div id="locale" content="<%= @locale %>">
+<div id="time" content="<%= @time %>" />
+<div id="date" content="<%= @date %>" />
+<div id="location" content="<%= @location %>" />
+<div id="first_part" content="<%= I18n.t :first_part %>" />
+<div id="second_part" content="<%= I18n.t :second_part %>" />
+<div id="third_part" content="<%= I18n.t :third_part %>" />
+<div id="last_part" content="<%= I18n.t :last_part %>" />
+<div id="library_names" content="<%= {"Eloise May" => (I18n.t :eloise_may_library), "Smoky Hill" => (I18n.t :smoky_hill_library), "Sheridan" => (I18n.t :sheridan_library)}.to_json %>" />
+<div id="screenshot" content="<%= I18n.t :screenshot %>" />
+<div id="note" content="<%= I18n.t :note %>" />
+<div id="important" content="<%= I18n.t :important %>" />
+<div id="please_note" content="<%= I18n.t :please_note %>" />
+<div id="other_note" content="<%= I18n.t :other_note %>" />
+<div id="title" content="<%= I18n.t :success %>" />
+<div id="here" content="<%= I18n.t :here %>" />
+<div id="click" content="<%= I18n.t :click %>" />
+<div id="return" content="<%= I18n.t :return %>" />
 
 <div id="confirmation" />
