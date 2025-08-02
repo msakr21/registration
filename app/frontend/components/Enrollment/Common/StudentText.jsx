@@ -1,13 +1,11 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 
-function StudentText(capacity, enrollment) {
+function StudentText(capacity, enrollment, locale) {
   const sessionFull = document.getElementById("registration_closed").getAttribute("content");
   const availableSeats = document.getElementById("available_space").getAttribute("content");
-  const locale = document.getElementById("data").getAttribute("locale");
-  let calculation = enrollment.applicant_limit - enrollment.applicants
+  let calculation = enrollment.student_limit - enrollment.students
   if (locale === "ar") {
-    const arabicDigits = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
     calculation = calculation.toString().replace(/\d/g, d =>  '٠١٢٣٤٥٦٧٨٩'[d])
   }
   if (capacity) {

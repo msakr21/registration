@@ -21,11 +21,11 @@ function HomePage(props) {
       <br />
       <Card.Title style={{ textDecorationLine: "underline", fontSize: "28px", fontWeight: "bold", textAlign: "center", margin: "2%" }}>{title}</Card.Title>
       <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-        <div style={{ position: "absolute", top: "35%" }}>
+        <div style={{ position: "absolute", top: "30%" }}>
         <p style={{ textAlign: "center" }}>{firstParagraph}</p>
         <p style={{ textAlign: "center" }}>{important}{firstNote} {one} {secondNote}</p>
         </div>
-        <div style={{ position: "absolute", top: "50%" }}>
+        <div style={{ position: "absolute", top: "45%" }}>
           {mayLink} {smokyLink} {sheridanLink}
         </div>
         {/* insert pictures with links here */}

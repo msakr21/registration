@@ -2,9 +2,7 @@
 
 <div 
     id="data" 
-    may_enrollments="<%= @may_enrollments %>"
-    sheridan_enrollments="<%= @sheridan_enrollments %>"
-    smoky_enrollments="<%= @smoky_enrollments %>"
+    enrollments="<%= {"may" => @may_enrollments, "sheridan" => @sheridan_enrollments, "smoky" => @smoky_enrollments}.to_json %>"
     new_student_error="<%= @error_adding %>"
     branch="<%= @branch %>"
 />
@@ -14,6 +12,6 @@
 <div id="register" content="<%= I18n.t :register %>"/>
 <div id="available_space" content="<%= I18n.t :available_space %>"/>
 <div id="registration_closed" content="<%= I18n.t :registration_closed %>"/>
-<div id="title" content="<%= I18n.t :eloise_may %>"/>
+<div id="title" content="<%= {"may" => (I18n.t :eloise_may), "smoky" => (I18n.t :smoky_hill), "sheridan" => (I18n.t :sheridan)}.to_json %>"/>
 
 <div id="index" />
