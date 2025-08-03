@@ -8,6 +8,7 @@
     smoky_enrollments="<%= @smoky_enrollments %>"
     students="<%= @students %>" 
     delete_confirmation="<%= @delete_confirmation %>"
+    capacity_full = ""
 />
 
 <div id="locale" content=""/>
@@ -15,5 +16,9 @@
 <div id="available_space" content="<%= I18n.t :available_space %>"/>
 <div id="registration_closed" content="<%= I18n.t :registration_closed %>"/>
 <div id="title" content="<%= {}.to_json %>"/>
+<div id="register" content="<%= I18n.t :register %>"/>
+<div id="full" content="<%= I18n.t :registration_full %>"/>
+<div id="thanks" content="<%= I18n.t :thank_you_for_interest %>"/>
+<div id="here" content="<%= I18n.t :here %>"/>
 
 <div id="index" />
