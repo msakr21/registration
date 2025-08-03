@@ -53,4 +53,19 @@ class Enrollment < ApplicationRecord
       students: enrollment.students.count
     }
   end
+
+  def self.branch_capacity_full?(location)
+    branch_mapper = {
+      'may' => "Eloise May",
+      'smoky' => "Smoky Hill",
+      'sheridan' => "Sheridan" 
+    }
+    enrollments_full_counter = 0
+    enrollments = all.where(location: branch_mapper[location])
+    enrollments.each do |enrollment|
+      enrollments_full_counter += 1 if enrollment.students.length >= enrollment.student_limit
+    end
+    return true if enrollments.length == enrollments_full_counter
+    false
+  end
 end

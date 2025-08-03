@@ -18,8 +18,12 @@ function HomePage(props) {
   const mayLink = <a href={`/${locale}/enrollments?location=may`}>{eloiseMay}</a>
   const smokyLink = <a href={`/${locale}/enrollments?location=smoky`}>{smokyHill}</a>
   const sheridanLink = <a href={`/${locale}/enrollments?location=sheridan`}>{sheridan}</a>
+  let textDirection = "ltr"
+  if (locale === "ar") {
+    textDirection = "rtl"
+  }
   return (
-    <div>
+    <div style={{direction: textDirection}}>
       {UserHeaderUI(props.admin)}
       <br />
       <br />
