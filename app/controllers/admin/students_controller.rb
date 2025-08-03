@@ -12,6 +12,7 @@ class Admin::StudentsController < ApplicationController
   def create
     student = create_student
     @errors = student.errors.messages
+    redirect_to 
     case @errors
     when {}
       redirect_to admin_enrollment_path(@enrollment)
