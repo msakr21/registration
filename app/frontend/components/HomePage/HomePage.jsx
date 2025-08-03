@@ -38,19 +38,31 @@ function HomePage(props) {
             <Row xs={1} md={1}>
               <Col style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>{mayLink}</Col>
             </Row>
-            <Row><a href={`/${locale}/enrollments?location=may`}><img src={"./eloise_may.jpg"} alt="Image of Eloise May Library"/></a></Row>
+            <Col style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+              <Row>
+                <a href={`/${locale}/enrollments?location=may`}><img src={"./eloise_may.jpg"} alt="Image of Eloise May Library"/></a>
+              </Row>
+            </Col>
           </Col>
           <Col>
             <Row xs={1} md={1}>
               <Col style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>{smokyLink}</Col>
             </Row>
-            <Row><a href={`/${locale}/enrollments?location=smoky`}><img src={"./smoky_hill.jpg"} alt="Image of Smoky Hill Library"/></a></Row>
+            <Row>
+              <Col style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                <a href={`/${locale}/enrollments?location=smoky`}><img src={"./smoky_hill.jpg"} alt="Image of Smoky Hill Library"/></a>
+              </Col>
+            </Row>
           </Col>
           <Col>
             <Row xs={1} md={1}>
               <Col style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>{sheridanLink}</Col>
             </Row>
-            <Row><a href={`/${locale}/enrollments?location=sheridan`}><img src={"./sheridan.jpg"} alt="Image of Sheridan Library"/></a></Row>
+            <Row>
+              <Col style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                <a href={`/${locale}/enrollments?location=sheridan`}><img src={"./sheridan.jpg"} alt="Image of Sheridan Library"/></a>
+              </Col>
+            </Row>
           </Col>
         </Row>
       </div>
