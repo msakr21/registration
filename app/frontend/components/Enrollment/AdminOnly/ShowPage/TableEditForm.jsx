@@ -9,7 +9,9 @@ const TableEditForm = (enrollment, formValue, csrf_token) => {
       <input type="hidden" name="last_name" value={formValue.lastName} />
       <input type="hidden" name="email" value={formValue.email} />
       <input type="hidden" name="phone" value={formValue.phone} />
+      <input type="hidden" name="interpretation" value={formValue.interpretation} />
       <input type="hidden" name="language" value={formValue.language} />
+      <input type="hidden" name="level" value={formValue.level} />
     </form>
   );
 };

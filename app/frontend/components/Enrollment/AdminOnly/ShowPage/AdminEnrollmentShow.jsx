@@ -17,7 +17,9 @@ function AdminEnrollmentShow() {
     lastName: "",
     email: "",
     phone: "",
+    interpreting: "",
     language: "",
+    level: "",
     rowID: null,
     studentID: 0
   });

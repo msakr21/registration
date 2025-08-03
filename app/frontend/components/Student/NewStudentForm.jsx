@@ -39,7 +39,6 @@ function NewStudentForm(props) {
   const [level, setLevel] = useState(StudentParamCheck(studentParams, "level") || "Beginner");
   const [language, setLanguage] = useState(StudentParamCheck(studentParams, "language") || "");
   let width = "4%"
-  console.log(affirmative)
 
   let textDirection = "ltr"
   const interpretationNeeded = {
@@ -95,7 +94,7 @@ function NewStudentForm(props) {
         </Card.Title>
         <Form action={uri} method="post">
           <input type="hidden" name="authenticity_token" value={csrf_token} />
-          <input type="hidden" name="locale" value={locale} />
+          <input type="hidden" name="locale" value={locale || "en"} />
           <input type="hidden" name="interpretation" value={interpretationNeeded[isChecked]} />
           <Form.Group controlId="formFirstName">
             <Form.Label>{firstNameDisplay}</Form.Label>
@@ -117,9 +116,9 @@ function NewStudentForm(props) {
             <Form.Control type="text" placeholder={phoneNumberPlaceholder} name="phone" value={phone} onChange={handlePhoneChange} />
           </Form.Group>
           <br />
-          <Form.Group controlId="formInterpretingNeeded">
+          <Form.Group controlId="formInterpretation">
             <Form.Label>{interpreterQuestion}</Form.Label>
-            <Form.Check type="Checkbox" id="interpreting_checkbox" style={{ width: width}} name="interpreting_checkbox" label={affirmative} checked={isChecked} onChange={handleCheckboxChange}/>
+            <Form.Check type="Checkbox" id="interpretation_checkbox" style={{ width: width}} name="interpretation_checkbox" label={affirmative} checked={isChecked} onChange={handleCheckboxChange}/>
             {interpretingNote}
           </Form.Group>
 
@@ -131,7 +130,7 @@ function NewStudentForm(props) {
           <br />
           <Form.Group controlId="level">
             <Form.Label>{levelQuestion}</Form.Label>
-            <Form.Select name="level" value={level} onChange={handleLevelChange}>
+            <Form.Select name="level" value={level} onChange={handleLevelChange} size="sm" style={{ whiteSpace: "wrap"}}>
               <option value="Beginner">{firstOption}</option>
               <option value="Intermediate">{secondOption}</option>
               <option value="Advanced">{thirdOption}</option>

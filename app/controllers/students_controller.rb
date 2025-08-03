@@ -19,7 +19,7 @@ class StudentsController < ApplicationController
       when {}
         redirect_to confirmation_page_path(student, @enrollment, locale)
       else
-        redirect_to new_enrollment_student_path(errors: @errors, student_params: student_params)
+        redirect_to new_enrollment_student_path(errors: @errors, student_params: student_params, locale: locale)
       end
     else
       redirect_to home_path(error_adding: true, locale: locale)
