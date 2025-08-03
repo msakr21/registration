@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button, Card, Row } from "react-bootstrap";
-import EndTime from '~/components/Enrollment/Common/EndTime.jsx';
 import ShowDeleteModal from '~/components/Enrollment/Common/Modals/ShowDeleteModal.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPrint } from "@fortawesome/free-solid-svg-icons";
@@ -18,7 +17,7 @@ const ShowEnrollmentCard = (enrollment, students, setDeletePath, setDeleteMessag
       </Card.Header>
       <Card.Body style={{ textAlign: "center" }}>
         <Card.Title>{enrollment.location} — {enrollment.date}</Card.Title>
-        <Card.Subtitle>{enrollment.time} — {EndTime(enrollment.time)}</Card.Subtitle>
+        <Card.Subtitle>{enrollment.start_time} — {enrollment.end_time}</Card.Subtitle>
         <br />
         <Card.Text>Student Limit: {enrollment.student_limit}</Card.Text>
         <Card.Text>Number of Students: {students.length}</Card.Text>

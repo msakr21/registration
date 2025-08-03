@@ -14,7 +14,9 @@ const EnrolledStudents = (students, rowEdit, enrollment, formValue, csrf_token, 
           <th className="text-center" width="22.8%">Last Name</th>
           <th className="text-center" width="23.8%">Email</th>
           <th className="text-center" width="10%">Phone</th>
+          <th className="text-center" width="10%">Interpretation</th>
           <th className="text-center" width="11%">Language</th>
+          <th className="text-center" width="10%">Level</th>
           <th className="text-center" width="12.6%" style={{ whiteSpace: 'normal', wordWrap: 'break-word' }}>Actions</th>
         </tr>
       </thead>

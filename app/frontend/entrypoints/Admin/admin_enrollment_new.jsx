@@ -8,7 +8,8 @@ const root = ReactDOM.createRoot(container);
 root.render(
   <EnrollmentForm
     location="Smoky Hill"
-    schedule={new Date()}
+    startTime={new Date()}
+    endTime={new Date()}
     students={20}
     path="/admin/enrollments"
     method="post"

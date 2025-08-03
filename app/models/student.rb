@@ -9,12 +9,12 @@ class Student < ApplicationRecord
   before_save :format_phone
 
   def self.list_data
-    students = all.select(:id, :first_name, :last_name, :email, :phone, :language)
+    students = all.select(:id, :first_name, :last_name, :email, :phone, :language, :level, :interpretation, :enrollment_id)
     students.to_json
   end
 
   def self.csv_data
-    students = all.select(:id, :first_name, :last_name, :email, :phone, :language, :enrollment_id)
+    students = all.select(:id, :first_name, :last_name, :email, :phone, :language, :level, :interpretation, :enrollment_id)
     students.to_json
   end
 

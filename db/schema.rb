@@ -16,10 +16,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_26_041859) do
 
   create_table "enrollments", force: :cascade do |t|
     t.string "location"
-    t.datetime "schedule"
+    t.datetime "start_time"
     t.integer "student_limit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "end_time"
   end
 
   create_table "students", force: :cascade do |t|
@@ -31,6 +32,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_26_041859) do
     t.datetime "updated_at", null: false
     t.bigint "enrollment_id", null: false
     t.string "language"
+    t.string "level"
+    t.boolean "interpretation"
     t.index ["enrollment_id"], name: "index_students_on_enrollment_id"
   end
 

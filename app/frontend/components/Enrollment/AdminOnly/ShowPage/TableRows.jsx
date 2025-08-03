@@ -14,7 +14,9 @@ function TableRows(rowEdit, formValue, student, index, handleChange, enrollment,
       lastName: student.last_name,
       email: student.email,
       phone: student.phone,
+      interpretation: student.interpretation,
       language: student.language,
+      level: student.level,
       rowID: index,
       studentID: student.id
     });
@@ -28,7 +30,9 @@ function TableRows(rowEdit, formValue, student, index, handleChange, enrollment,
         <td><MDBInput name="lastName" className="text-center align-middle" type='text' onChange={handleChange} value={formValue.lastName}></MDBInput></td>
         <td><MDBInput name="email" className="text-center align-middle" type='text' onChange={handleChange} value={formValue.email}></MDBInput></td>
         <td><MDBInput name="phone" className="text-center align-middle" type='text' onChange={handleChange} value={formValue.phone}></MDBInput></td>
+        <td><MDBInput name="interpretation" className="text-center align-middle" type='text' onChange={handleChange} value={formValue.interpretation}></MDBInput></td>
         <td><MDBInput name="language" className="text-center align-middle" type='text' onChange={handleChange} value={formValue.language}></MDBInput></td>
+        <td><MDBInput name="level" className="text-center align-middle" type='text' onChange={handleChange} value={formValue.level}></MDBInput></td>
         <td>
           <Button name="pen" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => clickToEditRow(student, index)}> <Pencil color="blue" /> </Button>
           <Button name="save" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} type="submit" form={"editForm"}> <FontAwesomeIcon icon={faSave} color="blue" /> </Button>
@@ -44,7 +48,9 @@ function TableRows(rowEdit, formValue, student, index, handleChange, enrollment,
         <td className="text-center align-middle" style={{ padding: "0px" }}>{student.last_name}</td>
         <td className="text-center align-middle" style={{ padding: "0px" }}>{student.email}</td>
         <td className="text-center align-middle" style={{ padding: "0px" }}>{student.phone}</td>
+        <td className="text-center align-middle" style={{ padding: "0px" }}>{student.interpretation.toString()}</td>
         <td className="text-center align-middle" style={{ padding: "0px" }}>{student.language}</td>
+        <td className="text-center align-middle" style={{ padding: "0px" }}>{student.level}</td>
         <td className="text-center align-middle" style={{ padding: "0px" }}>
           <Button name="pen" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} onClick={() => clickToEditRow(student, index)}> <Pencil color="blue" /> </Button>
           <Button name="save" style={{ outline: "none", border: "0", boxShadow: "none", backgroundColor: "transparent" }} disabled={true}> <FontAwesomeIcon icon={faSave} color="lightgrey" /> </Button>

@@ -12,11 +12,11 @@ class Admin::EnrollmentsController < ApplicationController
   end
 
   def show
-    @enrollment = Enrollment.enrollment_detail(params[:id])
+    @enrollment = Enrollment.enrollment_detail(params[:id], "en")
     @students = Enrollment.find(params[:id]).students.list_data
   end
 
-  def new; 
+  def new 
     @enrollments = Enrollment.list_data
     @all_students = Student.csv_data
   end
@@ -26,7 +26,8 @@ class Admin::EnrollmentsController < ApplicationController
     @all_students = Student.csv_data
     @enrollment_id = @enrollment.id
     @location = @enrollment.location
-    @schedule = @enrollment.schedule
+    @start_time = @enrollment.start_time
+    @end_time = @enrollment.end_time
     @students = @enrollment.student_limit
   end
 
@@ -56,6 +57,6 @@ class Admin::EnrollmentsController < ApplicationController
   end
 
   def enrollment_params
-    params.permit(:location, :schedule, :student_limit)
+    params.permit(:location, :start_time, :end_time, :student_limit)
   end
 end
