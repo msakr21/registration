@@ -29,11 +29,11 @@ function HomePage(props) {
       <br />
       <Card.Title style={{ textDecorationLine: "underline", fontSize: "24px", fontWeight: "bold", textAlign: "center", margin: "2%" }}>{title}</Card.Title>
       <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-        <div style={{ position: "fixed", top: "30%" }}>
+        <div style={{ position: "absolute", top: "30%" }}>
         <p style={{ textAlign: "center" }}>{firstParagraph}</p>
         <p style={{ textAlign: "center" }}>{important}{firstNote} {one} {secondNote}</p>
         </div>
-        <Row xs={1} md={3} className="g-4 justify-content-center" style={{ position: "fixed", top: "45%",  }}>
+        <Row xs={1} md={3} className="g-4 justify-content-center" style={{ position: "absolute", top: "45%",  }}>
           <Col>
             <Row xs={1} md={1}>
               <Col style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>{mayLink}</Col>
