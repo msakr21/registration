@@ -23,17 +23,15 @@ function HomePage(props) {
     textDirection = "rtl"
   }
   return (
-    <div style={{direction: textDirection}}>
+    <Card border="light" style={{direction: textDirection}}>
       {UserHeaderUI(props.admin)}
       <br />
-      <br />
-      <Card.Title style={{ textDecorationLine: "underline", fontSize: "24px", fontWeight: "bold", textAlign: "center", margin: "2%" }}>{title}</Card.Title>
-      <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-        <div style={{ position: "absolute", top: "30%" }}>
-        <p style={{ textAlign: "center" }}>{firstParagraph}</p>
-        <p style={{ textAlign: "center" }}>{important}{firstNote} {one} {secondNote}</p>
-        </div>
-        <Row xs={1} md={3} className="g-4 justify-content-center" style={{ position: "absolute", top: "45%",  }}>
+      <Card.Title style={{ textDecorationLine: "underline", fontSize: "28px", fontWeight: "bold", textAlign: "center", margin: "2%" }}>{title}</Card.Title>
+      <Row style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <p style={{ display: "flex", textAlign: "center", justifyContent: "center", alignItems: "center" }}>{firstParagraph}</p>
+        <p style={{ display: "flex", textAlign: "center", justifyContent: "center", alignItems: "center" }}>{important}{firstNote} {one} {secondNote}</p> 
+      </Row>
+        <Row xs={1} md={3} className="g-4 justify-content-center">
           <Col>
             <Row xs={1} md={1}>
               <Col style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>{mayLink}</Col>
@@ -65,8 +63,7 @@ function HomePage(props) {
             </Row>
           </Col>
         </Row>
-      </div>
-    </div>
+    </Card>
   );
 }
 
