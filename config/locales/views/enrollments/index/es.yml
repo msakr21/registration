@@ -5,3 +5,5 @@ es:
   available_space: "Asientos disponibles"
   register: "Inscríbete en esta sesión"
   registration_closed: "Esta sesión está llena"
+  thank_you_for_interest: "Gracias por tu interés en las clases de inglés en las bibliotecas de Arapahoe."
+  registration_full: "Las sesiones de inscripción para esta biblioteca están llenas. Para ser agregados a la lista de espera, has clic"

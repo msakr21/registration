@@ -5,4 +5,5 @@ en:
   available_space: "Available Seats:"
   register: "Register for this Session"
   registration_closed: "Session is full"
- 
+  thank_you_for_interest: "Thank you for your interest in English classes at Arapahoe Libraries."
+  registration_full: "Registration for an enrollment session at this library is now full. To be added to the wait list, please click"

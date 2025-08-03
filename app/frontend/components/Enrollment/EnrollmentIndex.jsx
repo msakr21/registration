@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Card, Row } from "react-bootstrap";
+import { Card, Row, Col } from "react-bootstrap";
 import DeleteConfirmation from '~/components/Enrollment/Common/Modals/DeleteConfirmation.jsx';
 import DisplayDeleteSuccess from '~/components/Enrollment/Common/Modals/DisplayDeleteSuccess.jsx';
 import NewStudentError from '~/components/Enrollment/Common/NewStudentError.jsx';
@@ -21,7 +21,14 @@ function EnrollmentIndex(props) {
   const [deletePath, setDeletePath] = useState(null);
   const locale = document.getElementById("locale").getAttribute("content");
   const branchTitles = JSON.parse(document.getElementById("title").getAttribute("content"));
-
+  const capacityFull = document.getElementById("data").getAttribute("capacity_full");
+  const thanks = document.getElementById("thanks").getAttribute("content");
+  const registrationFull = document.getElementById("full").getAttribute("content");
+  const here = document.getElementById("here").getAttribute("content");
+  let textDirection = "ltr"
+  if (locale === "ar") {
+    textDirection = "rtl"
+  }
 
   const hideConfirmationModal = () => {
     setDisplayConfirmationModal(false);
@@ -33,7 +40,7 @@ function EnrollmentIndex(props) {
   if (props.admin === "admin") {
     const enrollments = JSON.parse(document.getElementById("data").getAttribute("enrollments"));
     return (
-      <Card border="light">
+      <Card border="light" style={{direction: textDirection}}>
         {DisplayDeleteSuccess(deleteConfirmation)}
         {NewStudentError(newStudentError)}
         {UserHeaderUI(props.admin, enrollments, students)}
@@ -56,18 +63,43 @@ function EnrollmentIndex(props) {
     const enrollments = JSON.parse(document.getElementById("data").getAttribute("enrollments"));
     const branchEnrollments = JSON.parse(enrollments[branch])
     const title = branchTitles[branch]
-    return (
-      <Card border="light">
-        {DisplayDeleteSuccess(deleteConfirmation)}
-        {NewStudentError(newStudentError)}
-        {UserHeaderUI(props.admin, branchEnrollments, students)}
-        <Card.Title style={{ textDecorationLine: "underline", fontSize: "28px", fontWeight: "bold", textAlign: "center", margin: "2%" }}>{title}</Card.Title>
-        <Row xs={2} md={3} className="g-4 justify-content-center">
-          {ListLocationEnrollments(props.admin, branchEnrollments, setDeletePath, setDeleteMessage, setDisplayConfirmationModal, locale)}
-        </Row>
-        <DeleteConfirmation showModal={displayConfirmationModal} confirmModal={submitDelete} hideModal={hideConfirmationModal} path={deletePath} message={deleteMessage} authenticity={csrf_token} />
-      </Card>
-    );
+    if (capacityFull === "false") {
+      return (
+        <Card border="light" style={{direction: textDirection}}>
+          {DisplayDeleteSuccess(deleteConfirmation)}
+          {NewStudentError(newStudentError)}
+          {UserHeaderUI(props.admin, branchEnrollments, students)}
+          <Card.Title style={{ textDecorationLine: "underline", fontSize: "28px", fontWeight: "bold", textAlign: "center", margin: "2%" }}>{title}</Card.Title>
+          <Row xs={2} md={3} className="g-4 justify-content-center">
+            {ListLocationEnrollments(props.admin, branchEnrollments, setDeletePath, setDeleteMessage, setDisplayConfirmationModal, locale)}
+          </Row>
+          <DeleteConfirmation showModal={displayConfirmationModal} confirmModal={submitDelete} hideModal={hideConfirmationModal} path={deletePath} message={deleteMessage} authenticity={csrf_token} />
+        </Card>
+      );
+    } else if (capacityFull === "true") {
+      return (
+        <Card border="light" style={{direction: textDirection}}> 
+          {DisplayDeleteSuccess(deleteConfirmation)}
+          {NewStudentError(newStudentError)}
+          {UserHeaderUI(props.admin, branchEnrollments, students)}
+          <Card.Title style={{ textDecorationLine: "underline", fontSize: "28px", fontWeight: "bold", textAlign: "center", margin: "2%" }}>{title}</Card.Title>
+          <Row xs={1} md={2} className="g-4 justify-content-center">
+            <Col>
+              <Card className="enrollment-card" bg="light" text="dark" border="dark">
+                <Card.Body style={{ textAlign: "center" }}>
+                  <p>{thanks}</p>
+                  <p>
+                  {registrationFull + " "}
+                  {<a href="https://docs.google.com/forms/d/e/1FAIpQLSfbUcvPFYQB3cQCWMFsKlorSbEfHSgS6y36fVTm602-2yFykg/viewform">{here}</a>}
+                  </p>
+                </Card.Body>
+              </Card>
+            </Col>
+          </Row>
+          <DeleteConfirmation showModal={displayConfirmationModal} confirmModal={submitDelete} hideModal={hideConfirmationModal} path={deletePath} message={deleteMessage} authenticity={csrf_token} />
+        </Card>
+      );
+    }
   }
 }
 

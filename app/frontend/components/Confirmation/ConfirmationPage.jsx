@@ -60,7 +60,7 @@ function ConfirmationPage(props) {
         <p style={{ textAlign: "center" }}> <b><u>{screenshot}</u></b></p>
         <br />
         <p style={{ textAlign: "center" }}>
-          {click}<a href={`/?locale=${locale}`}>{here}</a>{returnSentence}.
+          {click}<a href={`/${locale}`}>{here}</a>{returnSentence}.
         </p>
       </div>
     </div>
