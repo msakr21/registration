@@ -1,7 +1,7 @@
 ru:
-  eloise_may: "Eloise May Enrollment Sessions"
-  smoky_hill: "Smoky Hill Enrollment Sessions"
-  sheridan: "Sheridan Enrollment Sessions"
+  eloise_may: "Регистрационные сессии в библиотеке Eloise May"
+  smoky_hill: "Регистрационные сессии в библиотеке Smoky Hill"
+  sheridan: "Регистрационные сессии в библиотеке Sheridan"
   available_space: "Имеющиеся свободные места:"
   register: "Записаться на данную сессию"
   registration_closed: "Мест на эту сессию больше нет"

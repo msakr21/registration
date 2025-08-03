@@ -7,6 +7,6 @@ ru:
       default: "%A, %d %B"
     month_names: [~, января, февраля, марта, апреля, мая, июня, июля, августа, сентября, октября, ноября, декабря]
     day_names: [~, понедельник, вторник, среда, четверг, пятница, суббота, воскресенье]
-  eloise_may_library: "Eloise May Library"
-  smoky_hill_library: "Smoky Hill Library"
-  sheridan_library: "Sheridan Library"
+  eloise_may_library: "библиотеке Eloise May"
+  smoky_hill_library: "библиотеке Smoky Hill"
+  sheridan_library: "библиотеке Sheridan"
