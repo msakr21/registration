@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Row, Col  } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import UserHeaderUI from '~/components/Enrollment/UserHeaderUI.jsx';
+import NewStudentError from '~/components/Enrollment/Common/NewStudentError.jsx';
 
 
 function HomePage(props) {
@@ -18,12 +19,14 @@ function HomePage(props) {
   const mayLink = <a href={`/${locale}/enrollments?location=may`}>{eloiseMay}</a>
   const smokyLink = <a href={`/${locale}/enrollments?location=smoky`}>{smokyHill}</a>
   const sheridanLink = <a href={`/${locale}/enrollments?location=sheridan`}>{sheridan}</a>
+  const newStudentError = document.getElementById("new_student_error").getAttribute("content");
   let textDirection = "ltr"
   if (locale === "ar") {
     textDirection = "rtl"
   }
   return (
     <Card border="light" style={{direction: textDirection}}>
+      {NewStudentError(newStudentError)}
       {UserHeaderUI(props.admin)}
       <br />
       <Card.Title style={{ textDecorationLine: "underline", fontSize: "28px", fontWeight: "bold", textAlign: "center", margin: "2%" }}>{title}</Card.Title>
