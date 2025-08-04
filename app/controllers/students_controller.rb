@@ -23,7 +23,7 @@ class StudentsController < ApplicationController
         redirect_to new_enrollment_student_path(errors: @errors, student_params: student_params, locale: locale)
       end
     elsif @enrollment.student_limit_check && student
-      redirect_to duplicate_page_path(student, @enrollment, locale)
+      redirect_to duplicate_page_path(student, student.enrollment, locale)
     else
       redirect_to locale_root_path(error_adding: true, locale: locale)
     end
