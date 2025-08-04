@@ -1,0 +1,15 @@
+<%= vite_javascript_tag 'entrypoints/Students/duplicate.jsx' %>
+
+<div id="name" content="<%= @name %>" />
+<div id="time" content="<%= @time %>" />
+<div id="date" content="<%= @date %>" />
+<div id="location" content="<%= @location %>" />
+<div id="locale" content="<%= @locale %>"/>
+<div id="library_names" content="<%= {"Eloise May" => (I18n.t :eloise_may_library), "Smoky Hill" => (I18n.t :smoky_hill_library), "Sheridan" => (I18n.t :sheridan_library)}.to_json %>" />
+<div id="screenshot" content="<%= I18n.t :screenshot %>" />
+<div id="already" content="<%= I18n.t :already_registered%>"/>
+<div id="please_email" content="<%= I18n.t :please_email%>"/>
+<div id="on" content="<%= I18n.t :last_part%>"/>
+<div id="at" content="<%= I18n.t :at%>"/>
+
+<div id="duplicate" />

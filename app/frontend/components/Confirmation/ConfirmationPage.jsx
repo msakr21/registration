@@ -37,7 +37,7 @@ function ConfirmationPage(props) {
   return (
     <div style={{ display: "flex", justifyContent: "center", alignItems: "center", direction: textDirection}}>
       <h3 style={{ position: "absolute", top: "27%" }}>{title}</h3>
-      <div style={{ position: "absolute", top: "35%" }}>
+      <div style={{ position: "absolute", top: "35%", margin: "2%" }}>
         <p style={{ textAlign: "center" }}>
           {firstPart}{name}{secondPart}{time}{thirdPart}
           <a href={`${locationMapLinkDictionary[location]}`}>{libraryNames[location]}</a>{lastPart}{date}.
@@ -60,7 +60,7 @@ function ConfirmationPage(props) {
         <p style={{ textAlign: "center" }}> <b><u>{screenshot}</u></b></p>
         <br />
         <p style={{ textAlign: "center" }}>
-          {click}<a href={`/${locale}`}>{here}</a>{returnSentence}.
+          {click}<a href={`/${locale}`}>{here}</a>{returnSentence}
         </p>
       </div>
     </div>

@@ -18,5 +18,6 @@ Rails.application.routes.draw do
     get "/", to: "pages#home", as: :locale_root
 
     get '/confirmation', to: 'pages#confirmation'
+    get '/duplicate', to: 'pages#duplicate'
   end
 end
