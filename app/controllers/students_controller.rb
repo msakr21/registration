@@ -14,6 +14,9 @@ class StudentsController < ApplicationController
     locale = params[:locale] || set_locale
     student = Student.find_by(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone: Phonelib.parse(params[:phone]).e164)
     if @enrollment.student_limit_check && !student
+      params[:student][:first_name] = params[:student][:first_name].strip.downcase.capitalize
+      params[:student][:last_name] = params[:student][:last_name].strip.downcase.capitalize
+      params[:student][:email] = params[:student][:email].strip.downcase
       student = @enrollment.students.create(student_params)
       @errors = student.errors.messages
       case @errors
@@ -36,7 +39,7 @@ class StudentsController < ApplicationController
   end
 
   def student_params
-    params.permit(:first_name.downcase!.strip!.capitalize!, :last_name.downcase!.strip!.capitalize!, :email.downcase!.strip!, :phone, :language, :level, :interpretation)
+    params.permit(:first_name, :last_name, :email, :phone, :language, :level, :interpretation)
   end
 
   def confirmation_page_path(student, enrollment, locale)
