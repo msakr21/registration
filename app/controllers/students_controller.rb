@@ -36,7 +36,7 @@ class StudentsController < ApplicationController
   end
 
   def student_params
-    params.permit(:first_name, :last_name, :email, :phone, :language, :level, :interpretation)
+    params.permit(:first_name.downcase!.strip!.capitalize!, :last_name.downcase!.strip!.capitalize!, :email.downcase!.strip!, :phone, :language, :level, :interpretation)
   end
 
   def confirmation_page_path(student, enrollment, locale)
