@@ -4,7 +4,7 @@ class StudentsController < ApplicationController
   def new
     @locale = params[:locale] || set_locale
     @location = params[:location]
-    redirect_to enrollments_path(location: @location) unless @enrollment.student_limit_check
+    redirect_to enrollments_path({location: @location}, locale: @locale) unless @enrollment.student_limit_check
     @enrollment_id = params[:enrollment_id]
     @errors = params[:errors].to_json
     @student_params = params[:student_params].to_json
