@@ -85,7 +85,7 @@ function EnrollmentIndex(props) {
                   <p>{thanks}</p>
                   <p>
                   {registrationFull + " "}
-                  {<a href="https://docs.google.com/forms/d/e/1FAIpQLSdPIuJc4zMUn00dytDAJjz844WPff6WE6NktB32Z1PWs_Y51g/viewform">{here}</a>}
+                  {<a href="https://docs.google.com/forms/d/e/1FAIpQLSc_ylmTvbC9J9aMaJjvx6P0_Kba5bRQKfULCWgfhPyS_8CQpg/viewform?usp=dialog">{here}</a>}
                   </p>
                 </Card.Body>
               </Card>
