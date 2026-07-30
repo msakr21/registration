@@ -45,6 +45,7 @@ function UserHeaderUI(userType, enrollmentCSVData, studentsCSVData) {
             <option value="es">español</option>
             <option value="ru">русский</option>
             <option value="ar">العربية</option>
+            <option value="uk">Українська</option>
           </Form.Select>
         </Col>
       </Row>
