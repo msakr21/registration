@@ -6,8 +6,8 @@ ruby '3.2.2'
 # Rails
 gem 'pg', '~> 1.1' # Use postgresql as the database for Active Record
 gem 'phonelib' # Library to validate phone numbers
-gem 'puma', '~> 5.6' # Use the Puma web server [https://github.com/puma/puma]
-gem 'rails', '~> 7.0.4', '>= 7.0.4.3'
+gem 'puma', '>= 7.2.1' # Use the Puma web server [https://github.com/puma/puma]
+gem 'rails', '~> 7.2.3.2', '>= 7.2.3.2'
 gem 'sprockets-rails' # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby] # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'vite_rails' # Modern JavaScript in Rails [https://github.com/rails/vite_ruby]
