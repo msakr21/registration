@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   #Logout page
   delete '/logout', to: 'admin/sessions#destroy'
 
-  scope "(:locale)", locale: /en|es|ar|ru/ do
+  scope "(:locale)", locale: /en|es|ar|ru|uk/ do
     resources :enrollments, only: [:index] do
       resources :students, only: [:new, :create]
     end

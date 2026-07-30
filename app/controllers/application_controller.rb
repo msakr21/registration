@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     locale = I18n.locale
-    if /en|es|ar|ru/.match?(extract_locale_from_accept_language_header)
+    if /en|es|ar|ru|uk/.match?(extract_locale_from_accept_language_header)
       locale = extract_locale_from_accept_language_header
     else
       locale = I18n.locale
@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
     locale = I18n.locale
     if params[:locale]
       locale = params[:locale]
-    elsif /en|es|ar|ru/.match?(extract_locale_from_accept_language_header)
+    elsif /en|es|ar|ru|uk/.match?(extract_locale_from_accept_language_header)
       locale = extract_locale_from_accept_language_header
     end
     logger.debug "* Locale set to '#{locale}'"
