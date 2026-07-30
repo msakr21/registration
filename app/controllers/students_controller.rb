@@ -3,7 +3,8 @@ class StudentsController < ApplicationController
   include ApplicationHelper
   def new
     @locale = params[:locale] || set_locale
-    redirect_to enrollments_path unless @enrollment.student_limit_check
+    @location = params[:location]
+    redirect_to "/#{@locale}/enrollments?location=#{@location}" unless @enrollment.student_limit_check
     @enrollment_id = params[:enrollment_id]
     @errors = params[:errors].to_json
     @student_params = params[:student_params].to_json
@@ -12,11 +13,11 @@ class StudentsController < ApplicationController
 
   def create
     locale = params[:locale] || set_locale
-    student = Student.find_by(first_name: params[:first_name], last_name: params[:last_name], email: params[:email].downcase, phone: Phonelib.parse(params[:phone]).e164)
+    student = Student.find_by(first_name: params[:first_name].strip.downcase.capitalize, last_name: params[:last_name].strip.downcase.capitalize, email: params[:email].strip.downcase, phone: Phonelib.parse(params[:phone]).e164)
     if @enrollment.student_limit_check && !student
-      params[:email] = params[:email].downcase future fix
-      params[:first_name] = params[:first_name].downcase.capitalize
-      params[:last_name] = params[:last_name].downcase.capitalize
+      params[:first_name] = params[:first_name].strip.downcase.capitalize
+      params[:last_name] = params[:last_name].strip.downcase.capitalize
+      params[:email] = params[:email].strip.downcase
       student = @enrollment.students.create(student_params)
       @errors = student.errors.messages
       case @errors

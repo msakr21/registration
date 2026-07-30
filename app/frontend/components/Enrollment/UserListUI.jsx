@@ -8,6 +8,7 @@ import CapitalizeDateDaySpanish from "~/components/Enrollment/Common/CapitalizeD
 
 function UserListUI(userType, enrollment, setDeletePath, setDeleteMessage, setDisplayConfirmationModal, locale) {
   const registerButton = document.getElementById("register").getAttribute("content");
+  const location = document.getElementById("data").getAttribute("branch");
   if (userType === "admin") {
     return (
       <div id="admin">
@@ -31,7 +32,7 @@ function UserListUI(userType, enrollment, setDeletePath, setDeleteMessage, setDi
         <br />
         {StudentText(AtCapacity(enrollment.student_limit, enrollment.students), enrollment, locale)}
         <div className="text-center">
-          <Button disabled={AtCapacity(enrollment.student_limit, enrollment.students)} href={LinkRendering(AtCapacity(enrollment.student_limit, enrollment.students), enrollment.id, locale)} size="sm" variant="outline-dark">{registerButton}</Button>
+          <Button disabled={AtCapacity(enrollment.student_limit, enrollment.students)} href={LinkRendering(AtCapacity(enrollment.student_limit, enrollment.students), enrollment.id, locale, location)} size="sm" variant="outline-dark">{registerButton}</Button>
         </div>
       </div>
     );
