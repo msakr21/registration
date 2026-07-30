@@ -12,8 +12,11 @@ class StudentsController < ApplicationController
 
   def create
     locale = params[:locale] || set_locale
-    student = Student.find_by(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], phone: Phonelib.parse(params[:phone]).e164)
+    student = Student.find_by(first_name: params[:first_name], last_name: params[:last_name], email: params[:email].downcase, phone: Phonelib.parse(params[:phone]).e164)
     if @enrollment.student_limit_check && !student
+      # params[:email] = params[:email].downcase future fix
+      # params[:first_name] = params[:first_name].downcase.capitalize future fix
+      # params[:last_name] = params[:last_name].downcase.capitalize future fix 
       student = @enrollment.students.create(student_params)
       @errors = student.errors.messages
       case @errors
